@@ -42,6 +42,20 @@
  * @see html.html.twig
  */
 #}
+{%
+set nav_classes = 'navbar navbar-expand-lg' ~
+  (b5_navbar_schema != 'none' ? " navbar-#{b5_navbar_schema}" : ' ') ~
+  (b5_navbar_schema != 'none' ? (b5_navbar_schema == 'dark' ? ' text-light' : ' text-dark' ) : ' ') ~
+  (b5_navbar_bg_schema != 'none' ? " bg-#{b5_navbar_bg_schema}" : ' ')
+%}
+
+{%
+set footer_classes = ' ' ~
+  (b5_footer_schema != 'none' ? " footer-#{b5_footer_schema}" : ' ') ~
+  (b5_footer_schema != 'none' ? (b5_footer_schema == 'dark' ? ' text-light' : ' text-dark' ) : ' ') ~
+  (b5_footer_bg_schema != 'none' ? " bg-#{b5_footer_bg_schema}" : ' ')
+%}
+
       <!-- ============================================================== -->
       <!-- Topbar header - style you can find in pages.scss -->
       <!-- ============================================================== -->
@@ -234,7 +248,7 @@
                     Gérer mon compte</a
                   >
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="/user/logout"
+                  <a class="dropdown-item" href="#"
                     ><i
                       data-feather="log-out"
                       class="feather-sm text-danger me-1 ms-1"
@@ -263,7 +277,7 @@
                     text-muted
                     waves-effect waves-dark
                   "
-                  href="/user/logout"
+                  href="#"
                   data-bs-toggle="dropdown"
                   aria-haspopup="true"
                   aria-expanded="false"
@@ -279,10 +293,6 @@
       <!-- ============================================================== -->
       <!-- End Topbar header -->
       <!-- ============================================================== -->
-
-
-
-
 
       <!-- ============================================================== -->
       <!-- Left Sidebar - style you can find in sidebar.scss  -->
@@ -319,7 +329,7 @@
                       >Romain Leclerc <span class="caret"></span>
                     </a>
                     <div class="dropdown-menu animated flipInY">
-                      <a class="dropdown-item" href="/user">
+                      <a class="dropdown-item" href="#">
                         <i
                           data-feather="user"
                           class="feather-sm text-info me-1 ms-1"
@@ -328,7 +338,7 @@
                       </a>
 
                       <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="/user/edit">
+                      <a class="dropdown-item" href="#">
                         <i
                           data-feather="settings"
                           class="feather-sm text-warning me-1 ms-1"
@@ -338,7 +348,7 @@
                       <div class="dropdown-divider"></div>
                       <a
                         class="dropdown-item"
-                        href="/user/logout"
+                        href="#"
                       >
                         <i
                           data-feather="log-out"
@@ -368,7 +378,7 @@
               <li class="sidebar-item">
                 <a
                   class="sidebar-link waves-effect waves-dark mt-3"
-                  href="https://pleiadedev.ecollectivites.fr/"
+                  href="https://pleiadedev.ecollectivites.fr/test"
                   aria-expanded="false"
                   ><i data-feather="home" class="feather-icon"></i
                   ><span class="hide-menu"
@@ -395,19 +405,19 @@
                 >
                 <ul aria-expanded="false" class="collapse first-level">
                   <li class="sidebar-item">
-                    <a href="#" class="sidebar-link"
+                    <a href="https://demos.wrappixel.com/premium-admin-templates/bootstrap/monster-bootstrap/package/html/minisidebar/inbox-email.html" class="sidebar-link"
                       ><i class="mdi mdi-email"></i
                       ><span class="hide-menu"> Créer un acte </span></a
                     >
                   </li>
                   <li class="sidebar-item">
-                    <a href="#" class="sidebar-link"
+                    <a href="https://demos.wrappixel.com/premium-admin-templates/bootstrap/monster-bootstrap/package/html/minisidebar/inbox-email-detail.html" class="sidebar-link"
                       ><i class="mdi mdi-email-alert"></i
                       ><span class="hide-menu"> Voir tous les actes </span></a
                     >
                   </li>
                   <li class="sidebar-item">
-                    <a href="#" class="sidebar-link"
+                    <a href="https://demos.wrappixel.com/premium-admin-templates/bootstrap/monster-bootstrap/package/html/minisidebar/inbox-email-compose.html" class="sidebar-link"
                       ><i class="mdi mdi-email-secure"></i
                       ><span class="hide-menu"> Accéder au service </span></a
                     >
@@ -426,19 +436,19 @@
                 >
                 <ul aria-expanded="false" class="collapse first-level">
                   <li class="sidebar-item">
-                    <a href="#" class="sidebar-link"
+                    <a href="https://demos.wrappixel.com/premium-admin-templates/bootstrap/monster-bootstrap/package/html/minisidebar/inbox-email.html" class="sidebar-link"
                       ><i class="mdi mdi-email"></i
                       ><span class="hide-menu"> Créer un document </span></a
                     >
                   </li>
                   <li class="sidebar-item">
-                    <a href="#" class="sidebar-link"
+                    <a href="https://demos.wrappixel.com/premium-admin-templates/bootstrap/monster-bootstrap/package/html/minisidebar/inbox-email-detail.html" class="sidebar-link"
                       ><i class="mdi mdi-email-alert"></i
                       ><span class="hide-menu"> Voir tous les documents </span></a
                     >
                   </li>
                   <li class="sidebar-item">
-                    <a href="#" class="sidebar-link"
+                    <a href="https://demos.wrappixel.com/premium-admin-templates/bootstrap/monster-bootstrap/package/html/minisidebar/inbox-email-compose.html" class="sidebar-link"
                       ><i class="mdi mdi-email-secure"></i
                       ><span class="hide-menu"> Accéder au service </span></a
                     >
@@ -457,25 +467,25 @@
                 >
                 <ul aria-expanded="false" class="collapse first-level">
                   <li class="sidebar-item">
-                    <a href="#" class="sidebar-link"
+                    <a href="https://demos.wrappixel.com/premium-admin-templates/bootstrap/monster-bootstrap/package/html/minisidebar/inbox-email.html" class="sidebar-link"
                       ><i class="mdi mdi-email"></i
                       ><span class="hide-menu"> Créer une convocation </span></a
                     >
                   </li>
                   <li class="sidebar-item">
-                    <a href="#" class="sidebar-link"
+                    <a href="https://demos.wrappixel.com/premium-admin-templates/bootstrap/monster-bootstrap/package/html/minisidebar/inbox-email-detail.html" class="sidebar-link"
                       ><i class="mdi mdi-email-alert"></i
                       ><span class="hide-menu"> Voir toutes les convocations </span></a
                     >
                   </li>
                   <li class="sidebar-item">
-                    <a href="#" class="sidebar-link"
+                    <a href="https://demos.wrappixel.com/premium-admin-templates/bootstrap/monster-bootstrap/package/html/minisidebar/inbox-email-detail.html" class="sidebar-link"
                       ><i class="mdi mdi-email-alert"></i
                       ><span class="hide-menu"> Annuaires & groupes </span></a
                     >
                   </li>
                   <li class="sidebar-item">
-                    <a href="#" class="sidebar-link"
+                    <a href="https://demos.wrappixel.com/premium-admin-templates/bootstrap/monster-bootstrap/package/html/minisidebar/inbox-email-compose.html" class="sidebar-link"
                       ><i class="mdi mdi-email-secure"></i
                       ><span class="hide-menu"> Accéder au service </span></a
                     >
@@ -493,26 +503,26 @@
                 >
                 <ul aria-expanded="false" class="collapse first-level">
                   <li class="sidebar-item">
-                    <a href="#" class="sidebar-link"
+                    <a href="https://demos.wrappixel.com/premium-admin-templates/bootstrap/monster-bootstrap/package/html/minisidebar/inbox-email.html" class="sidebar-link"
                       ><i class="mdi mdi-email"></i
                       ><span class="hide-menu"> Créer un flux </span></a
                     >
                   </li>
                   <li class="sidebar-item">
-                    <a href="#" class="sidebar-link"
+                    <a href="https://demos.wrappixel.com/premium-admin-templates/bootstrap/monster-bootstrap/package/html/minisidebar/inbox-email-detail.html" class="sidebar-link"
                       ><i class="mdi mdi-email-alert"></i
                       ><span class="hide-menu"> Voir tous les flux </span></a
                     >
                   </li>
                   <li class="sidebar-item">
-                    <a href="#" class="sidebar-link"
+                    <a href="https://demos.wrappixel.com/premium-admin-templates/bootstrap/monster-bootstrap/package/html/minisidebar/inbox-email-compose.html" class="sidebar-link"
                       ><i class="mdi mdi-email-secure"></i
                       ><span class="hide-menu"> Accéder au service </span></a
                     >
                   </li>
                 </ul>
               </li>              
-<div id="menuTestLemon2"></div>
+
               <!-- <li class="sidebar-item">
                 <a
                   class="sidebar-link waves-effect waves-dark sidebar-link"
@@ -629,7 +639,7 @@
                   </li>
                 </ul>
               </li> -->
-              {# <li class="nav-devider"></li> #}
+              <li class="nav-devider"></li>
               <li class="nav-small-cap">
                 <i class="mdi mdi-dots-horizontal"></i>
                 <span class="hide-menu">Documents</span>
@@ -662,7 +672,7 @@
               <li class="sidebar-item">
                 <a
                   class="sidebar-link waves-effect waves-dark sidebar-link"
-                  href="#"
+                  href="https://demos.wrappixel.com/premium-admin-templates/bootstrap/monster-bootstrap/Documentation/document.html"
                   aria-expanded="false"
                   ><i data-feather="edit-3" class="feather-icon"></i
                   ><span class="hide-menu">Documentation</span></a
@@ -671,16 +681,14 @@
               <li class="sidebar-item">
                 <a
                   class="sidebar-link waves-effect waves-dark sidebar-link"
-                  href="/user/logout"
+                  href="https://demos.wrappixel.com/premium-admin-templates/bootstrap/monster-bootstrap/package/html/minisidebar/authentication-login1.html"
                   aria-expanded="false"
                   ><i data-feather="log-out" class="feather-icon"></i
                   ><span class="hide-menu">Déconnexion</span></a
                 >
               </li>
-              
-            </ul>
-            
 
+            </ul>
           </nav>
           <!-- End Sidebar navigation -->
         </div>
@@ -721,15 +729,13 @@
       <!-- End Left Sidebar - style you can find in sidebar.scss  -->
       <!-- ============================================================== -->
 
-      <!-- ============================================================== -->
+            <!-- ============================================================== -->
       <!-- Page wrapper  -->
       <!-- ============================================================== -->
       <div class="page-wrapper">
-
         <!-- ============================================================== -->
         <!-- Bread crumb and right sidebar toggle -->
         <!-- ============================================================== -->
-
         <div class="page-breadcrumb">
           <div class="row">
             <div class="col-md-5 align-self-center">
@@ -760,7 +766,6 @@
                     type="button"
                     id="dropdownMenuButton"
                     data-bs-toggle="dropdown"
-                    data-bs-target="#droptest"
                     aria-expanded="false"
                   >
                     e-Collectivtés
@@ -768,7 +773,6 @@
                   <ul
                     class="dropdown-menu"
                     aria-labelledby="dropdownMenuButton"
-                    id="droptest"
                   >
                     <li><a class="dropdown-item" href="#">e-Collectivtés RH</a></li>
                     <li><a class="dropdown-item" href="#">Formation</a></li>
@@ -783,11 +787,6 @@
             </div>
           </div>
         </div>
-
-        <!-- b-->
-
-
-
         <!-- ============================================================== -->
         <!-- End Bread crumb and right sidebar toggle -->
         <!-- ============================================================== -->
@@ -795,887 +794,6 @@
         <!-- Container fluid  -->
         <!-- ============================================================== -->
         <div class="container-fluid">
-          <!-- bloc Lemon Applications -->
-
-          <div  id="blocLemonCustom" class="row">
-            
-          </div>
-
-
-          <!-- Row -->
-          <div class="row">
-            <div class="col-lg-6">
-              <div class="card">
-                <div class="card-body">
-                  <h4 class="card-title">Messages récents</h4>
-                  <div class="message-box scrollable" style="height: 476px">
-                    <div class="message-widget message-scroll">
-                      <!-- Message -->
-                      <a
-                        href="#"
-                        class="d-flex align-items-center border-bottom p-3"
-                      >
-                        <div
-                          class="
-                            user-img
-                            position-relative
-                            d-inline-block
-                            mr-0 mr-md-3
-                          "
-                        >
-                          <img
-                            src="https://demos.wrappixel.com/premium-admin-templates/bootstrap/monster-bootstrap/package/assets/images/users/1.jpg"
-                            alt="user"
-                            class="rounded-circle w-100"
-                          />
-                          <span
-                            class="profile-status rounded-circle online"
-                          ></span>
-                        </div>
-                        <div
-                          class="
-                            w-85
-                            d-md-flex
-                            align-items-center
-                            v-middle
-                            ps-3
-                          "
-                        >
-                          <div class="w-85">
-                            <h5 class="mb-0 mt-1 font-weight-medium">
-                              Jean Dupont
-                            </h5>
-                            <span
-                              class="
-                                fs-3
-                                text-nowrap
-                                d-block
-                                text-truncate
-                                mail-desc
-                                text-muted
-                                fw-normal
-                              "
-                              >Lorem Ipsum is simply dummy text of the printing
-                              and type setting industry. Lorem Ipsum has
-                              been.</span
-                            >
-                          </div>
-                          <span class="fs-2 text-nowrap ms-auto time fw-normal"
-                            >9:30 AM</span
-                          >
-                        </div>
-                      </a>
-                      <!-- Message -->
-                      <a
-                        href="#"
-                        class="d-flex align-items-center border-bottom p-3"
-                      >
-                        <div
-                          class="
-                            user-img
-                            position-relative
-                            d-inline-block
-                            mr-0 mr-md-3
-                          "
-                        >
-                          <img
-                            src="https://demos.wrappixel.com/premium-admin-templates/bootstrap/monster-bootstrap/package/assets/images/users/2.jpg"
-                            alt="user"
-                            class="rounded-circle w-100"
-                          />
-                          <span
-                            class="profile-status rounded-circle busy"
-                          ></span>
-                        </div>
-                        <div
-                          class="
-                            w-85
-                            d-md-flex
-                            align-items-center
-                            v-middle
-                            ps-3
-                          "
-                        >
-                          <div class="w-85">
-                            <h5 class="mb-0 mt-1 font-weight-medium">
-                              Sonia France
-                            </h5>
-                            <span
-                              class="
-                                fs-3
-                                text-nowrap
-                                d-block
-                                text-truncate
-                                mail-desc
-                                text-muted
-                                fw-normal
-                              "
-                              >RDV ce soir</span
-                            >
-                          </div>
-                          <span class="fs-2 text-nowrap ms-auto time fw-normal"
-                            >9:10 AM</span
-                          >
-                        </div>
-                      </a>
-                      <!-- Message -->
-                      <a
-                        href="#"
-                        class="d-flex align-items-center border-bottom p-3"
-                      >
-                        <div
-                          class="
-                            user-img
-                            position-relative
-                            d-inline-block
-                            mr-0 mr-md-3
-                          "
-                        >
-                          <span
-                            class="
-                              round
-                              bg-info
-                              d-inline-block
-                              text-white text-center
-                              rounded-circle
-                            "
-                            >A</span
-                          >
-                          <span
-                            class="profile-status rounded-circle away"
-                          ></span>
-                        </div>
-                        <div
-                          class="
-                            w-85
-                            d-md-flex
-                            align-items-center
-                            v-middle
-                            ps-3
-                          "
-                        >
-                          <div class="w-85">
-                            <h5 class="mb-0 mt-1 font-weight-medium">
-                              Charlotte Doiron
-                            </h5>
-                            <span
-                              class="
-                                fs-3
-                                text-nowrap
-                                d-block
-                                text-truncate
-                                mail-desc
-                                text-muted
-                                fw-normal
-                              "
-                              >Simply dummy text of the printing and typesetting
-                              industry.</span
-                            >
-                          </div>
-                          <span class="fs-2 text-nowrap ms-auto time fw-normal"
-                            >9:08 AM</span
-                          >
-                        </div>
-                      </a>
-                      <!-- Message -->
-                      <a
-                        href="#"
-                        class="d-flex align-items-center border-bottom p-3"
-                      >
-                        <div
-                          class="
-                            user-img
-                            position-relative
-                            d-inline-block
-                            mr-0 mr-md-3
-                          "
-                        >
-                          <img
-                            src="https://demos.wrappixel.com/premium-admin-templates/bootstrap/monster-bootstrap/package/assets/images/users/4.jpg"
-                            alt="user"
-                            class="rounded-circle w-100"
-                          />
-                          <span
-                            class="profile-status rounded-circle offline"
-                          ></span>
-                        </div>
-                        <div
-                          class="
-                            w-85
-                            d-md-flex
-                            align-items-center
-                            v-middle
-                            ps-3
-                          "
-                        >
-                          <div class="w-85">
-                            <h5 class="mb-0 mt-1 font-weight-medium">
-                              Jean Dupont
-                            </h5>
-                            <span
-                              class="
-                                fs-3
-                                text-nowrap
-                                d-block
-                                text-truncate
-                                mail-desc
-                                text-muted
-                                fw-normal
-                              "
-                              >Demandez à l'admin !</span
-                            >
-                          </div>
-                          <span class="fs-2 text-nowrap ms-auto time fw-normal"
-                            >9:02 AM</span
-                          >
-                        </div>
-                      </a>
-                      <!-- Message -->
-                      <a
-                        href="#"
-                        class="d-flex align-items-center border-bottom p-3"
-                      >
-                        <div
-                          class="
-                            user-img
-                            position-relative
-                            d-inline-block
-                            mr-0 mr-md-3
-                          "
-                        >
-                          <img
-                            src="https://demos.wrappixel.com/premium-admin-templates/bootstrap/monster-bootstrap/package/assets/images/users/1.jpg"
-                            alt="user"
-                            class="rounded-circle w-100"
-                          />
-                          <span
-                            class="profile-status rounded-circle online"
-                          ></span>
-                        </div>
-                        <div
-                          class="
-                            w-85
-                            d-md-flex
-                            align-items-center
-                            v-middle
-                            ps-3
-                          "
-                        >
-                          <div class="w-85">
-                            <h5 class="mb-0 mt-1 font-weight-medium">
-                              Jean Dupont
-                            </h5>
-                            <span
-                              class="
-                                fs-3
-                                text-nowrap
-                                d-block
-                                text-truncate
-                                mail-desc
-                                text-muted
-                                fw-normal
-                              "
-                              >Bienvenue au SI</span
-                            >
-                          </div>
-                          <span class="fs-2 text-nowrap ms-auto time fw-normal"
-                            >9:30 AM</span
-                          >
-                        </div>
-                      </a>
-                      <!-- Message -->
-                      <a
-                        href="#"
-                        class="d-flex align-items-center border-bottom p-3"
-                      >
-                        <div
-                          class="
-                            user-img
-                            position-relative
-                            d-inline-block
-                            mr-0 mr-md-3
-                          "
-                        >
-                          <img
-                            src="https://demos.wrappixel.com/premium-admin-templates/bootstrap/monster-bootstrap/package/assets/images/users/2.jpg"
-                            alt="user"
-                            class="rounded-circle w-100"
-                          />
-                          <span
-                            class="profile-status rounded-circle busy"
-                          ></span>
-                        </div>
-                        <div
-                          class="
-                            w-85
-                            d-md-flex
-                            align-items-center
-                            v-middle
-                            ps-3
-                          "
-                        >
-                          <div class="w-85">
-                            <h5 class="mb-0 mt-1 font-weight-medium">
-                              Dorian Marchand
-                            </h5>
-                            <span
-                              class="
-                                fs-3
-                                text-nowrap
-                                d-block
-                                text-truncate
-                                mail-desc
-                                text-muted
-                                fw-normal
-                              "
-                              >RDV sur le parking</span
-                            >
-                          </div>
-                          <span class="fs-2 text-nowrap ms-auto time fw-normal"
-                            >9:10 AM</span
-                          >
-                        </div>
-                      </a>
-                      <!-- Message -->
-                      <a
-                        href="#"
-                        class="d-flex align-items-center border-bottom p-3"
-                      >
-                        <div
-                          class="
-                            user-img
-                            position-relative
-                            d-inline-block
-                            mr-0 mr-md-3
-                          "
-                        >
-                          <img
-                            src="https://demos.wrappixel.com/premium-admin-templates/bootstrap/monster-bootstrap/package/assets/images/users/3.jpg"
-                            alt="user"
-                            class="rounded-circle w-100"
-                          />
-                          <span
-                            class="profile-status rounded-circle away"
-                          ></span>
-                        </div>
-                        <div
-                          class="
-                            w-85
-                            d-md-flex
-                            align-items-center
-                            v-middle
-                            ps-3
-                          "
-                        >
-                          <div class="w-85">
-                            <h5 class="mb-0 mt-1 font-weight-medium">
-                              Annie Moreau
-                            </h5>
-                            <span
-                              class="
-                                fs-3
-                                text-nowrap
-                                d-block
-                                text-truncate
-                                mail-desc
-                                text-muted
-                                fw-normal
-                              "
-                              >Bien reçu !</span
-                            >
-                          </div>
-                          <span class="fs-2 text-nowrap ms-auto time fw-normal"
-                            >9:08 AM</span
-                          >
-                        </div>
-                      </a>
-                      <!-- Message -->
-                      <a href="#" class="d-flex align-items-center p-3">
-                        <div
-                          class="
-                            user-img
-                            position-relative
-                            d-inline-block
-                            mr-0 mr-md-3
-                          "
-                        >
-                          <img
-                            src="https://demos.wrappixel.com/premium-admin-templates/bootstrap/monster-bootstrap/package/assets/images/users/4.jpg"
-                            alt="user"
-                            class="rounded-circle w-100"
-                          />
-                          <span
-                            class="profile-status rounded-circle offline"
-                          ></span>
-                        </div>
-                        <div
-                          class="
-                            w-85
-                            d-md-flex
-                            align-items-center
-                            v-middle
-                            ps-3
-                          "
-                        >
-                          <div class="w-85">
-                            <h5 class="mb-0 mt-1 font-weight-medium">
-                              Jean Dupont
-                            </h5>
-                            <span
-                              class="
-                                fs-3
-                                text-nowrap
-                                d-block
-                                text-truncate
-                                mail-desc
-                                text-muted
-                                fw-normal
-                              "
-                              >On cherche un admin!</span
-                            >
-                          </div>
-                          <span class="fs-2 text-nowrap ms-auto time fw-normal"
-                            >9:02</span
-                          >
-                        </div>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="card">
-                <div class="card-body">
-                  <div class="d-flex align-items-center">
-                    <h4 class="card-title">Liste de tâches</h4>
-                    <div class="ms-auto">
-                      <button
-                        class="btn btn-sm btn-rounded btn-success"
-                        data-bs-toggle="modal"
-                        data-bs-target="#myModal"
-                      >
-                        Ajouter une tâche
-                      </button>
-                    </div>
-                  </div>
-                  <!-- .modal for add task -->
-                  <div
-                    class="modal fade"
-                    id="myModal"
-                    tabindex="-1"
-                    role="dialog"
-                    aria-hidden="true"
-                  >
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header d-flex align-items-center">
-                          <h4 class="modal-title">Ajouter une tâche</h4>
-                          <button
-                            type="button"
-                            class="btn-close"
-                            data-bs-dismiss="modal"
-                            aria-label="Close"
-                          ></button>
-                        </div>
-                        <div class="modal-body">
-                          <form>
-                            <div class="mb-3">
-                              <label>Name</label>
-                              <input
-                                type="text"
-                                class="form-control"
-                                placeholder="Enter Your Name"
-                              />
-                            </div>
-                            <div class="mb-3">
-                              <label>Email address</label>
-                              <input
-                                type="email"
-                                class="form-control"
-                                placeholder="Enter email"
-                              />
-                            </div>
-                          </form>
-                        </div>
-                        <div class="modal-footer">
-                          <button
-                            type="button"
-                            class="btn btn-secondary"
-                            data-bs-dismiss="modal"
-                          >
-                            Close
-                          </button>
-                          <button
-                            type="button"
-                            class="btn btn-success"
-                            data-bs-dismiss="modal"
-                          >
-                            Submit
-                          </button>
-                        </div>
-                      </div>
-                      <!-- /.modal-content -->
-                    </div>
-                    <!-- /.modal-dialog -->
-                  </div>
-                  <!-- /.modal -->
-                  <!-- ============================================================== -->
-                  <!-- To do list widgets -->
-                  <!-- ============================================================== -->
-                  <div
-                    class="to-do-widget mt-3 scrollable"
-                    style="height: 444px"
-                  >
-                    <ul
-                      class="list-task todo-list list-group mb-0"
-                      data-role="tasklist"
-                    >
-                      <li
-                        class="list-group-item border-0 mb-0 py-3 pe-3 ps-0"
-                        data-role="task"
-                      >
-                        <div
-                          class="
-                            form-check
-                            border-start border-2 border-info
-                            ps-1
-                          "
-                        >
-                          <input
-                            type="checkbox"
-                            class="form-check-input ms-2"
-                            id="inputSchedule"
-                            name="inputCheckboxesSchedule"
-                          />
-                          <label
-                            for="inputSchedule"
-                            class="form-check-label ps-2 fw-normal"
-                          >
-                            <span>Organiser réunion avec</span>
-                          </label>
-                        </div>
-                        <ul class="assignedto list-inline m-0 ps-4 ms-3 mt-2">
-                          <li class="list-inline-item">
-                            <img
-                              class="rounded-circle"
-                              src="https://demos.wrappixel.com/premium-admin-templates/bootstrap/monster-bootstrap/package/assets/images/users/1.jpg"
-                              alt="user"
-                              data-bs-toggle="tooltip"
-                              data-bs-placement="top"
-                              title=""
-                              data-original-title="Steave"
-                            />
-                          </li>
-                          <li class="list-inline-item">
-                            <img
-                              class="rounded-circle"
-                              src="https://demos.wrappixel.com/premium-admin-templates/bootstrap/monster-bootstrap/package/assets/images/users/2.jpg"
-                              alt="user"
-                              data-bs-toggle="tooltip"
-                              data-bs-placement="top"
-                              title=""
-                              data-original-title="Jessica"
-                            />
-                          </li>
-                          <li class="list-inline-item">
-                            <img
-                              class="rounded-circle"
-                              src="https://demos.wrappixel.com/premium-admin-templates/bootstrap/monster-bootstrap/package/assets/images/users/3.jpg"
-                              alt="user"
-                              data-bs-toggle="tooltip"
-                              data-bs-placement="top"
-                              title=""
-                              data-original-title="Priyanka"
-                            />
-                          </li>
-                          <li class="list-inline-item">
-                            <img
-                              class="rounded-circle"
-                              src="https://demos.wrappixel.com/premium-admin-templates/bootstrap/monster-bootstrap/package/assets/images/users/4.jpg"
-                              alt="user"
-                              data-bs-toggle="tooltip"
-                              data-bs-placement="top"
-                              title=""
-                              data-original-title="Selina"
-                            />
-                          </li>
-                        </ul>
-                      </li>
-                      <li
-                        class="list-group-item border-0 mb-0 py-3 pe-3 ps-0"
-                        data-role="task"
-                      >
-                        <div
-                          class="
-                            form-check
-                            border-start border-2 border-danger
-                            ps-1
-                            d-flex
-                          "
-                        >
-                          <input
-                            type="checkbox"
-                            class="form-check-input ms-2"
-                            id="inputCall"
-                            name="inputCheckboxesCall"
-                          />
-                          <label
-                            for="inputCall"
-                            class="form-check-label ps-2 fw-normal"
-                          >
-                            <span>Envoyer le rapport d'activités à</span>
-                            <span class="badge bg-light-danger text-danger"
-                              >Aujourd'hui</span
-                            >
-                          </label>
-                        </div>
-                        <ul class="assignedto list-inline m-0 ps-4 ms-3 mt-2">
-                          <li class="list-inline-item">
-                            <img
-                              class="rounded-circle"
-                              src="https://demos.wrappixel.com/premium-admin-templates/bootstrap/monster-bootstrap/package/assets/images/users/3.jpg"
-                              alt="user"
-                              data-bs-toggle="tooltip"
-                              data-bs-placement="top"
-                              title=""
-                              data-original-title="Priyanka"
-                            />
-                          </li>
-                          <li class="list-inline-item">
-                            <img
-                              class="rounded-circle"
-                              src="https://demos.wrappixel.com/premium-admin-templates/bootstrap/monster-bootstrap/package/assets/images/users/4.jpg"
-                              alt="user"
-                              data-bs-toggle="tooltip"
-                              data-bs-placement="top"
-                              title=""
-                              data-original-title="Selina"
-                            />
-                          </li>
-                        </ul>
-                      </li>
-                      <li
-                        class="list-group-item border-0 mb-0 py-3 pe-3 ps-0"
-                        data-role="task"
-                      >
-                        <div
-                          class="
-                            form-check
-                            border-start border-2 border-primary
-                            ps-1
-                          "
-                        >
-                          <input
-                            type="checkbox"
-                            class="form-check-input ms-2"
-                            id="inputBook"
-                            name="inputCheckboxesBook"
-                          />
-                          <label
-                            for="inputBook"
-                            class="form-check-label ps-2 fw-normal"
-                          >
-                            <span>Réserver l'hôtel pour Déclic</span>
-                          </label>
-                        </div>
-                        <div
-                          class="
-                            item-date
-                            fs-2
-                            ps-4
-                            ms-3
-                            text-muted
-                            d-inline-block
-                          "
-                        >
-                          26 oct 2022
-                        </div>
-                      </li>
-                      <li
-                        class="list-group-item border-0 mb-0 py-3 pe-3 ps-0"
-                        data-role="task"
-                      >
-                        <div
-                          class="
-                            form-check
-                            border-start border-2 border-warning
-                            ps-1
-                          "
-                        >
-                          <input
-                            type="checkbox"
-                            class="form-check-input ms-2"
-                            id="inputForward"
-                            name="inputCheckboxesForward"
-                          />
-                          <label
-                            for="inputForward"
-                            class="form-check-label ps-2 fw-normal"
-                          >
-                            <span>Mettre à jour Github</span>
-                            <span class="badge bg-light-warning text-warning"
-                              >2 semaines</span
-                            >
-                          </label>
-                        </div>
-                        <div
-                          class="
-                            item-date
-                            fs-2
-                            ps-4
-                            ms-3
-                            text-muted
-                            d-inline-block
-                          "
-                        >
-                          26 oct 2022
-                        </div>
-                      </li>
-                      <li
-                        class="list-group-item border-0 mb-0 py-3 pe-3 ps-0"
-                        data-role="task"
-                      >
-                        <div
-                          class="
-                            form-check
-                            border-start border-2 border-primary
-                            ps-1
-                          "
-                        >
-                          <input
-                            type="checkbox"
-                            class="form-check-input ms-2"
-                            id="inputRecieve"
-                            name="inputCheckboxesRecieve"
-                          />
-                          <label
-                            for="inputRecieve"
-                            class="form-check-label ps-2 fw-normal"
-                          >
-                            <span>Commander bloc IPs </span>
-                          </label>
-                        </div>
-                        <div
-                          class="
-                            item-date
-                            fs-2
-                            ps-4
-                            ms-3
-                            text-muted
-                            d-inline-block
-                          "
-                        >
-                          26 oct 2022
-                        </div>
-                      </li>
-                      <li
-                        class="list-group-item border-0 mb-0 py-3 pe-3 ps-0"
-                        data-role="task"
-                      >
-                        <div
-                          class="
-                            form-check
-                            border-start border-2 border-info
-                            ps-1
-                          "
-                        >
-                          <input
-                            type="checkbox"
-                            class="form-check-input ms-2"
-                            id="inputpayment"
-                            name="inputCheckboxespayment"
-                          />
-                          <label
-                            for="inputpayment"
-                            class="form-check-label ps-2 fw-normal"
-                          >
-                            <span>Send payment today</span>
-                          </label>
-                        </div>
-                        <div
-                          class="
-                            item-date
-                            fs-2
-                            ps-4
-                            ms-3
-                            text-muted
-                            d-inline-block
-                          "
-                        >
-                          26 jun 2021
-                        </div>
-                      </li>
-                      <li
-                        class="list-group-item border-0 mb-0 py-3 pe-3 ps-0"
-                        data-role="task"
-                      >
-                        <div
-                          class="
-                            form-check
-                            border-start border-2 border-success
-                            ps-1
-                          "
-                        >
-                          <input
-                            type="checkbox"
-                            class="form-check-input ms-2"
-                            id="inputForward2"
-                            name="inputCheckboxesd"
-                          />
-                          <label
-                            for="inputForward2"
-                            class="form-check-label ps-2 fw-normal"
-                          >
-                            <span>Important tasks</span>
-                            <span class="badge bg-light-success text-success"
-                              >2 weeks</span
-                            >
-                          </label>
-                        </div>
-                        <ul class="assignedto list-inline m-0 ps-4 ms-3 mt-2">
-                          <li class="list-inline-item">
-                            <img
-                              class="rounded-circle"
-                              src="https://demos.wrappixel.com/premium-admin-templates/bootstrap/monster-bootstrap/package/assets/images/users/1.jpg"
-                              alt="user"
-                              data-bs-toggle="tooltip"
-                              data-bs-placement="top"
-                              title=""
-                              data-original-title="Assign to Steave"
-                            />
-                          </li>
-                          <li class="list-inline-item">
-                            <img
-                              class="rounded-circle"
-                              src="https://demos.wrappixel.com/premium-admin-templates/bootstrap/monster-bootstrap/package/assets/images/users/2.jpg"
-                              alt="user"
-                              data-bs-toggle="tooltip"
-                              data-bs-placement="top"
-                              title=""
-                              data-original-title="Assign to Jessica"
-                            />
-                          </li>
-                          <li class="list-inline-item">
-                            <img
-                              class="rounded-circle"
-                              src="https://demos.wrappixel.com/premium-admin-templates/bootstrap/monster-bootstrap/package/assets/images/users/4.jpg"
-                              alt="user"
-                              data-bs-toggle="tooltip"
-                              data-bs-placement="top"
-                              title=""
-                              data-original-title="Assign to Selina"
-                            />
-                          </li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Row -->
           <!-- Row -->
           <div class="row">
             <!-- Column -->
@@ -1824,6 +942,266 @@
             <!-- Column -->
           </div>
           <!-- Row -->
+          <div class="row">
+            <div class="col-lg-12 d-flex align-items-stretch">
+              <div class="card w-100">
+                <div class="card-body">
+                  <div class="d-md-flex no-block">
+                    <h4 class="card-title">Dernières télétransmissions</h4>
+                    <div class="ms-auto">
+                      <select class="form-select">
+                        <option selected>January</option>
+                        <option value="1">February</option>
+                        <option value="2">March</option>
+                        <option value="3">April</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="table-responsive mt-2">
+                    <table
+                      class="table stylish-table mb-0 mt-2 no-wrap v-middle"
+                    >
+                      <thead>
+                        <tr>
+                          <th
+                            class="fw-normal text-muted border-0 border-bottom"
+                            colspan="2"
+                          >
+                            Assigned
+                          </th>
+                          <th
+                            class="fw-normal text-muted border-0 border-bottom"
+                          >
+                            Name
+                          </th>
+                          <th
+                            class="fw-normal text-muted border-0 border-bottom"
+                          >
+                            Priority
+                          </th>
+                          <th
+                            class="fw-normal text-muted border-0 border-bottom"
+                          >
+                            Budget
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td style="width: 50px">
+                            <span
+                              class="
+                                round
+                                rounded-circle
+                                text-white
+                                d-inline-block
+                                text-center
+                                bg-info
+                              "
+                              >S</span
+                            >
+                          </td>
+                          <td>
+                            <h6 class="font-weight-medium mb-0 nowrap">
+                              Sunil Joshi
+                            </h6>
+                            <small class="text-muted no-wrap"
+                              >Web Designer</small
+                            >
+                          </td>
+                          <td>Elite Admin</td>
+                          <td>
+                            <span class="badge bg-light-success text-success"
+                              >Low</span
+                            >
+                          </td>
+                          <td>$3.9K</td>
+                        </tr>
+                        <tr class="active">
+                          <td>
+                            <span
+                              class="
+                                round
+                                text-white
+                                d-inline-block
+                                text-center
+                              "
+                              ><img
+                                src="https://demos.wrappixel.com/premium-admin-templates/bootstrap/monster-bootstrap/package/assets/images/users/2.jpg"
+                                alt="user"
+                                class="rounded-circle"
+                                width="50"
+                            /></span>
+                          </td>
+                          <td>
+                            <h6 class="font-weight-medium mb-0 nowrap">
+                              Andrew
+                            </h6>
+                            <small class="text-muted no-wrap"
+                              >Project Manager</small
+                            >
+                          </td>
+                          <td>Real Homes</td>
+                          <td>
+                            <span class="badge bg-light-info text-info"
+                              >Medium</span
+                            >
+                          </td>
+                          <td>$23.9K</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <span
+                              class="
+                                round
+                                rounded-circle
+                                text-white
+                                d-inline-block
+                                text-center
+                                bg-success
+                              "
+                              >B</span
+                            >
+                          </td>
+                          <td>
+                            <h6 class="font-weight-medium mb-0 nowrap">
+                              Bhavesh patel
+                            </h6>
+                            <small class="text-muted no-wrap">Developer</small>
+                          </td>
+                          <td>MedicalPro Theme</td>
+                          <td>
+                            <span class="badge bg-light-danger text-danger"
+                              >High</span
+                            >
+                          </td>
+                          <td>$12.9K</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <span
+                              class="
+                                round
+                                rounded-circle
+                                text-white
+                                d-inline-block
+                                text-center
+                                bg-primary
+                              "
+                              >N</span
+                            >
+                          </td>
+                          <td>
+                            <h6 class="font-weight-medium mb-0 nowrap">
+                              Nirav Joshi
+                            </h6>
+                            <small class="text-muted no-wrap"
+                              >Frontend Eng</small
+                            >
+                          </td>
+                          <td>Elite Admin</td>
+                          <td>
+                            <span class="badge bg-light-success text-success"
+                              >Low</span
+                            >
+                          </td>
+                          <td>$10.9K</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <span
+                              class="
+                                round
+                                rounded-circle
+                                text-white
+                                d-inline-block
+                                text-center
+                                bg-warning
+                              "
+                              >M</span
+                            >
+                          </td>
+                          <td>
+                            <h6 class="font-weight-medium mb-0 nowrap">
+                              Micheal Doe
+                            </h6>
+                            <small class="text-muted no-wrap"
+                              >Content Writer</small
+                            >
+                          </td>
+                          <td>Helping Hands</td>
+                          <td>
+                            <span class="badge bg-light-danger text-danger"
+                              >High</span
+                            >
+                          </td>
+                          <td>$12.9K</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <span
+                              class="
+                                round
+                                rounded-circle
+                                text-white
+                                d-inline-block
+                                text-center
+                                bg-danger
+                              "
+                              >N</span
+                            >
+                          </td>
+                          <td>
+                            <h6 class="font-weight-medium mb-0 nowrap">
+                              Johnathan
+                            </h6>
+                            <small class="text-muted no-wrap">Graphic</small>
+                          </td>
+                          <td>Digital Agency</td>
+                          <td>
+                            <span class="badge bg-light-danger text-danger"
+                              >High</span
+                            >
+                          </td>
+                          <td>$2.6K</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <span
+                              class="
+                                round
+                                rounded-circle
+                                text-white
+                                d-inline-block
+                                text-center
+                                bg-info
+                              "
+                              >M</span
+                            >
+                          </td>
+                          <td>
+                            <h6 class="font-weight-medium mb-0 nowrap">
+                              Micheal Doe
+                            </h6>
+                            <small class="text-muted no-wrap"
+                              >Content Writer</small
+                            >
+                          </td>
+                          <td>Helping Hands</td>
+                          <td>
+                            <span class="badge bg-light-info text-info"
+                              >Medium</span
+                            >
+                          </td>
+                          <td>$12.9K</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> 
           <!-- Row -->
 
           <!-- Row -->
@@ -1846,7 +1224,6 @@
         <!-- ============================================================== -->
         <!-- End Container fluid  -->
         <!-- ============================================================== -->
-
         <!-- ============================================================== -->
         <!-- footer -->
         <!-- ============================================================== -->
@@ -1868,6 +1245,13 @@
       e-mail : contact@ecollectivites.fr -->
       <img src="https://ecollectivites.fr/sites/default/files/logo_ecollectivites_bleu.png" style="width: 12%; height: auto; text-align: center;">
     
+    {% if page.footer %}
+<footer class="mt-auto {{ footer_classes }}">
+  <div class="{{ b5_top_container }}">
+    {{ page.footer }}
+  </div>
+</footer>
+{% endif %}
 
         </footer>
         <!-- ============================================================== -->
@@ -1877,31 +1261,5 @@
       <!-- ============================================================== -->
       <!-- End Page wrapper  -->
       <!-- ============================================================== -->
- 
-{# <main role="main">
-  <a id="main-content" tabindex="-1"></a>
-
-  <div class="{{ b5_top_container }}">
-    {% if page.breadcrumb %}
-      {{ page.breadcrumb }}
-    {% endif %}
-    <div class="row g-0">
-      {% if page.sidebar_first %}
-        <div class="order-2 order-lg-1 {{ sidebar_first_classes }}">
-          {{ page.sidebar_first }}
-        </div>
-      {% endif %}
-      <div class="order-1 order-lg-2 {{ content_classes }}">
-        {{ page.content }}
-      </div>
-      {% if page.sidebar_second %}
-        <div class="order-3 {{ sidebar_second_classes }}">
-          {{ page.sidebar_second }}
-        </div>
-      {% endif %}
-    </div>
-  </div>
-
-</main> #}
 
 

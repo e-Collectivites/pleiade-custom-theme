@@ -17,5 +17,7 @@ global-styling:
     assets/js/custom.js: {}
     # assets/libs/apexcharts/dist/apexcharts.min.js : {}
     assets/js/pages/dashboard1.js: {}
+  dependencies:
+    - core/jquery.ui.sortable
   # dependencies:
   #   - core/jquery
