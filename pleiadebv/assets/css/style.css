@@ -14199,6 +14199,8 @@ textarea.form-control-lg {
   background: #fff;
   border-top: 1px solid #e9ecef;
   padding: 15px 20px;
+  position: fixed;
+  bottom: 0;
 }
 
 .left-part {
@@ -25950,4 +25952,18 @@ html[dir=rtl] [type=radio].material-inputs + label:before {
   opacity: 0.6;
   color: #fff;
   border-left: 3px solid transparent;
+}
+#blocLemonCustom{
+  padding: 1rem 0;
+}
+.card{
+  border-radius: 0.25rem;
+}
+
+.feather {
+  height: 18px;
+  width: 18px;
+  margin: 0 8px 0 5px;
+  fill: rgba(255, 255, 255, 0.2);
+  color: #fff;
 }

@@ -36,13 +36,15 @@
 %}
 
 <!DOCTYPE html>
-<html{{ html_attributes.addClass('h-100') }}>
+{# <html{{ html_attributes.addClass('h-100') }}> #}
+<html>
   <head>
     <head-placeholder token="{{ placeholder_token }}">
     <title>{{ head_title|safe_join(' | ') }}</title>
     <css-placeholder token="{{ placeholder_token }}">
     <js-placeholder token="{{ placeholder_token }}">
     
+    <script src="themes/custom/pleiadebv/assets/libs/sortablejs/Sortable.js"></script>
   </head>
   <body{{ attributes.addClass(body_classes) }}>
     {#
