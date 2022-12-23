@@ -82,7 +82,7 @@ $(function () {
   });
 
   // ==============================================================
-  // Perfact scrollbar
+  // Perfect scrollbar
   // ==============================================================
   $(".message-center, .customizer-body, .scrollable").perfectScrollbar({
     wheelPropagation: !0,
@@ -129,7 +129,7 @@ $(function () {
     $(this).closest(".card").removeClass().slideUp("fast");
   });
   // ==============================================================
-  // LThis is for mega menu
+  // This is for mega menu
   // ==============================================================
   $(".mega-dropdown").on("click", function (e) {
     e.stopPropagation();
