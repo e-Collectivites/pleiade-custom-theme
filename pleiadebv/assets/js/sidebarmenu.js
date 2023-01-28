@@ -4,7 +4,13 @@ File: js
 // ==============================================================
 // Auto select left navbar
 // ==============================================================
+
 $(function () {
+  $('.sub-menu ul').hide();
+  $(".sub-menu span").click(function () {
+    $(this).parent(".sub-menu").children("ul").slideToggle("100");
+    $(this).find(".right").toggleClass("fa-caret-up fa-caret-down");
+  });
   "use strict";
   var url = window.location + "";
   var path = url.replace(
@@ -57,3 +63,4 @@ $(function () {
     );
   }
 });
+

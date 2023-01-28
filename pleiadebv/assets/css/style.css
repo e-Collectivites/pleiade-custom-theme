@@ -15024,14 +15024,18 @@ Notify
 .sidebar-nav .has-arrow::after {
   position: absolute;
   content: "";
-  width: 0.4em;
-  height: 0.4em;
+  width: 0.7em;
+  height: 0.7em;
   margin-left: 10px;
-  top: 26px;
-  right: 15px;
+  top: 15px!important;
+  right: 85px!important;
   border-width: 1px 0 0 1px;
   border-style: solid;
   border-color: #fff;
+}
+.sidebar-nav .has-arrow[aria-expanded=true]::after {
+  
+  transform: rotate(-135deg) translate(0, 7%)!important;
 }
 
 /*.sidebar-nav .active > .has-arrow::after,*/
@@ -25941,8 +25945,8 @@ html[dir=rtl] [type=radio].material-inputs + label:before {
 .mailbox .message-center .message-item .user-img .offline {
   background: #ffbc34;
 }
-#menuTestLemon2 .sidebar-link {
-  padding: 14px 35px 14px 8px;
+#menuTestLemon2 .sidebar-link, .sidebar-nav ul .sidebar-item .sidebar-link {
+  padding: 2px 0 0 8px;
   display: flex;
   white-space: nowrap;
   align-items: center;
@@ -25952,6 +25956,24 @@ html[dir=rtl] [type=radio].material-inputs + label:before {
   opacity: 0.6;
   color: #fff;
   border-left: 3px solid transparent;
+}
+
+.sidebar-nav ul .nav-small-cap {
+  font-size: 12px;
+  line-height: 30px;
+  color: #fff;
+  opacity: 1;
+  text-transform: uppercase;
+  font-weight: 500;
+  padding: 0px 14px 0px 15px;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  cursor: pointer;
+}
+#menuTestLemon2 .sidebar-nav .has-arrow::after {
+  top: 15px!important;
+  right: 3px!important;
 }
 #blocLemonCustom{
   padding: 1rem 0;
