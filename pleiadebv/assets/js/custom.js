@@ -47,6 +47,8 @@ $(function () {
       $(".customizer").removeClass("show-service-panel");
     });
   });
+  
+  
   // ==============================================================
   // This is for the floating labels
   // ==============================================================
@@ -150,4 +152,78 @@ $(function () {
     //replace the "Choose a file" label
     $(this).next(".custom-file-label").html(fileName);
   });
+  $(document).ready(function(){
+    $(".user_card").click(function(){
+      $(".user-dd").animate({
+        height: 'toggle',
+        opacity: '1'
+      })
+    });
+  });
+  $('.go_to_mail').click(function() {
+    $('html, body').animate({
+      scrollTop: $("#zimbra_mail").offset().top - 150
+  }, 2000);
+  });
+
+  $(function () {
+    var fixed_header = localStorage.getItem("fixed_header");
+    var sidebar_position = localStorage.getItem("sidebar_position");
+    var collapssidebar = localStorage.getItem("collapssidebar");
+    var theme_view = localStorage.getItem("theme_view");
+    if (fixed_header !== null) {
+        $("input[name='header-position']").attr("checked", "checked");
+        $("#main-wrapper").attr("data-header-position", "fixed")
+    }
+    
+    if (sidebar_position !== null) {
+      $("input[name='sidebar-position']").attr("checked", "checked");
+      $("#main-wrapper").attr("data-sidebar-position", "fixed")
+    }
+    if (collapssidebar !== null) {
+      $("input[name='collapssidebar']").attr("checked", "checked");
+      $("#main-wrapper").attr("data-sidebartype", "full")
+    }
+
+    if (theme_view !== null) {
+      $("input[name='theme-view']").attr("checked", "checked");
+      $("body").attr("data-theme", "dark")
+    }
+  });
+
+
+
+    $("input[name='header-position']").click(function () {
+        if ($(this).is(":checked")) {
+            localStorage.setItem("fixed_header", 1);
+        } else {
+            localStorage.removeItem("fixed_header");
+        }
+    });
+    $("input[name='sidebar-position']").click(function () {
+      if ($(this).is(":checked")) {
+          localStorage.setItem("sidebar_position", 1);
+      } else {
+          localStorage.removeItem("sidebar_position");
+      }
+    });
+    $("input[name='collapssidebar']").click(function () {
+      if ($(this).is(":checked")) {
+          localStorage.setItem("collapssidebar", 1);
+      } else {
+          localStorage.removeItem("collapssidebar");
+      }
+    });
+    $("input[name='theme-view']").click(function () {
+      if ($(this).is(":checked")) {
+          localStorage.setItem("theme_view", 1);
+      } else {
+          localStorage.removeItem("theme_view");
+      }
+    });
+  
+    $(document).ready(function() {
+      $('#example').DataTable();
+    } );           
+
 });

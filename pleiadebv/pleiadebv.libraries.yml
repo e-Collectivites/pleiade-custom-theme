@@ -7,14 +7,15 @@ global-styling:
   js:
     assets/libs/jquery/dist/jquery.min.js: {}
     # assets/libs/bootstrap/bootstrap.bundle.min.js: {}
-    assets/js/app.min.js: {}
+    assets/js/custom.js: {}
+    assets/js/app.js: {}
     assets/js/app.init.mini-sidebar.js: {}
     assets/js/app-style-switcher.js: {}
     assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js: {}
     assets/js/waves.js: {}
     assets/js/sidebarmenu.js: {}
     assets/js/feather.min.js: {}
-    assets/js/custom.js: {}
+    
     # assets/libs/apexcharts/dist/apexcharts.min.js : {}
     assets/js/pages/dashboard1.js: {}
     assets/libs/sortablejs/Sortable.js : {}
