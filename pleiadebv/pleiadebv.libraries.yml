@@ -18,6 +18,6 @@ global-styling:
     
     # assets/libs/apexcharts/dist/apexcharts.min.js : {}
     assets/js/pages/dashboard1.js: {}
-    assets/libs/sortablejs/Sortable.js : {}
+  #  assets/libs/sortablejs/Sortable.js : {}
   # dependencies:
   #   - core/jquery
