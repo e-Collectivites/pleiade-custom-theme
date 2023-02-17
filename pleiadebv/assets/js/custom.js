@@ -222,8 +222,9 @@ $(function () {
       }
     });
   
-    $(document).ready(function() {
-      $('#example').DataTable();
-    } );           
+      // Nope
+    // $(document).ready(function() {
+    //   $('#example').DataTable();
+    // } );           
 
 });
