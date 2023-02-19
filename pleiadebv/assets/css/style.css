@@ -2735,7 +2735,7 @@ progress {
 
 .table-striped > tbody > tr:nth-of-type(odd) > * {
   --bs-table-accent-bg: var(--bs-table-striped-bg);
-  color: var(--bs-table-striped-color);
+  /* color: var(--bs-table-striped-color); */
 }
 
 .table-active {
@@ -26017,6 +26017,7 @@ html[dir=rtl] [type=radio].material-inputs + label:before {
   height: inherit!important;
   width: inherit!important;
 }
-.path-user #collectiviteChoice, .collectivite_hide{
+/* Hide block everywhere, will be shown only by pastell module if needed */
+#collectiviteChoice {
   display: none;
 }
