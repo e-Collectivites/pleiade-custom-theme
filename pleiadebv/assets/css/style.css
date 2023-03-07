@@ -9908,7 +9908,7 @@ textarea.form-control-lg {
 }
 
 .fw-bold {
-  font-weight: 500 !important;
+  font-weight: 600 !important;
 }
 
 .fw-bolder {
@@ -18990,7 +18990,7 @@ html {
 
 b,
 strong {
-  font-weight: 500;
+  font-weight: 600;
 }
 
 a {
@@ -26020,4 +26020,16 @@ html[dir=rtl] [type=radio].material-inputs + label:before {
 /* Hide block everywhere, will be shown only by pastell module if needed */
 #collectiviteChoice {
   display: none;
+}
+
+.table thead th, .table tfoot th, .table th{
+  font-weight: 600!important;
+}
+.card .card-title {
+  font-weight: 600;
+}
+div#notification_alert {
+  position: absolute;
+  top: 70px;
+  right: 80px;
 }

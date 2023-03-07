@@ -156,19 +156,43 @@
           //replace the "Choose a file" label
           $(this).next(".custom-file-label").html(fileName);
         });
-        $(document).ready(function () {
+        
           $(".user_card").click(function () {
             $(".user-dd").animate({
               height: 'toggle',
               opacity: '1'
             })
           });
-        });
+          $(".alert_popup").click(function () {
+            $("#notification_alert").animate({
+              height: 'toggle',
+              opacity: '1'
+            })
+          });
+          
+
+        
         $('.go_to_mail').click(function () {
           $('html, body').animate({
             scrollTop: $("#zimbra_mail").offset().top - 150
           }, 2000);
         });
+        $('#scrollToMails').click(function () {
+          $('html, body').animate({
+            scrollTop: $("#zimbra_mail").offset().top - 150
+          }, 2000);
+        });
+        $('#scrollToTasks').click(function () {
+          $('html, body').animate({
+            scrollTop: $("#zimbra_block_agenda_id").offset().top - 150
+          }, 2000);
+        });
+        $('#scrollToSign').click(function () {
+          $('html, body').animate({
+            scrollTop: $("#iparapheur_block_id").offset().top - 150
+          }, 2000);
+        });
+
 
         $(function () {
           var fixed_header = localStorage.getItem("fixed_header");
@@ -226,10 +250,7 @@
           }
         });
 
-        // Nope
-        // $(document).ready(function() {
-        //   $('#example').DataTable();
-        // } ); 
+        
 
       }); // end once foreach
 

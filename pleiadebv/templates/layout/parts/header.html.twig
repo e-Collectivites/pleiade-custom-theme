@@ -87,6 +87,21 @@
             <!-- ============================================================== -->
             <ul class="navbar-nav">
               <!-- ============================================================== -->
+              <!-- Alert Notification modal -->
+              <!-- ============================================================== -->
+              <a class="alert_popup nav-link dropdown-toggle waves-effect waves-dark d-flex align-items-center" href="#"
+                  aria-haspopup="true"
+                  aria-expanded="false">
+                  <i data-feather="bell" style="color: #1f3889; width: 25px; height: 25px" class="feather-sm"></i>
+              </a>
+              <div class="dropdown-menu notification" id='notification_alert'>
+                <div class="d-flex no-block align-items-center p-3 text-white mb-2" style="background: #1f3889;" >
+                    <h4 class="mb-0 text-white">Notifications</h4>
+                </div> 
+              </div>
+              
+
+              <!-- ============================================================== -->
               <!-- User profile and search -->
               <!-- ============================================================== -->
 
@@ -94,7 +109,7 @@
                 <a class="nav-link dropdown-toggle waves-effect waves-dark" href="#"
                   aria-haspopup="true"
                   aria-expanded="false">
-                  <img src={{ user_picture }} alt="user" width="45" class="profile-pic rounded-circle"/>
+                  <img src={{ user_picture }} alt="user" width="45" height="45" class="profile-pic rounded-circle"/>
                 </a>
                 <div class="dropdown-menu user-dd">
                   <div class="d-flex no-block align-items-center p-3 text-white mb-2" style="background: #1f3889;" >
@@ -132,8 +147,7 @@
                   <div class="dropdown-divider"></div>
                   <div class="pl-4 p-2 d-flex justify-content-center">
                     <a href="/user" style="background: #1f3889;" class="text-white btn d-block w-50 rounded-pill"
-                      >Voir mon compte</a
-                    >
+                      >Voir mon compte</a>
                   </div>
                 </div>
               </li>
