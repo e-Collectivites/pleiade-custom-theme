@@ -93,10 +93,6 @@ function pleiadebv_preprocess_user(&$variables) {
     // gets user email
     $user_email = $variables['user']->getEmail();
     $variables['user_email'] = $user_email;
-    $tempstore = \Drupal::service('tempstore.private'); 
-    $store = $tempstore->get('api_lemon_pleiade');
-    $groups = $store->get('groups');
-    $variables['pastell_groups'] =  $groups;
 
     // get user picture if exists
     $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
