@@ -14900,7 +14900,7 @@ Notify
 }
 .left-sidebar .sidebar-footer a {
   padding: 15px;
-  width: 33.333337%;
+  width: 50%;
   color: #fff;
   text-align: center;
   font-size: 18px;
@@ -15036,7 +15036,7 @@ Notify
   height: 0.7em;
   margin-left: 10px;
   top: 15px!important;
-  right: 85px!important;
+  right: 20px!important;
   border-width: 1px 0 0 1px;
   border-style: solid;
   border-color: #fff;
@@ -26032,4 +26032,10 @@ div#notification_alert {
   position: absolute;
   top: 70px;
   right: 80px;
+}
+
+#sntch_button{
+  width: 45px!important;
+  height: 45px!important;
+  box-shadow: inherit!important
 }
