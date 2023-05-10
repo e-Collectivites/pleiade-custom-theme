@@ -124,19 +124,12 @@
                   <div class="card-header rounded-top bg-white border-bottom rounded-top">
                     <h4 class="card-title text-dark py-2">Tableau Post-it</h4>
                   </div>
-                  <div class="card-body" id="post_it_dashboad">
-                    <form id="myForm">
-                      <div class="input-group">
-                        <span class="input-group-text">Message</span>
-                        <textarea class="form-control" aria-label="message" id="message" name="message"></textarea>
-                      </div>
-                      <div class="input-group">
-                        <span class="input-group-text">Couleur du post-it</span>
-                        <input type="color" id="color" name="color" value="#FFFFFF">
-                      </div>
-                      <button type="submit">Créer un post-it</button>
-                    </form>
-                  <div id="post_it_dashboard"></div>
+                  
+                  <div class="card-body" id="post_it_dashboard">
+                    <div class="post-it-note">
+                      <textarea></textarea>
+                      <input type="color" id="color-picker">
+                    </div>
                   </div>
                 </div>
               </div>

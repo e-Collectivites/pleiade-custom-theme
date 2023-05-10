@@ -3,13 +3,71 @@
     attach: function (context, settings) {
       "use strict";
 
-      once('customBehavior', 'body', context).forEach(() => {
-
+      once("customBehavior", "body", context).forEach(() => {
+        // $('.container-fluid').slick({
+        //   slidesToShow: 1,
+        //   slidesToScroll: 1,
+        //   // prevArrow:'<i data-feather="arrow-left" class="feather-sm"></i>',
+        //   // nextArrow:'<i data-feather="arrow-right" class="feather-sm"></i>',
+        //   prevArrow:"<button type='button' class='slick-prev pull-left'><i data-feather='arrow-left' class='feather-sm'></i></button>",
+        //   nextArrow:"<button type='button' class='slick-next pull-right'><i data-feather='arrow-right' class='feather-sm'></i></button>"
+        //   });
+        // $('a[data-slide]').click(function(e) {
+        //     e.preventDefault();
+        //     var slideno = $(this).data('slide');
+        //     $('.container-fluid').slick('slickGoTo', slideno - 1);
+        //   });
         $(".preloader").fadeOut();
-
         // Feather Icon Init Js
         feather.replace();
+        const postItNotes = document.querySelectorAll('.post-it-note');
 
+        let isDragging = false;
+        let currentX;
+        let currentY;
+        let initialX;
+        let initialY;
+        let xOffset = 0;
+        let yOffset = 0;
+        
+        document.addEventListener('mousedown', dragStart);
+        document.addEventListener('mouseup', dragEnd);
+        document.addEventListener('mousemove', drag);
+        
+        function dragStart(event) {
+          if (event.target.classList.contains('post-it-note')) {
+            initialX = event.clientX - xOffset;
+            initialY = event.clientY - yOffset;
+        
+            isDragging = true;
+          }
+        }
+        
+        function dragEnd(event) {
+          initialX = currentX;
+          initialY = currentY;
+        
+          isDragging = false;
+        }
+        
+        function drag(event) {
+          if (isDragging) {
+            event.preventDefault();
+        
+            currentX = event.clientX - initialX;
+            currentY = event.clientY - initialY;
+        
+            xOffset = currentX;
+            yOffset = currentY;
+        
+            const activePostItNote = event.target;
+            setTranslate(currentX, currentY, activePostItNote);
+          }
+        }
+        
+        function setTranslate(xPos, yPos, el) {
+          el.style.transform = `translate3d(${xPos}px, ${yPos}px, 0)`;
+        }
         // ==============================================================
         // Theme options
         // ==============================================================
@@ -35,10 +93,13 @@
           $(".nav-lock i").toggleClass("mdi-toggle-switch-off");
           $("body, .page-wrapper").trigger("resize");
         });
-        $(".search-box a, .search-box .app-search .srh-btn").on("click", function () {
-          $(".app-search").toggle(200);
-          $(".app-search input").focus();
-        });
+        $(".search-box a, .search-box .app-search .srh-btn").on(
+          "click",
+          function () {
+            $(".app-search").toggle(200);
+            $(".app-search input").focus();
+          }
+        );
 
         // ==============================================================
         // Right sidebar options
@@ -52,7 +113,6 @@
           });
         });
 
-
         // ==============================================================
         // This is for the floating labels
         // ==============================================================
@@ -60,7 +120,10 @@
           .on("focus blur", function (e) {
             $(this)
               .parents(".form-group")
-              .toggleClass("focused", e.type === "focus" || this.value.length > 0);
+              .toggleClass(
+                "focused",
+                e.type === "focus" || this.value.length > 0
+              );
           })
           .trigger("blur");
 
@@ -156,71 +219,63 @@
           //replace the "Choose a file" label
           $(this).next(".custom-file-label").html(fileName);
         });
-        
-          $(".user_card").click(function () {
-            $(".user-dd").animate({
-              height: 'toggle',
-              opacity: '1'
-            })
-          });
-          $(".alert_popup").click(function () {
-            $("#notification_alert").animate({
-              height: 'toggle',
-              opacity: '1'
-            })
-          });
-          
 
-        
-        $('.go_to_mail').click(function () {
-          $('html, body').animate({
-            scrollTop: $("#zimbra_mail").offset().top - 150
-          }, 2000);
+        $(".user_card").click(function () {
+          $(".user-dd").animate({
+            height: "toggle",
+            opacity: "1",
+          });
         });
-        $('#scrollToMails').click(function () {
-          $('html, body').animate({
-            scrollTop: $("#zimbra_mail").offset().top - 150
-          }, 2000);
+        $(".alert_popup").click(function () {
+          $("#notification_alert").animate({
+            height: "toggle",
+            opacity: "1",
+          });
         });
-        $('#scrollToTasks').click(function () {
-          $('html, body').animate({
-            scrollTop: $("#zimbra_block_agenda_id").offset().top - 150
-          }, 2000);
-        });
-        $('#scrollToSign').click(function () {
-          $('html, body').animate({
-            scrollTop: $("#iparapheur_block_id").offset().top - 150
-          }, 2000);
-        });
-
 
         $(function () {
           var fixed_header = localStorage.getItem("fixed_header");
           var sidebar_position = localStorage.getItem("sidebar_position");
           var collapssidebar = localStorage.getItem("collapssidebar");
           var theme_view = localStorage.getItem("theme_view");
+          var extended_menu = localStorage.getItem("extended_menu");
+
           if (fixed_header !== null) {
             $("input[name='header-position']").attr("checked", "checked");
-            $("#main-wrapper").attr("data-header-position", "fixed")
+            $("#main-wrapper").attr("data-header-position", "fixed");
           }
 
           if (sidebar_position !== null) {
             $("input[name='sidebar-position']").attr("checked", "checked");
-            $("#main-wrapper").attr("data-sidebar-position", "fixed")
+            $("#main-wrapper").attr("data-sidebar-position", "fixed");
           }
           if (collapssidebar !== null) {
             $("input[name='collapssidebar']").attr("checked", "checked");
-            $("#main-wrapper").attr("data-sidebartype", "full")
+            $("#main-wrapper").attr("data-sidebartype", "full");
           }
-
           if (theme_view !== null) {
             $("input[name='theme-view']").attr("checked", "checked");
-            $("body").attr("data-theme", "dark")
+            $("body").attr("data-theme", "dark");
+          }
+          if (fixed_header !== null) {
+            $("input[name='header-position']").attr("checked", "checked");
+            $("#main-wrapper").attr("data-header-position", "fixed");
+          }
+
+          if (extended_menu !== null) {
+            $("input[name='extended_menu']").attr("checked", "checked");
+            console.log("ok");
+            $("#menuTestLemon2 .accordion-collapse").toggleClass("show");
           }
         });
 
-
-
+        $("input[name='extended_menu']").click(function () {
+          if ($(this).is(":checked")) {
+            localStorage.setItem("extended_menu", 1);
+          } else {
+            localStorage.removeItem("extended_menu");
+          }
+        });
         $("input[name='header-position']").click(function () {
           if ($(this).is(":checked")) {
             localStorage.setItem("fixed_header", 1);
@@ -249,11 +304,7 @@
             localStorage.removeItem("theme_view");
           }
         });
-
-        
-
       }); // end once foreach
-
-    }
+    },
   };
 })(jQuery, once, Drupal);

@@ -6,6 +6,7 @@
 @import "icons/flag-icon-css/flag-icon.min.css";
 @import "icons/material-design-iconic-font/css/materialdesignicons.min.css";
 @import "icons/crypto-icons/cryptocoins.css";
+@import url(https://fonts.googleapis.com/css?family=Permanent+Marker);
 #main-wrapper[data-layout=vertical] .topbar .navbar-collapse[data-navbarbg=skin1],
 #main-wrapper[data-layout=vertical] .topbar[data-navbarbg=skin1], #main-wrapper[data-layout=horizontal] .topbar .navbar-collapse[data-navbarbg=skin1],
 #main-wrapper[data-layout=horizontal] .topbar[data-navbarbg=skin1], .theme-color .theme-item .theme-link[data-navbarbg=skin1] {
@@ -3076,7 +3077,7 @@ textarea.form-control-lg {
   width: 100%;
   padding: 0.375rem 2.25rem 0.375rem 0.75rem;
   -moz-padding-start: calc(0.75rem - 3px);
-  font-size: 1rem;
+  /* font-size: 1rem; */
   font-weight: 400;
   line-height: 1.5;
   color: #54667a;
@@ -5215,6 +5216,7 @@ textarea.form-control-lg {
   z-index: 1000;
   display: none;
   min-width: 25rem;
+  width: 30rem;
   padding: 0.5rem 0;
   margin: 0;
   font-size: 0.875rem;
@@ -5409,14 +5411,14 @@ textarea.form-control-lg {
   color: #868e96;
   text-align: inherit;
   text-decoration: none;
-  white-space: nowrap;
+  /* white-space: nowrap; */
   background-color: transparent;
   border: 0;
 }
-.dropdown-item:hover, .dropdown-item:focus {
+/* .dropdown-item:hover, .dropdown-item:focus {
   color: #798087;
   background-color: #e9ecef;
-}
+} */
 .dropdown-item.active, .dropdown-item:active {
   color: #fff;
   text-decoration: none;
@@ -14189,12 +14191,13 @@ textarea.form-control-lg {
 }
 
 .page-wrapper > .container-fluid, .page-wrapper > .container-sm, .page-wrapper > .container-md, .page-wrapper > .container-lg, .page-wrapper > .container-xl, .page-wrapper > .container-xxl {
-  padding: 20px 30px;
+  padding: 0 30px 20px 30px;
   min-height: calc(100vh - 210px);
   max-width: 1300px;
 }
 .container-fluid{
   margin-bottom: 50px;
+  margin-top: -1em!important;
 }
 
 
@@ -14899,7 +14902,7 @@ Notify
   transition: 0.2s ease-in;
 }
 .left-sidebar .sidebar-footer a {
-  padding: 15px;
+  padding: 5px 15px;
   width: 50%;
   color: #fff;
   text-align: center;
@@ -15440,6 +15443,7 @@ Notify
   }
   #main-wrapper[data-layout=horizontal][data-boxed-layout=boxed] .page-wrapper > .container-fluid, #main-wrapper[data-layout=horizontal][data-boxed-layout=boxed] .page-wrapper > .container-sm, #main-wrapper[data-layout=horizontal][data-boxed-layout=boxed] .page-wrapper > .container-md, #main-wrapper[data-layout=horizontal][data-boxed-layout=boxed] .page-wrapper > .container-lg, #main-wrapper[data-layout=horizontal][data-boxed-layout=boxed] .page-wrapper > .container-xl, #main-wrapper[data-layout=horizontal][data-boxed-layout=boxed] .page-wrapper > .container-xxl {
     padding: 20px 20px 0;
+    
   }
 }
 @media (min-width: 992px) {
@@ -26037,5 +26041,162 @@ div#notification_alert {
 #sntch_button{
   width: 45px!important;
   height: 45px!important;
-  box-shadow: inherit!important
+}
+
+.link_slider{
+  width: 75%;
+  display: flex;
+  margin: 1em 0 0 6em;
+  justify-content: flex-start;
+  text-transform: uppercase;
+}
+.link_slider .link_slide{
+  padding: 0.2em 1em;
+  margin: 0 0.4em 0 0 ;
+  background-color: #FFF;
+  color: #1F3889;
+  transition: background-color 0.4s;
+  transition: color 0.4s;
+  border-radius: 2.5em;
+}
+.link_slider .active{
+  
+  background-color: #1F3889;
+  color: #FFF;
+}
+.link_slider .link_slide:hover{
+  background-color: #1F3889;
+  color: #FFF;
+}
+
+.slick-arrow svg{
+  color : #1f3889;
+  width: 30px;
+  height: 30px;
+}
+
+.slick-next {
+  margin-right: 15px;
+}
+
+@media only screen and (max-width: 1200px) {
+  #moodle_courses .card-img-top {
+    width: 220px!important;
+    
+  }
+}
+
+.post-it-note {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  width: 200px;
+  height: 200px;
+  
+  border: 1px solid black;
+  cursor: move;
+  z-index: 1;
+}
+
+.post-it-note textarea {
+  width: 100%;
+  height: 100%;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  font-family: sans-serif;
+  resize: none;
+  box-sizing: border-box;
+}
+
+#color-picker {
+  margin-top: 10px;
+}
+
+div#post_it_dashboard {
+  min-height: 40rem;
+  border: 2px solid #ccc;
+  padding: 1rem;
+  background-color: #393939;
+}
+.item {
+  position: relative;
+  margin: 10px;
+  padding: 10px;
+  background-color: #fff9c4;
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px #888888;
+  width: 200px;
+  height: 200px; /* set the height equal to the width */
+  cursor: grab;
+}
+
+.item p {
+  margin: 2em 0;
+}
+
+.remove-btn {
+  position: absolute;
+  top: -2px;
+  right: 5px;
+  cursor: pointer;
+}
+#post_it_dashboad form {
+  padding: 20px 0;
+  width: 75%; /* change the width here */
+  margin-bottom: 1.25rem ;
+  display: flex;
+}
+
+/* Style for the label element */
+#post_it_dashboad label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 10px;
+  padding: 0 2em;
+  font-size: 12px;
+  color: #1f3889;
+}
+
+#post_it_dashboard .item{
+  border-radius:0 0 0 30px/45px;
+  font-family: 'Permanent Marker', cursive;
+  border-radius: 0;
+}
+input#color{
+  height: auto;
+}
+
+/* Style for the button element */
+#post_it_dashboad button[type="submit"] {
+  background-color: #1F3889;
+  color: #FFF;
+  padding: 0.3em 0.7em;
+  border: none;  
+  cursor: pointer;
+  font-size: 14px;
+  margin: 0.2em 1em;
+  border: 2px solid #1F3889;
+  border-radius: 15px;
+  width: 50%;
+}
+
+/* Style for the button element on hover */
+#post_it_dashboad button[type="submit"]:hover {
+  background-color: #FFF;
+  color: #1f3889;
+
+}
+
+.tape {
+	position: absolute;
+	top: -15px;
+	right: 35px;
+	width: 130px;
+	height: 35px;
+	background-color: rgba(255, 255, 255, 0.6);
+	border-left: 1px dashed rgba(0, 0, 0, 0.1);
+	border-right: 1px dashed rgba(0, 0, 0, 0.1);
+	box-shadow: 0px 0px 1px 0px rgba(204, 204, 204, 0.28);
+	transform: rotate(-2deg) skew(0, 0) translate(0%, -5px);
 }

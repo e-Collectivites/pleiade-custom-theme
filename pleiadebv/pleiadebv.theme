@@ -28,8 +28,7 @@ function pleiadebv_preprocess(&$variables, $hook) {
     }
     // Ensure the cache varies correctly (new in Drupal 8.3).
     $variables['#cache']['contexts'][] = 'url.path.is_front';
-
-
+    
     // User : pic de profil et autres
 
 }
@@ -43,15 +42,28 @@ function pleiadebv_preprocess_html(&$variables) {
 }
 
 function pleiadebv_preprocess_page(&$variables) {
+
+    $config = \Drupal::config('api_user_pleiade.settings');
+
+    // Get the value of a specific setting.
+    $bot_id = $config->get('bot_id');
+    $apiKey = $config->get('apiKey');
+    $have_chatbot = $config->get('have_chatbot');
+
+    // Add the setting to the page template variables.
+    if($bot_id){
+      $variables['bot_id'] = $bot_id;
+      $variables['apiKey'] = $apiKey;
+      $variables['have_chatbot'] = $have_chatbot;
+    }
+    
     $request = \Drupal::request();
     $route_match = \Drupal::routeMatch();
     if ($route_match->getParameter('node')) {
       $page_title = \Drupal::service('title_resolver')->getTitle($request, $route_match->getRouteObject());
       $variables['pleiade_node_title'] = $page_title;
     }
-
-    // User info
-
+  
     // get user Id
     $variables['userId'] = $variables['user']->id();
     // gets current user name
@@ -69,15 +81,24 @@ function pleiadebv_preprocess_page(&$variables) {
     if (isset($user->get('user_picture')->entity)) {
       $variables['user_picture'] = $user->get('user_picture')->entity->createFileUrl();
     }
-    else {
+    else 
+    {
       // default image
       $field = \Drupal\field\Entity\FieldConfig::loadByName('user', 'user', 'user_picture');
       $default_image = $field->getSetting('default_image');
+      
       $file = \Drupal::service('entity.repository')->loadEntityByUuid('file', $default_image['uuid']);
+      if($file){
       $picture = file_create_url($file->getFileUri());
       $variables['user_picture'] = $picture;
+      }
+      else{
+         $variables['user_picture'] = 'add-default-image';
+      }
+       
     }
- 
+   
+   
 }
 
 function pleiadebv_preprocess_user(&$variables) {

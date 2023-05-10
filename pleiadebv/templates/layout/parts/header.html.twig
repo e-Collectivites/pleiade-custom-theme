@@ -82,10 +82,15 @@
               <!-- ============================================================== -->
                {% include '@pleiadebv/templates/layout/parts/demo/select-collectivite-demo.html.twig' %}
             </ul>
+            
             <!-- ============================================================== -->
             <!-- Right side toggle and nav items -->
             <!-- ============================================================== -->
             <ul class="navbar-nav">
+              {# <div class="box box-accessibility d-flex">
+                <button id="increase-btn" style="font-size : 22px" class="px-1 btn btn-accessibility btn-accessibility_a-plus js-btn-a-plus">A+<span class="sr-only">Agrandir le texte</span></button>
+                <button id="decrease-btn" class="px-1 btn btn-accessibility btn-accessibility_a-less js-btn-a-less">A-<span class="sr-only">Réduire le texte</span></button>   
+              </div> #}
               <!-- ============================================================== -->
               <!-- Alert Notification modal -->
               <!-- ============================================================== -->
@@ -109,12 +114,12 @@
                 <a class="nav-link dropdown-toggle waves-effect waves-dark" href="#"
                   aria-haspopup="true"
                   aria-expanded="false">
-                  <img src={{ user_picture }} alt="user" width="45" height="45" class="profile-pic rounded-circle"/>
+                  <img src="{{ user_picture }}" alt="user" width="45" height="45" class="profile-pic rounded-circle"/>
                 </a>
                 <div class="dropdown-menu user-dd">
                   <div class="d-flex no-block align-items-center p-3 text-white mb-2" style="background: #1f3889;" >
                     <div class="">
-                      <img src={{ user_picture }} alt="user" class="rounded-circle" width="60"/>
+                      <img src="{{ user_picture }}" alt="user" class="rounded-circle" width="60" height="60" style="object-fit: cover;"/>
                     </div>
                     <div class="ms-2"> 
                       <h4 class="mb-0 text-white">{{ user_logged_in_name }}</h4>
@@ -129,14 +134,17 @@
                     Historique de connexion</a
                   >
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="/user/{{ userId }}/edit"
-                    ><i
-                      data-feather="settings"
-                      class="feather-sm text-warning me-1 ms-1"
-                    ></i>
-                    Gérer mon compte</a
-                  >
-                  <div class="dropdown-divider"></div>
+                  
+                 {% if 'administrator' in user.getRoles() %}
+                    <a class="dropdown-item" href="/user/{{ userId }}/edit">
+                      <i data-feather="settings" class="feather-sm text-warning me-1 ms-1"></i>
+                      Gérer les comptes
+                    </a>
+                    <div class="dropdown-divider"></div>
+                  {% else %}
+                   
+                  {% endif %}
+                  
                   <a class="dropdown-item" href="/user/logout"
                     ><i
                       data-feather="log-out"
