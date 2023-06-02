@@ -100,25 +100,31 @@
           <div  id="areaSortable" class="row">
 
             <!-- ==================== Block  I-parapheur ================== -->        
-              
+              {# <div class="iparapheur col-8 d-flex align-self-stretch" id="iparapheur_block_id"></div> #}
+            {% if zimbra_enabled %}
             <!-- ==================== Block Zimbra mails ================== -->
           <div id="zimbra_block_id" class="d-flex justify-content-between mb-2"> 
-            <div id="zimbra_block_agenda_id" class="col-4 shadow-sm"></div> 
-            {# <div class="iparapheur col-8 d-flex align-self-stretch" id="iparapheur_block_id"></div> #}
-          <div id="zimbra_block_mail_id"></div> 
+            <div id="zimbra_block_agenda_id" class="col-4 shadow-sm"></div>   
+            <div id="zimbra_block_mail_id"></div> 
           </div>
+           {% endif %}
           
             <!-- ==================== Moodle Courses ================== -->  
           <div id="moodle_courses"></div>
           {# </div>
           <div class="row"> #}
+          {% if lemon_enabled %}
           <!-- ==================== Block Lemon Apps ================== -->  
             <div id="lemon_block_id"></div>
+          {% endif %}
           {# </div>
           <div class="row"> #}
+          {% if pastell_enabled %}
           <!-- ==================== Block Pastell Documents ================== -->
               <div id="pastell_block_id"></div>
+          {% endif %}
           <!-- ==================== Block Post-IT ================== -->
+              {% if post_it_enabled %} 
               <div id="postit_block_id">
                 <div class="card mb-0">
                   <div class="card-header rounded-top bg-white border-bottom rounded-top">
@@ -140,9 +146,10 @@
                   </div>
                 </div>
               </div>
-
+              {% endif %}
           </div>
           
+          <div id="moodle_courses"></div>
           <!-- ============================================================== -->
           <!-- End Recréation de blocks Lemon classiques géré par le module pleiade  -->
           <!-- ============================================================== -->

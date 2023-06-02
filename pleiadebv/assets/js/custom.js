@@ -4,6 +4,7 @@
       "use strict";
 
       once("customBehavior", "body", context).forEach(() => {
+        
         // $('.container-fluid').slick({
         //   slidesToShow: 1,
         //   slidesToScroll: 1,
@@ -20,54 +21,7 @@
         $(".preloader").fadeOut();
         // Feather Icon Init Js
         feather.replace();
-        const postItNotes = document.querySelectorAll('.post-it-note');
 
-        let isDragging = false;
-        let currentX;
-        let currentY;
-        let initialX;
-        let initialY;
-        let xOffset = 0;
-        let yOffset = 0;
-        
-        document.addEventListener('mousedown', dragStart);
-        document.addEventListener('mouseup', dragEnd);
-        document.addEventListener('mousemove', drag);
-        
-        function dragStart(event) {
-          if (event.target.classList.contains('post-it-note')) {
-            initialX = event.clientX - xOffset;
-            initialY = event.clientY - yOffset;
-        
-            isDragging = true;
-          }
-        }
-        
-        function dragEnd(event) {
-          initialX = currentX;
-          initialY = currentY;
-        
-          isDragging = false;
-        }
-        
-        function drag(event) {
-          if (isDragging) {
-            event.preventDefault();
-        
-            currentX = event.clientX - initialX;
-            currentY = event.clientY - initialY;
-        
-            xOffset = currentX;
-            yOffset = currentY;
-        
-            const activePostItNote = event.target;
-            setTranslate(currentX, currentY, activePostItNote);
-          }
-        }
-        
-        function setTranslate(xPos, yPos, el) {
-          el.style.transform = `translate3d(${xPos}px, ${yPos}px, 0)`;
-        }
         // ==============================================================
         // Theme options
         // ==============================================================
@@ -239,7 +193,7 @@
           var collapssidebar = localStorage.getItem("collapssidebar");
           var theme_view = localStorage.getItem("theme_view");
           var extended_menu = localStorage.getItem("extended_menu");
-
+          
           if (fixed_header !== null) {
             $("input[name='header-position']").attr("checked", "checked");
             $("#main-wrapper").attr("data-header-position", "fixed");
@@ -256,6 +210,7 @@
           if (theme_view !== null) {
             $("input[name='theme-view']").attr("checked", "checked");
             $("body").attr("data-theme", "dark");
+           
           }
           if (fixed_header !== null) {
             $("input[name='header-position']").attr("checked", "checked");
@@ -264,7 +219,6 @@
 
           if (extended_menu !== null) {
             $("input[name='extended_menu']").attr("checked", "checked");
-            console.log("ok");
             $("#menuTestLemon2 .accordion-collapse").toggleClass("show");
           }
         });
@@ -304,6 +258,7 @@
             localStorage.removeItem("theme_view");
           }
         });
+
       }); // end once foreach
     },
   };

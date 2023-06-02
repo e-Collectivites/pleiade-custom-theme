@@ -14,8 +14,47 @@
 function pleiadebv_preprocess(&$variables, $hook) {
     // Récupérer le path du logo
     // $variables['logo_path'] = '/' . \Drupal::config('b5coll1.settings')->get('logo.path');
-    $variables['logo_path'] = file_url_transform_relative(file_create_url(theme_get_setting('logo.url')));
-
+    
+    $config = \Drupal::config('module_general_pleiade.settings');
+    $colorTheme = $config->get('color_theme');
+    $imageFooter = $config->get('image_footer');
+    $imageLeftSidebar = $config->get('image_left_sidebar');
+    $imageLeftSidebarReduced = $config->get('image_left_sidebar_reduced');
+    
+    if (!empty($imageFooter)) {
+      $file = \Drupal\file\Entity\File::load($imageFooter[0]);
+      if ($file) {
+        $imageFooterUrl = file_create_url($file->getFileUri());
+        // Use $logoPath as needed.
+      }
+    }
+    else {
+        $imageFooterUrl = "/themes/custom/pleiadebv/logos/logo_ecollectivites_bleu.png";
+      }
+    if (!empty($imageLeftSidebar)) {
+      $file = \Drupal\file\Entity\File::load($imageLeftSidebar[0]);
+      if ($file) {
+        $imageLeftSidebarUrl = file_create_url($file->getFileUri());
+        // Use $logoPath as needed.
+      }
+    }
+    else {
+        $imageLeftSidebarUrl = "/themes/custom/pleiadebv/logos/logo-light-text.png";
+      }
+    if (!empty($imageLeftSidebarReduced)) {
+      $file = \Drupal\file\Entity\File::load($imageLeftSidebarReduced[0]);
+      if ($file) {
+        $imageLeftSidebarReducedUrl = file_create_url($file->getFileUri());
+        // Use $logoPath as needed.
+      }
+    }
+    else {
+        $imageLeftSidebarReducedUrl = "/themes/custom/pleiadebv/logos/logo-light-icon.png";
+      }
+    $variables['imageFooterUrl'] = $imageFooterUrl;
+    $variables['colorTheme'] = $colorTheme;
+    $variables['imageLeftSidebarUrl'] = $imageLeftSidebarUrl;
+    $variables['imageLeftSidebarReducedUrl'] = $imageLeftSidebarReducedUrl;
     // Récupérer le path de base
     $variables['base_path'] = \Drupal::request()->getHost();
 
@@ -94,9 +133,13 @@ function pleiadebv_preprocess_page(&$variables) {
       }
       else{
          $variables['user_picture'] = 'add-default-image';
-      }
-       
+      }  
     }
+
+    $variables['post_it_enabled'] = \Drupal::moduleHandler()->moduleExists('module_postit_pleiade');
+    $variables['lemon_enabled'] = \Drupal::moduleHandler()->moduleExists('api_lemon_pleiade');
+    $variables['pastell_enabled'] = \Drupal::moduleHandler()->moduleExists('api_pastell_pleiade');
+    $variables['zimbra_enabled'] = \Drupal::moduleHandler()->moduleExists('api_zimbra_pleiade');
    
    
 }

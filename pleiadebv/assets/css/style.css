@@ -295,8 +295,7 @@ body[data-theme=dark] .form-check-input {
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 body[data-theme=dark] .form-check-input:checked {
-  background-color: #1f3889;
-  border-color: #1f3889;
+  background-color: #2c3e50;
 }
 body[data-theme=dark] .table-primary,
 body[data-theme=dark] .table-success,
@@ -501,7 +500,13 @@ body[data-theme=dark] .table-striped > tbody > tr:nth-of-type(odd) > * {
   color: unset !important;
 }
 body[data-theme=dark] .accordion-button,
-body[data-theme=dark] .accordion-body {
+body[data-theme=dark] .accordion-body, 
+body[data-theme=dark] .nav-small-cap, 
+body[data-theme=dark] .left-sidebar,
+body[data-theme=dark] .sidebar-item,
+body[data-theme=dark] #sidebarnav,
+body[data-theme=dark] .navbar-header
+{
   background-color: #272b34 !important;
 }
 body[data-theme=dark] .accordion-item {
@@ -3169,8 +3174,7 @@ textarea.form-control-lg {
   box-shadow: transparent;
 }
 .form-check-input:checked {
-  background-color: #1f3889;
-  border-color: #1f3889;
+  background: #2c3e50;
 }
 .form-check-input:checked[type=checkbox] {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
@@ -3179,8 +3183,8 @@ textarea.form-control-lg {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e");
 }
 .form-check-input[type=checkbox]:indeterminate {
-  background-color: #1f3889;
-  border-color: #1f3889;
+  background: #2c3e50;
+  
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10h8'/%3e%3c/svg%3e");
 }
 .form-check-input:disabled {
@@ -6436,8 +6440,8 @@ textarea.form-control-lg {
 .page-item.active .page-link {
   z-index: 3;
   color: #fff;
-  background-color: #1f3889;
-  border-color: #1f3889;
+  background: #1f3889;
+  
 }
 .page-item.disabled .page-link {
   color: #868e96;
@@ -14207,9 +14211,10 @@ textarea.form-control-lg {
 }
 
 .footer {
+  width: 100%;
   background: #fff;
   border-top: 1px solid #e9ecef;
-  padding: 15px 20px;
+  padding: 5px 20px;
   position: fixed;
   bottom: 0;
 }
@@ -26018,8 +26023,8 @@ html[dir=rtl] [type=radio].material-inputs + label:before {
 }
 #pastell_block .feather, #zimbra_mail .feather{
   color: #54667a;
-  height: inherit!important;
-  width: inherit!important;
+  height: 25px!important;
+  width: 25px!important;
 }
 /* Hide block everywhere, will be shown only by pastell module if needed */
 #collectiviteChoice {
@@ -26142,7 +26147,6 @@ div#post_it_dashboard {
   cursor: pointer;
 }
 #post_it_dashboad form {
-  padding: 20px 0;
   width: 75%; /* change the width here */
   margin-bottom: 1.25rem ;
   display: flex;
@@ -26171,21 +26175,22 @@ input#color{
 #post_it_dashboad button[type="submit"] {
   background-color: #1F3889;
   color: #FFF;
-  padding: 0.3em 0.7em;
+  padding: 0.2em;
   border: none;  
   cursor: pointer;
   font-size: 14px;
   margin: 0.2em 1em;
-  border: 2px solid #1F3889;
   border-radius: 15px;
-  width: 50%;
+  width: 15%;
+  transition: all 0.3s ease;
 }
 
 /* Style for the button element on hover */
 #post_it_dashboad button[type="submit"]:hover {
   background-color: #FFF;
-  color: #1f3889;
-
+  transform: scale(1.1);
+  
+  border: 2px solid #1F3889;
 }
 
 .tape {
@@ -26199,4 +26204,8 @@ input#color{
 	border-right: 1px dashed rgba(0, 0, 0, 0.1);
 	box-shadow: 0px 0px 1px 0px rgba(204, 204, 204, 0.28);
 	transform: rotate(-2deg) skew(0, 0) translate(0%, -5px);
+}
+
+#post_it_dashboad .input-group{
+  width: initial!important;
 }
