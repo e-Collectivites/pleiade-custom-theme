@@ -113,7 +113,7 @@
           <div id="moodle_courses"></div>
           {# </div>
           <div class="row"> #}
-          {% if lemon_enabled %}
+          {% if lemon_enabled and lemonBlockId %}
           <!-- ==================== Block Lemon Apps ================== -->  
             <div id="lemon_block_id"></div>
           {% endif %}
@@ -121,7 +121,7 @@
           <div class="row"> #}
           {% if pastell_enabled %}
           <!-- ==================== Block Pastell Documents ================== -->
-              <div id="pastell_block_id"></div>
+              <div id="document_recent_id"></div>
           {% endif %}
           <!-- ==================== Block Post-IT ================== -->
               {% if post_it_enabled %} 
@@ -131,17 +131,20 @@
                     <h4 class="card-title text-dark py-2">Tableau Post-it</h4>
                   </div>
                   <div class="card-body" id="post_it_dashboad">
-                    <form id="myForm">
-                      <div class="input-group">
-                        <span class="input-group-text">Message</span>
-                        <textarea class="form-control" aria-label="message" id="message" name="message"></textarea>
-                      </div>
-                      <div class="input-group">
-                        <span class="input-group-text">Couleur du post-it</span>
-                        <input type="color" id="color" name="color" value="#FFFFFF">
-                      </div>
-                      <button type="submit">Créer un post-it</button>
-                    </form>
+                    <div class="post_it_form">
+                      <form id="myForm">
+                        <div class="input-group">
+                          <span class="input-group-text">Message</span>
+                          <textarea class="form-control" aria-label="message" id="message" name="message"></textarea>
+                        </div>
+                        <div class="input-group">
+                          <span class="input-group-text">Couleur du post-it</span>
+                          <input type="color" id="color" name="color" value="#FFFFFF">
+                        </div>
+                        <button type="submit">Créer un post-it</button>
+                      </form>
+                      <button id="delete-button">Tout supprimer</button>
+                    </div>
                   <div id="post_it_dashboard"></div>
                   </div>
                 </div>

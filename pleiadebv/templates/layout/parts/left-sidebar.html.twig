@@ -5,7 +5,7 @@
           <nav class="sidebar-nav">
             <ul id="sidebarnav">
               <!-- User Profile : enlevé car déjà dans la barre de haut -->
-              <li class="nav-devider"></li>
+              {# <li class="nav-devider"></li>
               
               <li class="sidebar-item selected">
                 <a
@@ -18,7 +18,7 @@
                     </span
                   ></a
                 >
-              </li>
+              </li> #}
               <div class="d-flex justify-content-center"><div id="spinner-div-sidebar" class="spinner-border spinner-border-sm text-primary" role="status"></div></div>  
               <div id="menuTestLemon2"></div>
               <div id="menuPastell"></div>
@@ -87,7 +87,7 @@
               <li class="sidebar-item">
                 <a
                   class="sidebar-link waves-effect waves-dark sidebar-link"
-                  href="#"
+                  href="{{ url_lien_documentation }}"
                   aria-expanded="false"
                   ><i data-feather="book-open" class="feather-icon"></i>
                   <span class="hide-menu">Documentation</span>
@@ -114,11 +114,11 @@
             ><i data-feather="help-circle" class="feather-icon"></i></a>
           <!-- item-->
           <a
-            href="#"
+            href="/user/logout"
             class="link"
             data-bs-toggle="tooltip"
             data-bs-placement="top"
-            title="Logout"
+            title="Se déconnecter"
             ><i data-feather="power" class="feather-icon"></i></a>
         </div>
         <!-- End Bottom points-->

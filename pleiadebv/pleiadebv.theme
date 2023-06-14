@@ -16,6 +16,7 @@ function pleiadebv_preprocess(&$variables, $hook) {
     // $variables['logo_path'] = '/' . \Drupal::config('b5coll1.settings')->get('logo.path');
     
     $config = \Drupal::config('module_general_pleiade.settings');
+    $url_lien_documentation = $config->get('url_lien_documentation');
     $colorTheme = $config->get('color_theme');
     $imageFooter = $config->get('image_footer');
     $imageLeftSidebar = $config->get('image_left_sidebar');
@@ -50,6 +51,12 @@ function pleiadebv_preprocess(&$variables, $hook) {
     }
     else {
         $imageLeftSidebarReducedUrl = "/themes/custom/pleiadebv/logos/logo-light-icon.png";
+    }
+    if (!empty($url_lien_documentation)) {
+      $variables['url_lien_documentation'] = $url_lien_documentation;
+    }
+    else {
+       $variables['url_lien_documentation'] = "*";
       }
     $variables['imageFooterUrl'] = $imageFooterUrl;
     $variables['colorTheme'] = $colorTheme;
@@ -134,6 +141,14 @@ function pleiadebv_preprocess_page(&$variables) {
       else{
          $variables['user_picture'] = 'add-default-image';
       }  
+    }
+
+    $configLemon = \Drupal::config('api_lemon_pleiade.settings');
+
+    // Get the value of the checkbox field.
+    if($configLemon){
+    $lemonBlockId = $configLemon->get('field_lemon_block_id');
+    $variables['lemonBlockId'] = $lemonBlockId;
     }
 
     $variables['post_it_enabled'] = \Drupal::moduleHandler()->moduleExists('module_postit_pleiade');

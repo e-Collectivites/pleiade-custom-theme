@@ -3643,7 +3643,7 @@ textarea.form-control-lg {
   vertical-align: middle;
   cursor: pointer;
   user-select: none;
-  background-color: transparent;
+  /* background-color: transparent; */
   border: 1px solid transparent;
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
@@ -6440,7 +6440,7 @@ textarea.form-control-lg {
 .page-item.active .page-link {
   z-index: 3;
   color: #fff;
-  background: #1f3889;
+  background: #54667a;
   
 }
 .page-item.disabled .page-link {
@@ -14925,6 +14925,7 @@ Notify
 
 .sidebar-nav ul .sidebar-item {
   width: 240px;
+  padding: 1em 0;
 }
 .sidebar-nav ul .sidebar-item .sidebar-link {
   padding: 14px 35px 14px 8px;
@@ -14995,7 +14996,7 @@ Notify
   display: none;
   font-size: 14px;
 }
-.sidebar-nav ul .nav-small-cap {
+/* .sidebar-nav ul .nav-small-cap {
   font-size: 12px;
   line-height: 30px;
   color: #fff;
@@ -15006,7 +15007,7 @@ Notify
   display: flex;
   align-items: center;
   white-space: nowrap;
-}
+} */
 .sidebar-nav ul .nav-small-cap i {
   line-height: 30px;
   margin: 0 5px;
@@ -15018,9 +15019,9 @@ Notify
   margin: 14px 0;
   display: block;
 }
-.sidebar-nav > #sidebarnav > .sidebar-item > .sidebar-link:hover {
-  /*background: rgba(0, 0, 0, 0.04);*/
-}
+/* .sidebar-nav > #sidebarnav > .sidebar-item > .sidebar-link:hover {
+  background: rgba(0, 0, 0, 0.04);
+} */
 
 .sidebar-nav ul {
   margin: 0;
@@ -23808,7 +23809,8 @@ select.form-control.form-control-line {
 }
 
 .page-link {
-  color: #1f3889;
+  color: #54667a;
+  font-weight: 600;
 }
 
 .table.dataTable {
@@ -25975,7 +25977,7 @@ html[dir=rtl] [type=radio].material-inputs + label:before {
   border-left: 3px solid transparent;
 }
 
-.sidebar-nav ul .nav-small-cap {
+/* .sidebar-nav ul .nav-small-cap {
   font-size: 12px;
   line-height: 30px;
   color: #fff;
@@ -25987,7 +25989,7 @@ html[dir=rtl] [type=radio].material-inputs + label:before {
   align-items: center;
   white-space: nowrap;
   cursor: pointer;
-}
+} */
 #menuTestLemon2 .sidebar-nav .has-arrow::after {
   top: 15px!important;
   right: 3px!important;
@@ -26119,10 +26121,11 @@ div#notification_alert {
 }
 
 div#post_it_dashboard {
+  margin-top: 1.25em;
   min-height: 40rem;
-  border: 2px solid #ccc;
+  border: 10px solid #1f3889;
   padding: 1rem;
-  background-color: #393939;
+  background-color: #FFF;
 }
 .item {
   position: relative;
@@ -26148,7 +26151,6 @@ div#post_it_dashboard {
 }
 #post_it_dashboad form {
   width: 75%; /* change the width here */
-  margin-bottom: 1.25rem ;
   display: flex;
 }
 
@@ -26172,8 +26174,8 @@ input#color{
 }
 
 /* Style for the button element */
-#post_it_dashboad button[type="submit"] {
-  background-color: #1F3889;
+#post_it_dashboad button {
+  background: #1F3889;
   color: #FFF;
   padding: 0.2em;
   border: none;  
@@ -26186,11 +26188,8 @@ input#color{
 }
 
 /* Style for the button element on hover */
-#post_it_dashboad button[type="submit"]:hover {
-  background-color: #FFF;
+#post_it_dashboad button:hover {
   transform: scale(1.1);
-  
-  border: 2px solid #1F3889;
 }
 
 .tape {
@@ -26208,4 +26207,27 @@ input#color{
 
 #post_it_dashboad .input-group{
   width: initial!important;
+}
+
+a.nav-link[aria-selected="true"]{
+  background: #1f3889;
+  color: #FFF!important;
+}
+
+.role-administrator #sidebarnav{
+
+  padding-top: 80px!important;
+}
+
+#delete-button{
+font-size: 12px!important;
+width: 10%!important;
+}
+.post_it_form{
+  display: flex;
+  justify-content: space-between;
+}
+img.rounded-circle.img-fluid{
+  height: 150px;
+    object-fit: cover;
 }
