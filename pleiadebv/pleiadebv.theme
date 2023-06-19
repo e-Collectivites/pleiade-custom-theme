@@ -132,15 +132,20 @@ function pleiadebv_preprocess_page(&$variables) {
       // default image
       $field = \Drupal\field\Entity\FieldConfig::loadByName('user', 'user', 'user_picture');
       $default_image = $field->getSetting('default_image');
-      
-      $file = \Drupal::service('entity.repository')->loadEntityByUuid('file', $default_image['uuid']);
-      if($file){
-      $picture = file_create_url($file->getFileUri());
-      $variables['user_picture'] = $picture;
+      if($default_image){
+        $file = \Drupal::service('entity.repository')->loadEntityByUuid('file', $default_image['uuid']);
+        if($file){
+        $picture = file_create_url($file->getFileUri());
+        $variables['user_picture'] = $picture;
+        }
+        else{
+        $variables['user_picture'] = '/themes/custom/pleiadebv/assets/images/users/img_user.png';
+        }  
       }
       else{
-         $variables['user_picture'] = 'add-default-image';
-      }  
+        $variables['user_picture'] = '/themes/custom/pleiadebv/assets/images/users/img_user.png';
+      }
+      
     }
 
     $configLemon = \Drupal::config('api_lemon_pleiade.settings');
@@ -160,34 +165,52 @@ function pleiadebv_preprocess_page(&$variables) {
 }
 
 function pleiadebv_preprocess_user(&$variables) {
-  
+
     // get user Id
     $variables['userId'] = $variables['user']->id();
+    
     // gets current user name
     $user_logged_in_name = $variables['user']->getDisplayName();
 
     // creates value to ouput in the DOM & capitalize first letter
-    $variables['user_logged_in_name'] = ucfirst($user_logged_in_name);
+    $variables['user_logged_in_name'] = $user_logged_in_name;
 
     // gets user email
     $user_email = $variables['user']->getEmail();
     $variables['user_email'] = $user_email;
 
-    // get user picture if exists
-    $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
-    $variables['mail'] = $user->get('mail')->value;
-    $variables['user_name'] = $user->get('field_nom')->value;
-    $variables['user_firstname'] = $user->get('field_prenom')->value;
-    if (isset($user->get('user_picture')->entity)) {
-      $variables['user_picture'] = $user->get('user_picture')->entity->createFileUrl();
+    // Check if 'mail' exists and set default value if not
+    $variables['mail'] = isset($variables['user']->get('mail')->value) ? $variables['user']->get('mail')->value : "Non renseigné par l'utilisateur";
+
+    // Check if 'field_nom' exists and set default value if not
+    $variables['user_name'] = isset($variables['user']->get('field_nom')->value) ? $variables['user']->get('field_nom')->value : "Non renseigné par l'utilisateur";
+
+    // Check if 'field_prenom' exists and set default value if not
+    $variables['user_firstname'] = isset($variables['user']->get('field_prenom')->value) ? $variables['user']->get('field_prenom')->value : "Non renseigné par l'utilisateur";
+
+    if (isset($variables['user']->get('user_picture')->entity)) {
+      $variables['user_picture'] = $variables['user']->get('user_picture')->entity->createFileUrl();
     }
-    else {
+    else 
+    {
       // default image
       $field = \Drupal\field\Entity\FieldConfig::loadByName('user', 'user', 'user_picture');
       $default_image = $field->getSetting('default_image');
-      $file = \Drupal::service('entity.repository')->loadEntityByUuid('file', $default_image['uuid']);
-      $picture = file_create_url($file->getFileUri());
-      $variables['user_picture'] = $picture;
+      if($default_image){
+        $file = \Drupal::service('entity.repository')->loadEntityByUuid('file', $default_image['uuid']);
+        if($file){
+        $picture = file_create_url($file->getFileUri());
+        $variables['user_picture'] = $picture;
+        }
+        else{
+          $variables['user_picture'] = '/themes/custom/pleiadebv/assets/images/users/img_user.png';
+        }  
+      }
+      else{
+        $variables['user_picture'] = '/themes/custom/pleiadebv/assets/images/users/img_user.png';
+      }
+      
     }
+
 
 }
