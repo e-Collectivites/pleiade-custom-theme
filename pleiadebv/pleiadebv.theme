@@ -18,50 +18,20 @@ function pleiadebv_preprocess(&$variables, $hook) {
     $config = \Drupal::config('module_general_pleiade.settings');
     $url_lien_documentation = $config->get('url_lien_documentation');
     $colorTheme = $config->get('color_theme');
-    $imageFooter = $config->get('image_footer');
-    $imageLeftSidebar = $config->get('image_left_sidebar');
-    $imageLeftSidebarReduced = $config->get('image_left_sidebar_reduced');
+    $imageFooter = '/themes/custom/pleiadebv/assets/images/logo_footer.png';
+    $imageLeftSidebar = '/themes/custom/pleiadebv/assets/images/logo_extended.png';
+    $imageLeftSidebarReduced = '/themes/custom/pleiadebv/assets/images/logo_reduced.png';
     
-    if (!empty($imageFooter)) {
-      $file = \Drupal\file\Entity\File::load($imageFooter[0]);
-      if ($file) {
-        $imageFooterUrl = file_create_url($file->getFileUri());
-        // Use $logoPath as needed.
-      }
-    }
-    else {
-        $imageFooterUrl = "/themes/custom/pleiadebv/logos/logo_ecollectivites_bleu.png";
-      }
-    if (!empty($imageLeftSidebar)) {
-      $file = \Drupal\file\Entity\File::load($imageLeftSidebar[0]);
-      if ($file) {
-        $imageLeftSidebarUrl = file_create_url($file->getFileUri());
-        // Use $logoPath as needed.
-      }
-    }
-    else {
-        $imageLeftSidebarUrl = "/themes/custom/pleiadebv/logos/logo-light-text.png";
-      }
-    if (!empty($imageLeftSidebarReduced)) {
-      $file = \Drupal\file\Entity\File::load($imageLeftSidebarReduced[0]);
-      if ($file) {
-        $imageLeftSidebarReducedUrl = file_create_url($file->getFileUri());
-        // Use $logoPath as needed.
-      }
-    }
-    else {
-        $imageLeftSidebarReducedUrl = "/themes/custom/pleiadebv/logos/logo-light-icon.png";
-    }
     if (!empty($url_lien_documentation)) {
       $variables['url_lien_documentation'] = $url_lien_documentation;
     }
     else {
        $variables['url_lien_documentation'] = "*";
       }
-    $variables['imageFooterUrl'] = $imageFooterUrl;
+    $variables['imageFooterUrl'] = $imageFooter;
     $variables['colorTheme'] = $colorTheme;
-    $variables['imageLeftSidebarUrl'] = $imageLeftSidebarUrl;
-    $variables['imageLeftSidebarReducedUrl'] = $imageLeftSidebarReducedUrl;
+    $variables['imageLeftSidebarUrl'] = $imageLeftSidebar;
+    $variables['imageLeftSidebarReducedUrl'] = $imageLeftSidebarReduced;
     // Récupérer le path de base
     $variables['base_path'] = \Drupal::request()->getHost();
 

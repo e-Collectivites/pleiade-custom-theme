@@ -120,7 +120,15 @@
           {# </div>
           <div class="row"> #}
           {% if pastell_enabled %}
+
           <!-- ==================== Block Pastell Documents ================== -->
+              <script>
+                var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+                var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+                  return new bootstrap.Popover(popoverTriggerEl)
+                })
+              </script>
+              
               <div id="document_recent_id"></div>
           {% endif %}
           <!-- ==================== Block Post-IT ================== -->
