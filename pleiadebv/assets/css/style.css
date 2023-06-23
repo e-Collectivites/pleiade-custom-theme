@@ -26252,3 +26252,7 @@ a.rounded-pill{
   display: flex;
   align-items: center;
 }
+
+.alert_popup path{
+  stroke: var(--global-color)!important;
+}
