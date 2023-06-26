@@ -26036,10 +26036,7 @@ html[dir=rtl] [type=radio].material-inputs + label:before {
   height: 25px!important;
   width: 25px!important;
 }
-/* Hide block everywhere, will be shown only by pastell module if needed */
-#collectiviteChoice {
-  display: none;
-}
+
 
 .table thead th, .table tfoot th, .table th{
   font-weight: 600!important;

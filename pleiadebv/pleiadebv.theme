@@ -125,12 +125,13 @@ function pleiadebv_preprocess_page(&$variables) {
     $lemonBlockId = $configLemon->get('field_lemon_block_id');
     $variables['lemonBlockId'] = $lemonBlockId;
     }
-
+  
     $variables['post_it_enabled'] = \Drupal::moduleHandler()->moduleExists('module_postit_pleiade');
     $variables['lemon_enabled'] = \Drupal::moduleHandler()->moduleExists('api_lemon_pleiade');
     $variables['pastell_enabled'] = \Drupal::moduleHandler()->moduleExists('api_pastell_pleiade');
     $variables['zimbra_enabled'] = \Drupal::moduleHandler()->moduleExists('api_zimbra_pleiade');
-   
+    $variables['nextcloud_enabled'] = \Drupal::moduleHandler()->moduleExists('api_nextcloud_pleiade');
+
    
 }
 

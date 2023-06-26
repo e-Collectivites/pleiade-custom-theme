@@ -103,9 +103,9 @@
               {# <div class="iparapheur col-8 d-flex align-self-stretch" id="iparapheur_block_id"></div> #}
             {% if zimbra_enabled %}
             <!-- ==================== Block Zimbra mails ================== -->
-          <div id="zimbra_block_id" class="d-flex justify-content-between mb-2"> 
-            <div id="zimbra_block_agenda_id" class="col-4 shadow-sm"></div>   
-            <div id="zimbra_block_mail_id"></div> 
+          <div id="zimbra_block_id" class="d-flex justify-content-between mb-2 align-items-center"> 
+            <div id="zimbra_block_agenda_id" class="col-4 shadow-sm h-100 d-flex justify-content-center"></div>   
+            <div id="zimbra_block_mail_id" class="col-8 h-100 shadow-sm"></div> 
           </div>
            {% endif %}
           
@@ -119,16 +119,9 @@
           {% endif %}
           {# </div>
           <div class="row"> #}
-          {% if pastell_enabled %}
+          {% if pastell_enabled or nextcloud_enabled %}
 
           <!-- ==================== Block Pastell Documents ================== -->
-              <script>
-                var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
-                var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-                  return new bootstrap.Popover(popoverTriggerEl)
-                })
-              </script>
-              
               <div id="document_recent_id"></div>
           {% endif %}
           <!-- ==================== Block Post-IT ================== -->
