@@ -81,10 +81,13 @@
                   data-sidebartype="mini-sidebar"
                   ><i data-feather="arrow-left-circle" class="feather-icon" style="color: #54667a"></i></a>
               </li>
+
               <!-- ============================================================== -->
               <!-- select collectivite -->
               <!-- ============================================================== -->
-               {% include '@pleiadebv/templates/layout/parts/demo/select-collectivite-demo.html.twig' %}
+              {% if pastell_enabled %}
+                {% include '@pleiadebv/templates/layout/parts/demo/select-collectivite-demo.html.twig' %}
+              {% endif %}
             </ul>
             
             <!-- ============================================================== -->
