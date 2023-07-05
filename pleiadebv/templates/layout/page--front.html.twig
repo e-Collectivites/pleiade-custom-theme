@@ -136,7 +136,7 @@
                       <form id="myForm">
                         <div class="input-group">
                           <span class="input-group-text">Message</span>
-                          <textarea class="form-control" aria-label="message" id="message" name="message"></textarea>
+                          <textarea class="form-control no-resize" aria-label="message" id="message" name="message"></textarea>
                         </div>
                         <div class="input-group">
                           <span class="input-group-text">Couleur du post-it</span>
@@ -152,13 +152,15 @@
               </div>
               {% endif %}
           </div>
-          
-          <div id="moodle_courses"></div>
+          {% if moodle_enabled %} 
+            <div id="moodle_courses"></div>
+          {% endif %}
           <!-- ============================================================== -->
           <!-- End Recréation de blocks Lemon classiques géré par le module pleiade  -->
           <!-- ============================================================== -->
-            
- 
+          {% if page.block_rss %}
+            {{ page.block_rss }}  
+          {% endif %}
           <!-- ============================================================== -->
           <!-- Blocks de démo / test -->
           <!-- ============================================================== -->

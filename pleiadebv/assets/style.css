@@ -26127,8 +26127,8 @@ div#notification_alert {
 
 div#post_it_dashboard {
   margin-top: 1.25em;
-  min-height: 40rem;
-  border: 10px solid var(--global-color);
+  min-height: 12rem;
+  border: 2px solid var(--global-color);
   padding: 1rem;
   background-color: #FFF;
 }
