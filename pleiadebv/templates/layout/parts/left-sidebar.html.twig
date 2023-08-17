@@ -4,98 +4,22 @@
           <!-- Sidebar navigation-->
           <nav class="sidebar-nav">
             <ul id="sidebarnav">
-              <!-- User Profile : enlevé car déjà dans la barre de haut -->
-              {# <li class="nav-devider"></li>
-              
-              <li class="sidebar-item selected">
-                <a
-                  class="sidebar-link waves-effect waves-dark my-3"
-                  href="/"
-                  aria-expanded="false"
-                  ><i data-feather="grid" class="feather-icon"></i
-                  ><span class="hide-menu"
-                    >Bureau
-                    </span
-                  ></a
-                >
-              </li> #}
-              <div id="menuTestLemon2"></div>
+
+              <div id="menuLemon"></div>
               <div id="menuPastell"></div>
-{# Temporaire pour la présentation déclic #}
-              {# <div id="menuLogMetiers">
-                  <div
-                    class="nav-small-cap has-arrow collapsed"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#collapseLogMetiers"
-                    aria-expanded="false"
-                    aria-controls="collapseLogMetiers"
-                  >
-                    <i class="mdi mdi-dots-horizontal"></i
-                    ><span class="hide-menu">Logiciels métiers</span>
-                  </div>
-                  <div
-                    id="collapseLogMetiers"
-                    class="accordion-collapse collapse"
-                    aria-labelledby="headingOne"
-                  >
-                    <div class="accordion-body">
-                      <a
-                        class="sidebar-link waves-effect waves-dark"
-                        title="Finances"
-                        target="”_blank”"
-                        href="#"
-                        aria-expanded="false"
-                      >
-                        <i data-feather="arrow-right" class="feather-icon"></i>
-                        <span class="hide-menu">Finances</span></a
-                      >
-                      <a
-                        class="sidebar-link waves-effect waves-dark"
-                        title="Population"
-                        target="”_blank”"
-                        href="#"
-                        aria-expanded="false"
-                      >
-                        <i data-feather="arrow-right" class="feather-icon"></i>
-                        <span class="hide-menu">Population</span></a
-                      >
-                      <a
-                        class="sidebar-link waves-effect waves-dark"
-                        title="Paie"
-                        target="”_blank”"
-                        href="#"
-                        aria-expanded="false"
-                      >
-                        <i data-feather="arrow-right" class="feather-icon"></i>
-                        <span class="hide-menu">Paie</span></a
-                      >
-                      <a
-                        class="sidebar-link waves-effect waves-dark"
-                        title="Enfance"
-                        target="”_blank”"
-                        href="#"
-                        aria-expanded="false"
-                      >
-                        <i data-feather="arrow-right" class="feather-icon"></i>
-                        <span class="hide-menu">Enfance</span></a
-                      >
-                    </div>
-                  </div>
-                </div>  #}
-{# Fin temporaire #}
+
               <li class="sidebar-item">
                 <a
                   class="sidebar-link waves-effect waves-dark sidebar-link"
                   href="{{ url_lien_documentation }}"
                   aria-expanded="false"
-                  ><i data-feather="book-open" class="feather-icon"></i>
-                  <span class="hide-menu">Documentation</span>
+                  ><i class="fa fa-solid fa-book"></i>
+                  <span class="hide-menu px-2">Documentation</span>
                 </a>
               </li>
               
             </ul>
             
-
           </nav>
           <!-- End Sidebar navigation -->
         </div>
@@ -110,7 +34,7 @@
             data-bs-toggle="tooltip"
             data-bs-placement="top"
             title="Besoin d'aide ?"
-            ><i data-feather="help-circle" class="feather-icon"></i></a>
+            ><i class="fa fa-solid fa-question-circle"></i></a>
           <!-- item-->
           <a
             href="/user/logout"
@@ -118,7 +42,7 @@
             data-bs-toggle="tooltip"
             data-bs-placement="top"
             title="Se déconnecter"
-            ><i data-feather="power" class="feather-icon"></i></a>
+            ><i class="fa fa-solid fa-power-off"></i></a>
         </div>
         <!-- End Bottom points-->
       </aside>

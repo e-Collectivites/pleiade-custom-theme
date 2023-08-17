@@ -1171,9 +1171,7 @@ a {
   color: #7460ee;
   text-decoration: underline;
 }
-a:hover {
-  color: #5d4dbe;
-}
+
 
 a:not([href]):not([class]), a:not([href]):not([class]):hover {
   color: inherit;
@@ -5420,22 +5418,17 @@ textarea.form-control-lg {
   padding: 0.65rem 1rem;
   clear: both;
   font-weight: 400;
-  color: #868e96;
   text-align: inherit;
   text-decoration: none;
-  /* white-space: nowrap; */
-  background-color: transparent;
   border: 0;
+  color: #868e96;
 }
-/* .dropdown-item:hover, .dropdown-item:focus {
-  color: #798087;
-  background-color: #e9ecef;
-} */
-/* .dropdown-item.active, .dropdown-item:active {
-  color: #fff;
-  text-decoration: none;
-  background-color: var(--global-color);
-} */
+
+.user-dd .dropdown-item {
+ 
+  font-size: larger;
+}
+
 .dropdown-item.disabled, .dropdown-item:disabled {
   color: #90a4ae;
   pointer-events: none;
@@ -14209,7 +14202,7 @@ textarea.form-control-lg {
 }
 .container-fluid{
   margin-bottom: 50px;
-  margin-top: 1em!important;
+  margin-top: -1em!important;
 }
 
 
@@ -14294,7 +14287,7 @@ textarea.form-control-lg {
   text-align: center;
 }
 #main-wrapper[data-layout=vertical][data-sidebartype=iconbar] .sidebar-nav ul .sidebar-item .sidebar-link i,
-#main-wrapper[data-layout=vertical][data-sidebartype=iconbar] .sidebar-nav ul .sidebar-item .sidebar-link .feather {
+#main-wrapper[data-layout=vertical][data-sidebartype=iconbar] .sidebar-nav ul .sidebar-item .sidebar-link .fa {
   display: block;
   width: auto;
   margin: 0 auto;
@@ -14952,7 +14945,7 @@ Notify
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-.sidebar-nav ul .sidebar-item .sidebar-link .feather {
+.sidebar-nav ul .sidebar-item .sidebar-link .fa {
   height: 18px;
   width: 18px;
   margin: 0 8px 0 5px;
@@ -14966,7 +14959,7 @@ Notify
   font-size: 21px;
   color: #fff;
   text-align: center;
-  width: 30px;
+  
   display: inline-block;
 }
 .sidebar-nav ul .sidebar-item .sidebar-link .badge {
@@ -14977,10 +14970,12 @@ Notify
   padding-right: 10px;
   line-height: 14px;
 }
-.sidebar-nav ul .sidebar-item .sidebar-link.active, .sidebar-nav ul .sidebar-item .sidebar-link:hover {
+.sidebar-nav ul .sidebar-item .sidebar-link.active, .sidebar-nav ul .sidebar-item .sidebar-link:hover, #menuLemon .sidebar-link:hover, #menuPastell .sidebar-link:hover, #menuLogMetiers .sidebar-link:hover {
   opacity: 1;
+  transition-duration: 200ms;
+ transition-property: opacity;
 }
-.sidebar-nav ul .sidebar-item .sidebar-link.active .feather, .sidebar-nav ul .sidebar-item .sidebar-link:hover .feather {
+.sidebar-nav ul .sidebar-item .sidebar-link.active .fa, .sidebar-nav ul .sidebar-item .sidebar-link:hover .fa {
   color: #fff;
 }
 .sidebar-nav ul .sidebar-item .sidebar-link.active {
@@ -15143,16 +15138,18 @@ Notify
 }
 .customizer .service-panel-toggle {
   position: absolute;
-  top: 40%;
-  left: -46px;
+  top: 45%;
+  left: -50px;
   color: #fff;
   background: var(--global-color);
   border-radius: 25px 0 0 25px;
   padding: 12px 15px;
+  width: 50px;
 }
-.customizer.show-service-panel {
+.toolbar-tray-open .customizer.show-service-panel {
   position: fixed;
   right: 0;
+  top: 79px;
 }
 .customizer .customizer-body {
   position: relative;
@@ -18316,26 +18313,26 @@ body[data-theme=dark] #main-wrapper[data-layout=vertical] .left-sidebar[data-sid
   color: #54667a;
   opacity: 1;
 }
-#main-wrapper[data-layout=vertical] .left-sidebar[data-sidebarbg=skin6] .sidebar-nav ul .sidebar-item .sidebar-link .feather, #main-wrapper[data-layout=horizontal] .left-sidebar[data-sidebarbg=skin6] .sidebar-nav ul .sidebar-item .sidebar-link .feather {
+#main-wrapper[data-layout=vertical] .left-sidebar[data-sidebarbg=skin6] .sidebar-nav ul .sidebar-item .sidebar-link .fa, #main-wrapper[data-layout=horizontal] .left-sidebar[data-sidebarbg=skin6] .sidebar-nav ul .sidebar-item .sidebar-link .fa {
   fill: rgba(0, 158, 251, 0.1);
 }
 #main-wrapper[data-layout=vertical] .left-sidebar[data-sidebarbg=skin6] .sidebar-nav ul .sidebar-item .sidebar-link:hover, #main-wrapper[data-layout=horizontal] .left-sidebar[data-sidebarbg=skin6] .sidebar-nav ul .sidebar-item .sidebar-link:hover {
   color: #000;
 }
-#main-wrapper[data-layout=vertical] .left-sidebar[data-sidebarbg=skin6] .sidebar-nav ul .sidebar-item .sidebar-link:hover .feather, #main-wrapper[data-layout=horizontal] .left-sidebar[data-sidebarbg=skin6] .sidebar-nav ul .sidebar-item .sidebar-link:hover .feather {
+#main-wrapper[data-layout=vertical] .left-sidebar[data-sidebarbg=skin6] .sidebar-nav ul .sidebar-item .sidebar-link:hover .fa, #main-wrapper[data-layout=horizontal] .left-sidebar[data-sidebarbg=skin6] .sidebar-nav ul .sidebar-item .sidebar-link:hover .fa {
   color: var(--global-color);
 }
 #main-wrapper[data-layout=vertical] .left-sidebar[data-sidebarbg=skin6] .sidebar-nav ul .sidebar-item .sidebar-link i,
-#main-wrapper[data-layout=vertical] .left-sidebar[data-sidebarbg=skin6] .sidebar-nav ul .sidebar-item .sidebar-link .feather, #main-wrapper[data-layout=horizontal] .left-sidebar[data-sidebarbg=skin6] .sidebar-nav ul .sidebar-item .sidebar-link i,
-#main-wrapper[data-layout=horizontal] .left-sidebar[data-sidebarbg=skin6] .sidebar-nav ul .sidebar-item .sidebar-link .feather {
+#main-wrapper[data-layout=vertical] .left-sidebar[data-sidebarbg=skin6] .sidebar-nav ul .sidebar-item .sidebar-link .fa, #main-wrapper[data-layout=horizontal] .left-sidebar[data-sidebarbg=skin6] .sidebar-nav ul .sidebar-item .sidebar-link i,
+#main-wrapper[data-layout=horizontal] .left-sidebar[data-sidebarbg=skin6] .sidebar-nav ul .sidebar-item .sidebar-link .fa {
   color: #737b88;
 }
 #main-wrapper[data-layout=vertical] .left-sidebar[data-sidebarbg=skin6] .sidebar-nav ul .sidebar-item .sidebar-link.active, #main-wrapper[data-layout=horizontal] .left-sidebar[data-sidebarbg=skin6] .sidebar-nav ul .sidebar-item .sidebar-link.active {
   color: var(--global-color);
 }
 #main-wrapper[data-layout=vertical] .left-sidebar[data-sidebarbg=skin6] .sidebar-nav ul .sidebar-item .sidebar-link.active i,
-#main-wrapper[data-layout=vertical] .left-sidebar[data-sidebarbg=skin6] .sidebar-nav ul .sidebar-item .sidebar-link.active .feather, #main-wrapper[data-layout=horizontal] .left-sidebar[data-sidebarbg=skin6] .sidebar-nav ul .sidebar-item .sidebar-link.active i,
-#main-wrapper[data-layout=horizontal] .left-sidebar[data-sidebarbg=skin6] .sidebar-nav ul .sidebar-item .sidebar-link.active .feather {
+#main-wrapper[data-layout=vertical] .left-sidebar[data-sidebarbg=skin6] .sidebar-nav ul .sidebar-item .sidebar-link.active .fa, #main-wrapper[data-layout=horizontal] .left-sidebar[data-sidebarbg=skin6] .sidebar-nav ul .sidebar-item .sidebar-link.active i,
+#main-wrapper[data-layout=horizontal] .left-sidebar[data-sidebarbg=skin6] .sidebar-nav ul .sidebar-item .sidebar-link.active .fa {
   color: var(--global-color);
 }
 #main-wrapper[data-layout=vertical] .left-sidebar[data-sidebarbg=skin6] .sidebar-nav ul .sidebar-item.selected > .sidebar-link, #main-wrapper[data-layout=horizontal] .left-sidebar[data-sidebarbg=skin6] .sidebar-nav ul .sidebar-item.selected > .sidebar-link {
@@ -19843,21 +19840,6 @@ form label {
 
 .fill-white {
   fill: rgba(255, 255, 255, 0.1);
-}
-
-.feather-sm {
-  width: 18px;
-  height: 18px;
-}
-
-.feather-lg {
-  width: 28px;
-  height: 28px;
-}
-
-.feather-xl {
-  width: 35px;
-  height: 35px;
 }
 
 .price-label {
@@ -25972,52 +25954,20 @@ html[dir=rtl] [type=radio].material-inputs + label:before {
 .mailbox .message-center .message-item .user-img .offline {
   background: #ffbc34;
 }
-#menuTestLemon2 .sidebar-link, .sidebar-nav ul .sidebar-item .sidebar-link {
-  padding: 2px 0 0 8px;
-  display: flex;
-  white-space: nowrap;
-  align-items: center;
-  position: relative;
-  line-height: 25px;
-  font-size: 16px;
-  opacity: 0.6;
-  color: #fff;
-  border-left: 3px solid transparent;
-}
 
-/* .sidebar-nav ul .nav-small-cap {
-  font-size: 12px;
-  line-height: 30px;
-  color: #fff;
-  opacity: 1;
-  text-transform: uppercase;
-  font-weight: 500;
-  padding: 0px 14px 0px 15px;
-  display: flex;
-  align-items: center;
-  white-space: nowrap;
-  cursor: pointer;
-} */
-#menuTestLemon2 .sidebar-nav .has-arrow::after {
-  top: 15px!important;
-  right: 3px!important;
-}
-#blocLemonCustom{
-  padding: 1rem 0;
-}
 .card{
   border-radius: 0.25rem;
 }
-
-.feather {
-  height: 18px;
+ 
+.fa {
+  /* height: 18px;
   width: 18px;
-  margin: 0 8px 0 5px;
+  margin: 0 5px 0 5px;
   fill: rgba(255, 255, 255, 0.2);
-  color: #fff;
+  color: #fff; */
   transition: transform .2s; /* Animation */
-}
-.user-dd .feather{
+} 
+.user-dd .fa{
   height: 25px;
   width: 25px;
 }
@@ -26025,13 +25975,18 @@ html[dir=rtl] [type=radio].material-inputs + label:before {
   left: -320px;
   opacity: 0;
 }
+
+i.fa.fa-2x.fa-bell-o{
+  color: var(--global-color);
+}
 .link:hover{
   background-color: #111111;
 }
-.link:hover .feather, .dropdown-item:hover>.feather, .sidebar-link:hover .feather,  .feather:hover {
+.link:hover .fa, .dropdown-item:hover>.fa, .sidebar-link:hover .fa,  .fa:hover {
   transform: scale(1.3); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+
 }
-#pastell_block .feather, #zimbra_mail .feather{
+#pastell_block .fa, #zimbra_mail .fa{
   color: #54667a;
   height: 25px!important;
   width: 25px!important;
@@ -26162,11 +26117,6 @@ div#notification_alert {
   color: var(--global-color);
 }
 
-#post_it_dashboard .item{
-  border-radius:0 0 0 30px/45px;
-  font-family: 'Permanent Marker', cursive;
-  border-radius: 0;
-}
 input#color{
   height: auto;
 }
@@ -26178,7 +26128,6 @@ input#color{
   padding: 0.2em;
   border: none;  
   cursor: pointer;
-  font-size: 14px;
   margin: 0.2em 1em;
   border-radius: 15px;
   width: 15%;
@@ -26229,7 +26178,7 @@ img.rounded-circle.img-fluid{
 a.rounded-pill{
   background-color: var(--global-color);
 }
-.feather-bell{
+.fa-bell{
   color: var(--global-color);
 }
 #notification_alert > div:first-child, .user-dd div:first-child{
@@ -26280,4 +26229,12 @@ border-top-left-radius: 4px !important;
 }
 .region.region-block-rss .views-field-title-1 span{
   font-size: 1.125rem;
+}
+
+svg path {
+  fill: var(--global-color); /* Red color */
+}
+
+.user-dd a.dropdown-item:hover{
+  transform: scale(1.2);
 }

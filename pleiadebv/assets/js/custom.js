@@ -6,22 +6,9 @@
       once("customBehavior", "body", context).forEach(() => {
         
         
-        // $('.container-fluid').slick({
-        //   slidesToShow: 1,
-        //   slidesToScroll: 1,
-        //   // prevArrow:'<i data-feather="arrow-left" class="feather-sm"></i>',
-        //   // nextArrow:'<i data-feather="arrow-right" class="feather-sm"></i>',
-        //   prevArrow:"<button type='button' class='slick-prev pull-left'><i data-feather='arrow-left' class='feather-sm'></i></button>",
-        //   nextArrow:"<button type='button' class='slick-next pull-right'><i data-feather='arrow-right' class='feather-sm'></i></button>"
-        //   });
-        // $('a[data-slide]').click(function(e) {
-        //     e.preventDefault();
-        //     var slideno = $(this).data('slide');
-        //     $('.container-fluid').slick('slickGoTo', slideno - 1);
-        //   });
+       
         $(".preloader").fadeOut();
-        // Feather Icon Init Js
-        feather.replace();
+     
 
         // ==============================================================
         // Theme options
@@ -33,9 +20,11 @@
         $(".left-sidebar").hover(
           function () {
             $(".navbar-header").addClass("expand-logo");
+            $("#sidebarnav").addClass("extended_menu");
           },
           function () {
             $(".navbar-header").removeClass("expand-logo");
+            $("#sidebarnav").removeClass("extended_menu");
           }
         );
         // this is for close icon when navigation open in mobile view

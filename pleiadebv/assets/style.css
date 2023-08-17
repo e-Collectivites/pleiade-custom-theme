@@ -14222,7 +14222,7 @@ textarea.form-control-lg {
   width: 100%;
   background: #fff;
   border-top: 1px solid #e9ecef;
-  padding: 5px 20px;
+  padding: 12px 20px;
   position: fixed;
   bottom: 0;
 }
@@ -14915,7 +14915,7 @@ Notify
   transition: 0.2s ease-in;
 }
 .left-sidebar .sidebar-footer a {
-  padding: 5px 15px;
+  padding: 12px 15px;
   width: 50%;
   color: #fff;
   text-align: center;
@@ -15150,9 +15150,10 @@ Notify
   border-radius: 25px 0 0 25px;
   padding: 12px 15px;
 }
-.customizer.show-service-panel {
+body.toolbar-tray-open .customizer.show-service-panel {
   position: fixed;
   right: 0;
+  top: 39px;
 }
 .customizer .customizer-body {
   position: relative;
@@ -17887,6 +17888,7 @@ html[dir=rtl] .customizer {
 }
 html[dir=rtl] .customizer.show-service-panel {
   left: 0;
+  
   right: auto;
 }
 html[dir=rtl] .customizer .service-panel-toggle {
@@ -26125,13 +26127,6 @@ div#notification_alert {
   margin-top: 10px;
 }
 
-div#post_it_dashboard {
-  margin-top: 1.25em;
-  min-height: 12rem;
-  border: 2px solid var(--global-color);
-  padding: 1rem;
-  background-color: #FFF;
-}
 .item {
   position: relative;
   margin: 10px;
@@ -26169,11 +26164,6 @@ div#post_it_dashboard {
   color: var(--global-color);
 }
 
-#post_it_dashboard .item{
-  border-radius:0 0 0 30px/45px;
-  font-family: 'Permanent Marker', cursive;
-  border-radius: 0;
-}
 input#color{
   height: auto;
 }
@@ -26224,10 +26214,7 @@ a.nav-link[aria-selected="true"]{
   padding-top: 80px!important;
 }
 
-#delete-button{
-font-size: 12px!important;
-width: 10%!important;
-}
+
 .post_it_form{
   display: flex;
   justify-content: space-between;
@@ -26252,4 +26239,42 @@ a.rounded-pill{
 
 .alert_popup path{
   stroke: var(--global-color)!important;
+}
+.region.region-block-rss{
+  width: 50%;
+}
+
+div#block-views-block-actus-collectivites-locales-block-1{
+position: relative;
+display: flex;
+flex-direction: column;
+min-width: 0;
+word-wrap: break-word;
+background-color: #fff;
+background-clip: border-box;
+border: 0px solid transparent;
+border-top-left-radius: 4px !important;
+  border-top-right-radius: 4px !important;
+}
+
+.region.region-block-rss h2{
+  font-weight: 600;
+  padding: 0.5rem 1.25rem 1.125rem 1.25rem!important;
+  
+  
+  border-bottom: 1px solid #e9ecef !important;
+  font-size: 1.125rem;
+  margin-top: 0.625rem;
+  margin-bottom: 0;
+
+}
+
+.region.region-block-rss .view-content{
+  padding: 1.25rem;
+}
+.region.region-block-rss .views-field-description span{
+  text-decoration: dashed;
+}
+.region.region-block-rss .views-field-title-1 span{
+  font-size: 1.125rem;
 }

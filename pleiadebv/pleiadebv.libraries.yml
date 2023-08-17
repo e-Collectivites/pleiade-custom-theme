@@ -3,6 +3,7 @@ global-styling:
     theme:
       assets/css/style.css: {}
       assets/css/admin-tweaks.css: {}
+      assets/css/icons/fontawesome/css/all.css: {}
   js:
     assets/js/custom.js: {}
     assets/js/app.js: {}
@@ -11,7 +12,6 @@ global-styling:
     assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js: {}
     assets/js/sidebarmenu.js: {}
     assets/js/feather.min.js: {}
-  #  assets/libs/sortablejs/Sortable.js : {}
   dependencies:
     - core/jquery
     - core/drupal
