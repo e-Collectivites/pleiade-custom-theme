@@ -5,26 +5,51 @@
 
       once("customBehavior", "body", context).forEach(() => {
         
-        
-       
         $(".preloader").fadeOut();
-     
-
+        
         // ==============================================================
         // Theme options
         // ==============================================================
+        
+        $('.sidebartoggler').click(function() {
+          var sidebarType = $('#main-wrapper').attr('data-sidebartype');
+          var sidebarIcon = $('.sidebar-icon');
+          $("#main-wrapper").toggleClass("mini-sidebar")
+          if (sidebarType === 'mini-sidebar') {
+            sidebarIcon.toggleClass('fa-circle-left fa-circle-right');
+            localStorage.setItem("collapssidebar", 1);
+          
+          } else if (sidebarType === 'full') {
+            sidebarIcon.toggleClass('fa-circle-right fa-circle-left');
+           
+            localStorage.removeItem("collapssidebar");
+          }
+        });
         // ==============================================================
         // sidebar-hover
         // ==============================================================
-
+        $(document).ready(function () {
+          var collapssidebar = localStorage.getItem("collapssidebar");
+          if (collapssidebar !== null) {
+            $('#main-wrapper').attr('data-sidebartype', 'full');
+          }
+          else{
+            $('#main-wrapper').removeClass('mini-sidebar')
+          }
+          if ($('#main-wrapper').attr('data-sidebartype') === 'full') {
+            $('.sidebar-icon').removeClass('fa-circle-right')
+            $('.sidebar-icon').addClass('fa-circle-left')
+          }
+          else{
+            $('.sidebar-icon').toggleClass('fa-circle-right fa-circle-left ')
+          }
+        });
         $(".left-sidebar").hover(
           function () {
             $(".navbar-header").addClass("expand-logo");
-            $("#sidebarnav").addClass("extended_menu");
           },
           function () {
             $(".navbar-header").removeClass("expand-logo");
-            $("#sidebarnav").removeClass("extended_menu");
           }
         );
         // this is for close icon when navigation open in mobile view

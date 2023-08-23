@@ -77,7 +77,7 @@
 
                   $("#" + i).attr("data-sidebartype", "mini-sidebar"),
                     $(".sidebartoggler").on("click", function () {
-                      $("#main-wrapper").toggleClass("mini-sidebar"),
+                      
                         $("#main-wrapper").hasClass("mini-sidebar")
                           ? ($(".sidebartoggler").prop("checked", !0),
                             $("#main-wrapper").attr("data-sidebartype", "full"))

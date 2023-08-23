@@ -26195,7 +26195,10 @@ a.rounded-pill{
 .region.region-block-rss{
   width: 50%;
 }
-
+.customizer.show-service-panel {
+  position: fixed;
+  right: 0;
+}
 div#block-views-block-actus-collectivites-locales-block-1{
 position: relative;
 display: flex;
@@ -26237,4 +26240,7 @@ svg path {
 
 .user-dd a.dropdown-item:hover{
   transform: scale(1.2);
+  transform-origin : 0 50%;
+  transition: transform 0.2s;
 }
+
