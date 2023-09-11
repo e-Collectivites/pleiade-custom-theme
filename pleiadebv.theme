@@ -1,0 +1,211 @@
+<?php
+
+/**
+ * @file
+ * Pléiade BV theme file.
+ */
+/**
+ * Implements template_preprocess_html().
+ */
+
+// use Drupal\Core\Session\AccountInterface;
+// use Drupal\user\Entity\User;
+
+function pleiadebv_preprocess(&$variables, $hook) {
+    // Récupérer le path du logo
+    // $variables['logo_path'] = '/' . \Drupal::config('b5coll1.settings')->get('logo.path');
+    
+    $config = \Drupal::config('module_general_pleiade.settings');
+    $url_lien_documentation = $config->get('url_lien_documentation');
+    $colorTheme = $config->get('color_theme');
+    $imageFooter = '/themes/custom/pleiadebv/assets/images/logo_footer.png';
+    $imageLeftSidebar = '/themes/custom/pleiadebv/assets/images/logo_extended.png';
+    $imageLeftSidebarReduced = '/themes/custom/pleiadebv/assets/images/logo_reduced.png';
+    
+    if (!empty($url_lien_documentation)) {
+      $variables['url_lien_documentation'] = $url_lien_documentation;
+    }
+    else {
+       $variables['url_lien_documentation'] = "*";
+      }
+    $variables['imageFooterUrl'] = $imageFooter;
+    $variables['colorTheme'] = $colorTheme;
+    $variables['imageLeftSidebarUrl'] = $imageLeftSidebar;
+    $variables['imageLeftSidebarReducedUrl'] = $imageLeftSidebarReduced;
+    // Récupérer le path de base
+    $variables['base_path'] = \Drupal::request()->getHost();
+
+    // Variable is_front pour frontpage
+    try {
+      $variables['is_front'] = \Drupal::service('path.matcher')->isFrontPage();
+    }
+    catch (Exception $e) {
+      $variables['is_front'] = FALSE;
+    }
+    // Ensure the cache varies correctly (new in Drupal 8.3).
+    $variables['#cache']['contexts'][] = 'url.path.is_front';
+    
+    // User : pic de profil et autres
+
+}
+
+
+function pleiadebv_preprocess_html(&$variables) {
+    $roles = \Drupal::currentUser()->getRoles();
+    foreach ($roles as $role) {
+      $variables['attributes']['class'][] = "role-{$role}";
+    }
+}
+
+function pleiadebv_preprocess_page(&$variables) {
+
+    $config = \Drupal::config('api_user_pleiade.settings');
+
+    // Get the value of a specific setting.
+    $bot_id = $config->get('bot_id');
+    $apiKey = $config->get('apiKey');
+    $have_chatbot = $config->get('have_chatbot');
+
+    // Add the setting to the page template variables.
+    if($bot_id){
+      $variables['bot_id'] = $bot_id;
+      $variables['apiKey'] = $apiKey;
+      $variables['have_chatbot'] = $have_chatbot;
+    }
+    
+    $request = \Drupal::request();
+    $route_match = \Drupal::routeMatch();
+    if ($route_match->getParameter('node')) {
+      $page_title = \Drupal::service('title_resolver')->getTitle($request, $route_match->getRouteObject());
+      $variables['pleiade_node_title'] = $page_title;
+    }
+  
+    // get user Id
+    $variables['userId'] = $variables['user']->id();
+    
+    // gets current user name
+    $user_logged_in_name = $variables['user']->getDisplayName();
+    
+    // creates value to ouput in the DOM & capitalize first letter
+    $variables['user_logged_in_name'] = ucfirst($user_logged_in_name);
+
+    // gets user email
+    $user_email = $variables['user']->getEmail();
+    $variables['user_email'] = $user_email;
+
+    // get user picture if exists
+    $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
+    if (isset($user->get('user_picture')->entity)) {
+      $variables['user_picture'] = $user->get('user_picture')->entity->createFileUrl();
+    }
+    else 
+    {
+      // default image
+      $field = \Drupal\field\Entity\FieldConfig::loadByName('user', 'user', 'user_picture');
+      $default_image = $field->getSetting('default_image');
+      if($default_image){
+        $file = \Drupal::service('entity.repository')->loadEntityByUuid('file', $default_image['uuid']);
+        if( $file != '' || $file != null){
+      
+
+  try {
+    $picture = \Drupal::service('file_url_generator')
+      ->generateAbsoluteString($file->getFileUri());
+  } catch (InvalidStreamWrapperException $e) {
+    return FALSE;
+  }
+
+
+
+
+	$variables['user_picture'] = $picture;
+        }
+        else{
+        $variables['user_picture'] = '/themes/custom/pleiadebv/assets/images/users/img_user.png';
+        }  
+      }
+      else{
+        $variables['user_picture'] = '/themes/custom/pleiadebv/assets/images/users/img_user.png';
+      }
+      
+    }
+
+    $configLemon = \Drupal::config('api_lemon_pleiade.settings');
+
+    // Get the value of the checkbox field.
+    if($configLemon){
+    $lemonBlockId = $configLemon->get('field_lemon_block_id');
+    $variables['lemonBlockId'] = $lemonBlockId;
+    }
+    $configMoodle = \Drupal::config('api_lemon_pleiade.settings');
+
+    // Get the value of the checkbox field.
+    if($configMoodle){
+    $moodleBlockId = $configMoodle->get('field_moodle_block_id');
+    $variables['moodleBlockId'] = $moodleBlockId;
+    }
+  
+    $variables['post_it_enabled'] = \Drupal::moduleHandler()->moduleExists('module_postit_pleiade');
+    $variables['lemon_enabled'] = \Drupal::moduleHandler()->moduleExists('api_lemon_pleiade');
+    $variables['pastell_enabled'] = \Drupal::moduleHandler()->moduleExists('api_pastell_pleiade');
+    $variables['zimbra_enabled'] = \Drupal::moduleHandler()->moduleExists('api_zimbra_pleiade');
+    $variables['nextcloud_enabled'] = \Drupal::moduleHandler()->moduleExists('api_nextcloud_pleiade');
+    $variables['moodle_enabled'] = \Drupal::moduleHandler()->moduleExists('api_moodle_pleiade');
+   
+}
+
+function pleiadebv_preprocess_user(&$variables) {
+
+    // get user Id
+    $variables['userId'] = $variables['user']->id();
+    
+    // gets current user name
+    $user_logged_in_name = $variables['user']->getDisplayName();
+
+    // creates value to ouput in the DOM & capitalize first letter
+    $variables['user_logged_in_name'] = $user_logged_in_name;
+
+    // gets user email
+    $user_email = $variables['user']->getEmail();
+    $variables['user_email'] = $user_email;
+
+    // Check if 'mail' exists and set default value if not
+    $variables['mail'] = isset($variables['user']->get('mail')->value) ? $variables['user']->get('mail')->value : "Non renseigné par l'utilisateur";
+
+    // Check if 'field_nom' exists and set default value if not
+    $variables['user_name'] = isset($variables['user']->get('field_nom')->value) ? $variables['user']->get('field_nom')->value : "Non renseigné par l'utilisateur";
+
+    // Check if 'field_prenom' exists and set default value if not
+    $variables['user_firstname'] = isset($variables['user']->get('field_prenom')->value) ? $variables['user']->get('field_prenom')->value : "Non renseigné par l'utilisateur";
+
+    if (isset($variables['user']->get('user_picture')->entity)) {
+      $variables['user_picture'] = $variables['user']->get('user_picture')->entity->createFileUrl();
+    }
+    else 
+    {
+      // default image
+      $field = \Drupal\field\Entity\FieldConfig::loadByName('user', 'user', 'user_picture');
+      $default_image = $field->getSetting('default_image');
+      if($default_image){
+        $file = \Drupal::service('entity.repository')->loadEntityByUuid('file', $default_image['uuid']);
+        if($file){
+        try {
+          $picture = \Drupal::service('file_url_generator')
+            ->generateAbsoluteString($file->getFileUri());
+        } catch (InvalidStreamWrapperException $e) {
+          return FALSE;
+        }
+        $variables['user_picture'] = $picture;
+        }
+        else{
+          $variables['user_picture'] = '/themes/custom/pleiadebv/assets/images/users/img_user.png';
+        }  
+      }
+      else{
+        $variables['user_picture'] = '/themes/custom/pleiadebv/assets/images/users/img_user.png';
+      }
+      
+    }
+
+
+}

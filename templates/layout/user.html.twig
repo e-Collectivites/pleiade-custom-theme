@@ -1,0 +1,82 @@
+
+  
+
+{% if content %}
+<section>
+
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="card mb-4">
+          <div class="card-body text-center">
+            <img src={{ user_picture }} alt="avatar"
+              class="rounded-circle img-fluid" style="width: 150px;">
+            <h5 class="my-3">{{ user_logged_in_name }}</h5>
+            <div id="user_block" class="pl-4 p-2 d-flex justify-content-center">
+                <a href="/user/{{ userId }}/edit"  
+                class="text-white btn d-block w-100 my-2 rounded-pill">
+                Modifier les informations</a>
+                <a href="/history" 
+                class="text-white btn d-block w-100 my-2 rounded-pill">
+                Historique des connexions</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="card mb-4">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Nom d'utilisateur</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{ user_logged_in_name }}</p>
+              </div>
+              
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Nom</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{ user_name }}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Prénom</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{ user_firstname }}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Email</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{ mail }}</p>
+              </div>
+            </div>
+            <hr>
+            {# <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Groupes</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0" id="pastell_group">{{ pastell_groups }}</p>
+              </div>
+            </div> #}
+            
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+   {% endif %}
+</section>

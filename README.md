@@ -1,14 +1,11 @@
-[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)
+# Pléiade BV theme
 
-# pleiade-custom-theme
-Custom theme for [Pléiade dashboard project](https://github.com/e-Collectivites/Pleiade-Bureau-Virtuel)
+[Bootstrap 5](https://www.drupal.org/project/bootstrap5) subtheme.
 
-## Install
+## Development.
 
-In your Drupal themes folder, clone the repo as custom folder :
+### CSS compilation.
 
-```
-git clone https://github.com/e-Collectivites/pleiade-custom-theme.git custom
-```
+Prerequisites: install [sass](https://sass-lang.com/install).
 
-In Drupal Appearance settings, enable the theme and set it to default.
+To compile, run from subtheme directory: `sass scss/style.scss css/style.css`
