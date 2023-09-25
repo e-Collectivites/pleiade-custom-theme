@@ -63,15 +63,6 @@
       <!-- Page wrapper  -->
       <!-- ============================================================== -->
       <div class="page-wrapper">
-      <!-- ============================================================== -->
-      <!-- ChatBOt  -->
-      <!-- ============================================================== -->
-      {% if have_chatbot %}
-        <script src="https://account.snatchbot.me/script.js"></script>
-        <script>window.sntchChat.Init({{ bot_id }})</script>
-        {# <script src="https://account.snatchbot.me/share-bot-widget.js" host="https://account.snatchbot.me" apikey="{{ apiKey }}"></script> #}
-      {% endif %}
-
         <!-- ============================================================== -->
         <!-- Bread crumb ou demo avec menu collectivité -->
         <!-- ============================================================== -->
@@ -79,11 +70,6 @@
         <!-- ============================================================== -->
         <!-- End Bread crumb ou demo avec menu collectivité -->
         <!-- ============================================================== -->
-          {# <div class="link_slider" id="link_slider">
-            <a href="#" class="link_slide" data-slide="1">Accueil</a>
-            <a href="#" class="link_slide" data-slide="2">Mes applicatifs</a>
-            <a href="#" class="link_slide" data-slide="3">Doc. à traiter</a>
-          </div> #}
           <!-- ============================================================== -->
           <!-- Div pour message d'avertissement                               -->
           <!-- ============================================================== -->
@@ -109,10 +95,6 @@
           </div>
            {% endif %}
           
-            <!-- ==================== Moodle Courses ================== -->  
-          <div id="moodle_courses"></div>
-          {# </div>
-          <div class="row"> #}
           {% if lemon_enabled and lemonBlockId %}
           <!-- ==================== Block Lemon Apps ================== -->  
             <div id="lemon_block_id"></div>
@@ -124,6 +106,13 @@
           <!-- ==================== Block Pastell Documents ================== -->
               <div id="document_recent_id"></div>
           {% endif %}
+	{% if glpi_enabled and inGlpiGroup %}
+
+          <!-- ==================== Block Tickets GLPI  ================== -->
+              <div id="glpi_tickets_id"></div>
+          {% endif %}
+
+
           <!-- ==================== Block Post-IT ================== -->
               {% if post_it_enabled %} 
               <div id="postit_block_id">
@@ -152,23 +141,6 @@
               </div>
               {% endif %}
           </div>
-          {% if moodle_enabled %} 
-            <div id="moodle_courses"></div>
-          {% endif %}
-          <!-- ============================================================== -->
-          <!-- End Recréation de blocks Lemon classiques géré par le module pleiade  -->
-          <!-- ============================================================== -->
-          {% if page.block_rss %}
-            {{ page.block_rss }}  
-          {% endif %}
-          <!-- ============================================================== -->
-          <!-- Blocks de démo / test -->
-          <!-- ============================================================== -->
-            {% include '@pleiadebv/templates/layout/parts/demo/blocs-demo.html.twig' %}
-          <!-- ============================================================== -->
-          <!-- End Blocks de démo / test -->
-          <!-- ============================================================== -->
-
         </div>
         <!-- ============================================================== -->
         <!-- End Container fluid  -->

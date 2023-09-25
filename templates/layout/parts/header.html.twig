@@ -118,14 +118,13 @@
               <!-- ============================================================== -->
 
               <li class="nav-item dropdown user_card">
-                <a class="nav-link dropdown-toggle waves-effect waves-dark" href="#"
+                <a id="user_image_profile" class="nav-link dropdown-toggle waves-effect waves-dark" href="#"
                   aria-haspopup="true"
                   aria-expanded="false">
-                  <img src="{{ user_picture }}" alt="user" width="55" height="55" class="profile-pic rounded-circle"/>
                 </a>
                 <div class="dropdown-menu user-dd">
                   <div id="user_infos_block" class="d-flex no-block align-items-center p-3 text-white mb-2">
-                    
+
                   </div>
                   <a class="dropdown-item text-info" href="/history"
                     ><i class="fa-solid fa-lg fa-chart-line"></i>
@@ -142,14 +141,20 @@
                   {% else %}
                    
                   {% endif %}
-                  
+		  {% if glpi_enabled %}
+			<a class="dropdown-item text-secondary" href="/glpi_tickets"
+                    ><i class="fa-solid fa-lg fa-ticket"></i>
+                    Mes tickets GLPI</a
+                  >
+		  {% endif %}
+                  <div class="dropdown-divider"></div>
                   <a class="dropdown-item text-success" href="/user/logout"
                     ><i class="fa-solid fa-lg fa-power-off"></i>
                     Déconnexion</a
                   >
                   <div class="dropdown-divider"></div>
                   <div class="pl-4 p-2 d-flex justify-content-center">
-                    <a id="getMyAccount" href="/user" class="text-white btn d-block w-50 rounded-pill"
+                    <a href="/user" class="text-white btn d-block w-50 rounded-pill"
                       >Voir mon compte</a>
                   </div>
                 </div>

@@ -7,6 +7,7 @@
 /**
  * Implements template_preprocess_html().
  */
+use Drupal\module_api_pleiade\ApiPleiadeManager;
 
 // use Drupal\Core\Session\AccountInterface;
 // use Drupal\user\Entity\User;
@@ -28,6 +29,23 @@ function pleiadebv_preprocess(&$variables, $hook) {
     else {
        $variables['url_lien_documentation'] = "*";
       }
+
+	$lemondataApi = new ApiPleiadeManager();
+    	$return = $lemondataApi->searchMySession();
+	
+	// MODE DEBUG CONFIGURATION              
+	$variables['retour_lemon'] = json_encode($return) ;
+	$variables['lemon_user'] = $return['mail']; 
+	$variables['lemon_mail'] = $return['cn'];	 
+	$variables['uid_drupal'] = $variables['user']->id();
+	$variables['lemon_token'] = $_COOKIE['lemonldap'];
+
+	$variables['user_logged_drupal_name'] = $variables['user']->getDisplayName();
+	$user_email = $variables['user']->getEmail();
+    	$variables['user_email'] = $user_email;
+
+
+
     $variables['imageFooterUrl'] = $imageFooter;
     $variables['colorTheme'] = $colorTheme;
     $variables['imageLeftSidebarUrl'] = $imageLeftSidebar;
@@ -79,13 +97,12 @@ function pleiadebv_preprocess_page(&$variables) {
       $page_title = \Drupal::service('title_resolver')->getTitle($request, $route_match->getRouteObject());
       $variables['pleiade_node_title'] = $page_title;
     }
-  
+
     // get user Id
     $variables['userId'] = $variables['user']->id();
-    
     // gets current user name
     $user_logged_in_name = $variables['user']->getDisplayName();
-    
+
     // creates value to ouput in the DOM & capitalize first letter
     $variables['user_logged_in_name'] = ucfirst($user_logged_in_name);
 
@@ -105,20 +122,9 @@ function pleiadebv_preprocess_page(&$variables) {
       $default_image = $field->getSetting('default_image');
       if($default_image){
         $file = \Drupal::service('entity.repository')->loadEntityByUuid('file', $default_image['uuid']);
-        if( $file != '' || $file != null){
-      
-
-  try {
-    $picture = \Drupal::service('file_url_generator')
-      ->generateAbsoluteString($file->getFileUri());
-  } catch (InvalidStreamWrapperException $e) {
-    return FALSE;
-  }
-
-
-
-
-	$variables['user_picture'] = $picture;
+        if($file){
+        $picture = file_create_url($file->getFileUri());
+        $variables['user_picture'] = $picture;
         }
         else{
         $variables['user_picture'] = '/themes/custom/pleiadebv/assets/images/users/img_user.png';
@@ -144,6 +150,20 @@ function pleiadebv_preprocess_page(&$variables) {
     $moodleBlockId = $configMoodle->get('field_moodle_block_id');
     $variables['moodleBlockId'] = $moodleBlockId;
     }
+    $settings_glpi = \Drupal::config('api_glpi_pleiade.settings');
+    // // API endpoint URL
+    $tempstore = \Drupal::service('tempstore.private')->get('api_lemon_pleiade');
+    $groupData = $tempstore->get('groups');
+    if ($groupData !== NULL) {
+      $groupDataArray = explode('; ', $groupData);
+    }
+        if (is_array($groupDataArray) && in_array($settings_glpi->get('glpi_group'), $groupDataArray)) {
+            $variables['inGlpiGroup'] = true ;
+        }
+        else
+        {
+                $variables['inGlpiGroup'] = false ;
+        }
   
     $variables['post_it_enabled'] = \Drupal::moduleHandler()->moduleExists('module_postit_pleiade');
     $variables['lemon_enabled'] = \Drupal::moduleHandler()->moduleExists('api_lemon_pleiade');
@@ -151,7 +171,7 @@ function pleiadebv_preprocess_page(&$variables) {
     $variables['zimbra_enabled'] = \Drupal::moduleHandler()->moduleExists('api_zimbra_pleiade');
     $variables['nextcloud_enabled'] = \Drupal::moduleHandler()->moduleExists('api_nextcloud_pleiade');
     $variables['moodle_enabled'] = \Drupal::moduleHandler()->moduleExists('api_moodle_pleiade');
-   
+    $variables['glpi_enabled'] = \Drupal::moduleHandler()->moduleExists('api_glpi_pleiade');   
 }
 
 function pleiadebv_preprocess_user(&$variables) {
@@ -189,12 +209,7 @@ function pleiadebv_preprocess_user(&$variables) {
       if($default_image){
         $file = \Drupal::service('entity.repository')->loadEntityByUuid('file', $default_image['uuid']);
         if($file){
-        try {
-          $picture = \Drupal::service('file_url_generator')
-            ->generateAbsoluteString($file->getFileUri());
-        } catch (InvalidStreamWrapperException $e) {
-          return FALSE;
-        }
+        $picture = file_create_url($file->getFileUri());
         $variables['user_picture'] = $picture;
         }
         else{

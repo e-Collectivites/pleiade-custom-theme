@@ -28,18 +28,6 @@
               ><i class="mdi mdi-message-reply fs-6"></i
             ></a>
           </li>
-          <li class="nav-item">
-            <a
-              class="nav-link"
-              id="pills-contact-tab"
-              data-bs-toggle="pill"
-              href="#pills-contact"
-              role="tab"
-              aria-controls="pills-contact"
-              aria-selected="false"
-              ><i class="mdi mdi-star-circle fs-6"></i
-            ></a>
-          </li>
         </ul>
         <div class="tab-content" id="pills-tabContent">
           <!-- Tab 1 -->
@@ -69,7 +57,6 @@
                   class="sidebartoggler form-check-input"
                   name="collapssidebar"
                   id="collapssidebar"
-                  {# TODO : résoudre le souci de case non cochée alors que l'init est à sidebar full : checked #}
                 />
                 <label class="form-check-label" for="collapssidebar">
                   <span>Barre de menu étendue</span>
@@ -122,11 +109,18 @@
            >
             <div class="p-3 border-bottom">
               <!-- API req test btn -->
-              <h5 class="font-weight-medium mb-2 mt-2">Retour Myapplications API SSO</h5>
-                <div id="lemonApps"></div>
-                <!-- génération menu test depuis myapps lemon -->
-                <div id="menuTestLemon"></div>
-            </div>
+<!--              <h5 class="font-weight-medium mb-2 mt-2">Mode DEBUG</h5>
+		<a href="/v1/api_zimbra_pleiade/zimbra_mails_query" target="_blank">voir les mails zimbra</a>
+		<br><a href="/v1/api_zimbra_pleiade/zimbra_tasks_query" target="_blank">voir les RDVs zimbra</a>
+		<br><h5>Token LemonLDAP :</h5>
+		<span style="word-wrap: break-word;">{{ lemon_token  }}</span>
+                <h5>User/Mail renvoyé par LemonLDAP :</h5>
+                <span>{{ lemon_user  }} / {{ lemon_mail }}</span>
+		<h5>Mail/User/UID renvoyé par Drupal : </h5>
+		<span>{{ user_email }} / {{ user_logged_drupal_name }} / {{ uid_drupal  }}</span>
+        <h5>Contenu du retour lemon session/my/global : </h5>
+               <br><span style="word-wrap: break-word;padding-bottom: 7em;">{{ retour_lemon }}</span>    -->
+	</div>
           </div>
           <!-- End Tab 2 -->
           <!-- Tab 3 -->

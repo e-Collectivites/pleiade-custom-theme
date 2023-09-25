@@ -15159,7 +15159,7 @@ Notify
   display: flex;
 }
 .customizer .customizer-tab .nav-item {
-  width: 50%;
+  width: 33.33%;
   text-align: center;
 }
 .customizer .customizer-tab .nav-item .nav-link {
@@ -25986,13 +25986,13 @@ i.fa.fa-2x.fa-bell-o{
   transform: scale(1.3); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 
 }
+.fa-envelope{
+color: #54667a;
+}
 #pastell_block .fa{
   color: #54667a;
   height: 25px!important;
   width: 25px!important;
-}
-#zimbra_mail .fa{
-  color: #54667a;
 }
 
 
@@ -26247,11 +26247,3 @@ svg path {
   transition: transform 0.2s;
 }
 
-ul#sidebarnav i.fa {
-width: 25px;
-display: flex;
-justify-content: center;
-}
-.pl-2{
-  padding-left: 0.5rem !important;
-}
