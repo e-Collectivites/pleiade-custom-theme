@@ -122,8 +122,15 @@ function pleiadebv_preprocess_page(&$variables) {
       $default_image = $field->getSetting('default_image');
       if($default_image){
         $file = \Drupal::service('entity.repository')->loadEntityByUuid('file', $default_image['uuid']);
-        if($file){
-        $picture = file_create_url($file->getFileUri());
+        if( $file != '' || $file != null){
+
+
+  try {
+    $picture = \Drupal::service('file_url_generator')
+      ->generateAbsoluteString($file->getFileUri());
+  } catch (InvalidStreamWrapperException $e) {
+    return FALSE;
+  }
         $variables['user_picture'] = $picture;
         }
         else{
@@ -208,8 +215,15 @@ function pleiadebv_preprocess_user(&$variables) {
       $default_image = $field->getSetting('default_image');
       if($default_image){
         $file = \Drupal::service('entity.repository')->loadEntityByUuid('file', $default_image['uuid']);
-        if($file){
-        $picture = file_create_url($file->getFileUri());
+        if( $file != '' || $file != null){
+
+
+  try {
+    $picture = \Drupal::service('file_url_generator')
+      ->generateAbsoluteString($file->getFileUri());
+  } catch (InvalidStreamWrapperException $e) {
+    return FALSE;
+  }
         $variables['user_picture'] = $picture;
         }
         else{
