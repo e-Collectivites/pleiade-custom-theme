@@ -1,0 +1,121 @@
+/* .path-nos-formations .views-view-responsive-grid__item {
+        height: 300px;
+        max-height: 380px;
+        border-radius: 15px;
+        padding: 2em 0;
+} */
+
+.path-nos-formations .views-view-responsive-grid__item img {
+        height: 100% !important;
+        object-fit: contain;
+        width: 100%;
+}
+
+.path-nos-formations .views-view-responsive-grid__item .card-body>h5:not(.tag_btn) {
+        font-weight: 600;
+        font-size: x-large;
+        height: 40px;
+        color: #1f3889;
+}
+.page-node-type-formations .tag_btn {
+        color: #1f3889;
+        background-color: transparent;
+        border: 2px solid #1f3889;
+        transition: transform 0.3s;
+}
+.page-node-type-formations .tag_btn:hover {
+        transform: scale(1.1);
+
+}
+
+.path-nos-formations .views-view-responsive-grid__item .hover_text {
+
+        opacity: 0;
+        position: absolute;
+        bottom: 20px;
+        left: 0;
+        background-color: #1f3889;
+        color: white;
+        font-size: large;
+        padding: 0.5em 0;
+        width: 75%;
+        text-align: center;
+        box-sizing: border-box;
+        transition: opacity 0.1s ease, transform 0.1s ease;
+        transform: translateY(100%);
+        overflow: hidden;
+        border-bottom-right-radius: 15px;
+
+}
+
+.path-nos-formations .views-view-responsive-grid__item:hover .hover_text, .hover_text:hover {
+
+        opacity: 1;
+        transform: translateY(0%);
+}
+
+.path-nos-formations .views-view-responsive-grid__item .card-body p {
+
+        overflow: hidden;
+        border: unset;
+        max-height: 120px;
+        height: 120px;
+}
+
+.page-node-type-formations .field__label {
+
+        font-weight:300;
+        padding: 0.3em 0 0.3em 1em;
+        width: 90%;
+        color: #FFF;
+        text-transform: uppercase;
+        margin: 1em 0;
+        background-color: #1f3889;
+}
+.page-node-type-formations .field__item {
+
+        width: 90%;
+
+}
+.page-node-type-formations .col-md-4 .field__label  {
+        width: auto;
+        background-color: transparent;
+        color: #1f3889;
+        border-bottom: 3px solid #fbbd52;
+
+}
+.page-node-type-formations .col-md-4 img  {
+        height: 200px;
+    max-height: 200px;
+    object-fit: contain;
+
+}
+
+/* .page-node-type-formations .field--name-field-image-formations  .field__label{
+        display: none;
+}
+.page-node-type-formations .field--name-field-image-formations{
+        display: none;
+} */
+[data-drupal-selector="views-exposed-form-nos-formations-page-1"] .form--inline {
+        display: flex;
+        align-items: flex-end;
+}
+
+.path-nos-formations .hover_container {
+        flex-direction: row;
+        height: 200px;
+}
+
+.path-nos-formations .title_formation {
+        border-bottom: 3px solid #fbbd52;
+        color: #fbbd52;
+
+}
+
+.subtitle_formation {
+        padding: 0.3em 0;
+        color: #1f3889;
+        font-weight: 600;
+        font-size: x-large;
+}

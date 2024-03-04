@@ -1,0 +1,29 @@
+<div class="mb-2">
+
+<!-- Titre de l'article -->
+        <div class="pb-2 col-md-12 d-flex">
+                <div class="col-md-8">
+                        <h1 class="title_formation me-5">{{ content.field_sous_categorie_formation.0['#title'] }}</h1>
+                        <h2 class="subtitle_formation">{{ label }}</h2>
+                         <div class="lh-base">
+                                {{ content.field_objectifs }}
+                                <div class="field__label">Programme</div>
+                                {{ content.body }}
+                                {{ content.field_besoin }}
+                                {{ content.field_methode_pedagogique }}
+                                   
+                        </div>  
+                </div>
+                <div class="col-md-4 p-4" style="background-color: rgba(31, 56, 137, 0.2);">
+                      <img class="w-100 pb-4" src="{{ content.field_image_formations.0['#markup'] }}">
+                        {{ content.field_public_vise }}  
+                        {{ content.field_prerequis }}     
+                        {{ content.field_duree_de_la_formation }}   
+                        {{ content.field_dates_et_lieu }}  
+                        
+                        <a href="/form/inscription-a-une-formation?categorie={{ content.field_categorie_formation.0['#markup'] }}&solution={{ node.title.value }}" class="w-100 mt-3 d-flex align-items-center justify-content-center tag_btn p-3 fs-6">S'inscrire à cette formation</a> 
+                </div>
+        </div>
+
+</div>
+        

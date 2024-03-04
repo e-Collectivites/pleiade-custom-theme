@@ -70,7 +70,7 @@
         <!-- Géré par le block breadcrumbs natif Drupal + module Easy Breadcrumbs -->
         <div class="page-breadcrumb">
           <div class="row">
-            <div class="col-md-5 align-self-center">
+            <div class="col-md-12 align-self-center">
               <div class="d-flex align-items-center">
                 {# <nav aria-label="breadcrumb"> #}
                  {{ page.breadcrumb }}
@@ -86,7 +86,201 @@
         <!-- Container fluid  -->
         <!-- ============================================================== -->
         <div class="container-fluid">
-        {{ page.content }}
+         {% if node.nid.value == '46' %}
+         <style>
+
+.line {
+  width:100px;
+  height:1px;
+  margin:20px auto 40px auto;
+  border-bottom:1px solid white;
+}
+
+img {
+  width:100%;
+  display:block;
+}
+
+
+#before-after-slider {
+  width:100%;
+  position:relative;
+  overflow:hidden;
+  border:3px solid white;
+}
+
+#after-image {
+  display:block
+}
+
+#before-image {
+  position:absolute;
+  height:100%;
+  width:50%;
+  top:0;
+  left:0;
+  overflow:hidden;
+  z-index:2;
+}
+
+#resizer {
+  position:absolute;
+  display:flex;
+  align-items:center;
+  z-index:5;
+  top:0;
+  left:50%;
+  height:100%;
+  width:4px;
+  background:white;
+  /*Stop vertical scrolling on touch*/
+  -ms-touch-action: pan-y;
+    touch-action: pan-y;
+}
+
+#resizer:after {
+  background:linear-gradient(62deg,#c93072 5%,#3365c0);
+  font-family: "Font Awesome 5 Free";
+  content:'\f337';
+  font-weight:900;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:white;
+  position:absolute;
+  margin: 0 0 0 -22px;
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  border:3px solid white;
+
+}
+
+@media (max-width:767px) {
+  .container {
+    width:100%;
+    padding:0 20px
+  }
+}
+
+
+
+         </style>
+         
+          <div class="line"></div>
+
+        <div class="container">
+
+        
+          
+          <div id="before-after-slider">
+            <div id="before-image">
+              <img src="sites/default/files/default_images/pleiade_before.png" alt="before"/>
+            </div>
+          
+            <div id="after-image">
+              <img src="sites/default/files/default_images/pleiade_after.png" alt="After"/>
+            </div>
+
+            <div id="resizer"></div>
+          
+        </div>
+        </div>
+        <script>
+        const slider = document.getElementById('before-after-slider');
+const before = document.getElementById('before-image');
+const beforeImage = before.getElementsByTagName('img')[0];
+const resizer = document.getElementById('resizer');
+
+let active = false;
+
+//Sort overflow out for Overlay Image
+document.addEventListener("DOMContentLoaded", function() {
+  let width = slider.offsetWidth;
+  console.log(width);
+  beforeImage.style.width = width + 'px';
+});
+
+//Adjust width of image on resize 
+window.addEventListener('resize', function() {
+  let width = slider.offsetWidth;
+  console.log(width);
+  beforeImage.style.width = width + 'px';
+})
+
+resizer.addEventListener('mousedown',function(){
+  active = true;
+ resizer.classList.add('resize');
+
+});
+
+document.body.addEventListener('mouseup',function(){
+  active = false;
+ resizer.classList.remove('resize');
+});
+
+document.body.addEventListener('mouseleave', function() {
+  active = false;
+  resizer.classList.remove('resize');
+});
+
+document.body.addEventListener('mousemove',function(e){
+  if (!active) return;
+  let x = e.pageX;
+  x -= slider.getBoundingClientRect().left;
+  slideIt(x);
+  pauseEvent(e);
+});
+
+resizer.addEventListener('touchstart',function(){
+  active = true;
+  resizer.classList.add('resize');
+});
+
+document.body.addEventListener('touchend',function(){
+  active = false;
+  resizer.classList.remove('resize');
+});
+
+document.body.addEventListener('touchcancel',function(){
+  active = false;
+  resizer.classList.remove('resize');
+});
+
+//calculation for dragging on touch devices
+document.body.addEventListener('touchmove',function(e){
+  if (!active) return;
+  let x;
+  
+  let i;
+  for (i=0; i < e.changedTouches.length; i++) {
+  x = e.changedTouches[i].pageX; 
+  }
+  
+  x -= slider.getBoundingClientRect().left;
+  slideIt(x);
+  pauseEvent(e);
+});
+
+function slideIt(x){
+    let transform = Math.max(0,(Math.min(x,slider.offsetWidth)));
+    before.style.width = transform+"px";
+    resizer.style.left = transform-0+"px";
+}
+
+//stop divs being selected.
+function pauseEvent(e){
+    if(e.stopPropagation) e.stopPropagation();
+    if(e.preventDefault) e.preventDefault();
+    e.cancelBubble=true;
+    e.returnValue=false;
+    return false;
+}
+
+
+        </script>
+        {% endif %}
+        {{ page.content}}
         </div>
         <!-- ============================================================== -->
         <!-- End Container fluid  -->
