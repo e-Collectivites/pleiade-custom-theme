@@ -1,58 +1,20 @@
-    <aside class="customizer"> <!-- TODO : theme !! -->
-      <a href="javascript:void(0)" class="service-panel-toggle"
-        ><i class="fa fa-solid fa-lg fa-cogs"></i
-      ></a>
-      <div class="customizer-body">
-        <ul class="nav customizer-tab" role="tablist">
-          <li class="nav-item">
+    <aside> <!-- TODO : theme !! -->
+      <div class="customizer">
+        <a href="javascript:void(0)" class="service-panel-toggle"
+          ><i class="fa fa-solid fa-lg fa-cogs"></i
+        ></a>
+        <div class="customizer-body">
+
             <a
-              class="nav-link active"
-              id="pills-home-tab"
-              data-bs-toggle="pill"
-              href="#pills-home"
-              role="tab"
-              aria-controls="pills-home"
+              class="nav-link "
               aria-selected="true"
-              ><i class="mdi mdi-wrench fs-6"></i
+              ><h6 class="text-white text-uppercase d-flex align-items-center justify-content-center my-2">
+              Personnaliser votre bureau Pléiade</h6></i
             ></a>
-          </li>
-          <li class="nav-item">
-            <a
-              class="nav-link"
-              id="pills-profile-tab"
-              data-bs-toggle="pill"
-              href="#chat"
-              role="tab"
-              aria-controls="chat"
-              aria-selected="false"
-              ><i class="mdi mdi-message-reply fs-6"></i
-            ></a>
-          </li>
-          <li class="nav-item">
-            <a
-              class="nav-link"
-              id="pills-contact-tab"
-              data-bs-toggle="pill"
-              href="#pills-contact"
-              role="tab"
-              aria-controls="pills-contact"
-              aria-selected="false"
-              ><i class="mdi mdi-star-circle fs-6"></i
-            ></a>
-          </li>
-        </ul>
-        <div class="tab-content" id="pills-tabContent">
-          <!-- Tab 1 -->
-          <div
-            class="tab-pane fade show active"
-            id="pills-home"
-            role="tabpanel"
-            aria-labelledby="pills-home-tab"
-            >
+          <div>
             <div class="p-3 border-bottom">
-              <!-- Sidebar -->
-              <h5 class="font-weight-medium my-2">Personnalisation du bureau</h5>
-              <div class="form-check mt-3">
+
+              <div class="form-check mt-2">
                 <input
                   type="checkbox"
                   name="theme-view"
@@ -63,24 +25,13 @@
                   <span>Thème Sombre</span>
                 </label>
               </div>
-              <div class="form-check mt-2">
-                <input
-                  type="checkbox"
-                  class="sidebartoggler form-check-input"
-                  name="collapssidebar"
-                  id="collapssidebar"
-                  {# TODO : résoudre le souci de case non cochée alors que l'init est à sidebar full : checked #}
-                />
-                <label class="form-check-label" for="collapssidebar">
-                  <span>Barre de menu étendue</span>
-                </label>
-              </div>
-              <div class="form-check mt-2">
+              {# <div class="form-check mt-2">
                 <input
                   type="checkbox"
                   name="sidebar-position"
                   class="form-check-input"
                   id="sidebar-position"
+                  
                 />
                 <label class="form-check-label" for="sidebar-position">
                   <span>Barre de menu fixe</span>
@@ -96,42 +47,26 @@
                 <label class="form-check-label" for="header-position">
                   <span>En-tête fixe</span>
                 </label>
-              </div>
-              <div class="form-check mt-2">
-                <input
-                  type="checkbox"
-                  name="extended_menu"
-                  class="form-check-input"
-                  id="extended_menu"
-                  
-                />
-                <label class="form-check-label" for="extended_menu">
-                  <span>Menu étendu</span>
-                </label>
-              </div>
+              </div> #}
             </div>
 
           </div>
-          <!-- End Tab 1 -->
-          <!-- Tab 2 -->
-          <div
-            class="tab-pane fade"
-            id="chat"
-            role="tabpanel"
-            aria-labelledby="pills-profile-tab"
-           >
-            <div class="p-3 border-bottom">
-              <!-- API req test btn -->
-              <h5 class="font-weight-medium mb-2 mt-2">Retour Myapplications API SSO</h5>
-                <div id="lemonApps"></div>
-                <!-- génération menu test depuis myapps lemon -->
-                <div id="menuTestLemon"></div>
-            </div>
+          <div class="nav-link" style="background: var(--global-color); color: #FFF!important;" aria-selected="true">
+              <h6 class="text-white text-uppercase d-flex align-items-center justify-content-center my-2">
+                  Ajouter vos application métiers
+              </h6>
           </div>
-          <!-- End Tab 2 -->
-          <!-- Tab 3 -->
-
-          <!-- End Tab 3 -->
+          <div class="form-check p-3">
+                <a href="/user/edit?scrollToField=true">
+                
+                  <span>Ajouter / Modifier</span>
+                  </a>
+              </div>
+        
         </div>
       </div>
+      <a href="#" id='up_to_top' class="up_to_top d-flex align-items-center justify-content-center"
+        ><i class="fa fa-solid fa-lg fa-arrow-up"></i
+      ></a>
+
     </aside>

@@ -1,0 +1,31 @@
+<div class="col-md-12 mb-2">
+<!-- Titre de l'article -->
+        <div class="article_title pb-2 col-md-12">
+                <h1 class="text-center">{{ label }}</h1>
+        </div>
+        <div class="col-md-12">
+        <!-- Texte de l'article -->
+                <div class="article-text">
+                
+                        <div class="article_image float-start ">
+                                {% if node.field_tags.0 is not empty %}
+                                <a href="/taxonomy/term/{{node.field_tags.0.target_id}}" class="tag_btn w-auto p-2 "><i class="pe-2 fa-solid fa-tag"></i>{{ node.field_tags.0.entity.label }}</span></a>
+                                {% endif %}
+                                {{ content.field_image_solution }}
+                        </div>
+                        <div class="article_body lh-base">
+                                {{ content.field_introduction }}
+                                {{ content.field_nom_de_la_solution }}
+                                {{ content.field_besoin }}
+                                <div class="field__label">Description de la solution</div>
+                                {{ content.body }}
+                                {{ content.field_informations_financiere }} 
+                               
+                        </div>
+                        <div class="w-100 d-flex align-items-center justify-content-center">
+                                <a href="/form/demande-d-information-sur-une-so?categorie={{ content.field_categorie.0['#markup'] }}&solution={{ node.title.value }}" class="w-auto tag_btn p-3 fs-6">Je suis interessé(e) par cette solution</a> 
+                        </div>
+                </div>
+        </div>
+</div>
+        

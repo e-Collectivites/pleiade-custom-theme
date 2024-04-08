@@ -79,15 +79,13 @@
         <!-- ============================================================== -->
         <!-- End Bread crumb ou demo avec menu collectivité -->
         <!-- ============================================================== -->
-          {# <div class="link_slider" id="link_slider">
-            <a href="#" class="link_slide" data-slide="1">Accueil</a>
-            <a href="#" class="link_slide" data-slide="2">Mes applicatifs</a>
-            <a href="#" class="link_slide" data-slide="3">Doc. à traiter</a>
-          </div> #}
           <!-- ============================================================== -->
           <!-- Div pour message d'avertissement                               -->
           <!-- ============================================================== -->
+        {% if message_enabled %}
         <div class="message_avertissement"></div>
+        {% endif %}
+	 <!-- ============================================================== -->
         <!-- ============================================================== -->
         <!-- Container fluid  -->
         <!-- ============================================================== -->
@@ -97,8 +95,12 @@
           <!-- ============================================================== -->
           <!-- Sortable area attempt with SortableJS in api_lemon_module  -->
           <!-- ============================================================== -->
-          <div  id="areaSortable" class="row">
-
+          
+          <!-- Div pour message d'actus                              -->
+          {% if actu_enabled %}
+           <div class="actualites"></div>
+          <!-- ============================================================== -->
+          {% endif %}
             <!-- ==================== Block  I-parapheur ================== -->        
               {# <div class="iparapheur col-8 d-flex align-self-stretch" id="iparapheur_block_id"></div> #}
             {% if zimbra_enabled %}
@@ -110,9 +112,6 @@
            {% endif %}
           
             <!-- ==================== Moodle Courses ================== -->  
-          <div id="moodle_courses"></div>
-          {# </div>
-          <div class="row"> #}
           {% if lemon_enabled and lemonBlockId %}
           <!-- ==================== Block Lemon Apps ================== -->  
             <div id="lemon_block_id"></div>
@@ -127,40 +126,47 @@
           <!-- ==================== Block Post-IT ================== -->
               {% if post_it_enabled %} 
               <div id="postit_block_id">
-                <div class="card mb-0">
-                  <div class="card-header rounded-top bg-white border-bottom rounded-top">
-                    <h4 class="card-title text-dark py-2">Tableau Post-it</h4>
+                <div class="card">
+                  <div class="card-header rounded-top bg-white rounded-top d-flex justify-content-between align-items-center">
+                      <h4 class="card-title text-dark py-2">Tableau Post-it</h4>
+                       <button class="btn_collapse" style="font-size=12px;" data-bs-toggle="collapse" data-bs-target="#post_it_dashboard" aria-expanded="false" aria-controls="post_it_dashboard">
+                          -
+                      </button>
                   </div>
                   <div class="card-body" id="post_it_dashboad">
-                    <div class="post_it_form">
-                      <form id="myForm">
-                        <div class="input-group">
-                          <span class="input-group-text">Message</span>
-                          <textarea class="form-control no-resize" aria-label="message" id="message" name="message"></textarea>
-                        </div>
-                        <div class="input-group">
-                          <span class="input-group-text">Couleur du post-it</span>
-                          <input type="color" id="color" name="color" value="#FFFFFF">
-                        </div>
-                        <button type="submit">Créer un post-it</button>
-                      </form>
-                      <button id="delete-button">Tout supprimer</button>
-                    </div>
-                  <div id="post_it_dashboard"></div>
+                      <div class="post_it_form">
+                          <form id="myForm">
+                              <div class="input-group">
+                                  <span class="input-group-text">Message</span>
+                                  <textarea class="form-control no-resize" aria-label="message" id="message" name="message"></textarea>
+                              </div>
+                              <div class="input-group">
+                                  <span class="input-group-text">Couleur du post-it</span>
+                                  <input type="color" id="color" name="color" value="#FFFFFF">
+                              </div>
+                              <button type="submit" id="submit_post_it" >Créer un post-it</button>
+                          </form>
+                          <button id="delete-button">Tout supprimer</button>
+                      </div>
+                      <div id="post_it_dashboard" class="collapse"></div>
+                     
                   </div>
-                </div>
+              </div>
               </div>
               {% endif %}
+              {% if moodle_enabled and moodleBlockId %} 
+                <div id="moodle_courses"></div>
+              {% endif %}
+              {% if humhub_enabled %} 
+                <div id="humhub_block"></div>
+              {% endif %}
+              {% if guide_utilisateur_enabled %} 
+                <div id="guide_utilisateur"></div>
+              {% endif %}
+              
           </div>
-          {% if moodle_enabled %} 
-            <div id="moodle_courses"></div>
-          {% endif %}
-          <!-- ============================================================== -->
-          <!-- End Recréation de blocks Lemon classiques géré par le module pleiade  -->
-          <!-- ============================================================== -->
-          {% if page.block_rss %}
-            {{ page.block_rss }}  
-          {% endif %}
+          
+         
           <!-- ============================================================== -->
           <!-- Blocks de démo / test -->
           <!-- ============================================================== -->
@@ -169,7 +175,7 @@
           <!-- End Blocks de démo / test -->
           <!-- ============================================================== -->
 
-        </div>
+        
         <!-- ============================================================== -->
         <!-- End Container fluid  -->
         <!-- ============================================================== -->

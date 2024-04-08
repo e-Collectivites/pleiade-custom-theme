@@ -1,13 +1,54 @@
+     
       <aside class="left-sidebar">
         <!-- Sidebar scroll-->
         <div class="scroll-sidebar">
           <!-- Sidebar navigation-->
           <nav class="sidebar-nav">
+          <a class="navbar-brand" href="/">
+              <!-- Logo icon -->
+              <b class="logo-icon">
+                <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+                <!-- Dark Logo icon -->
+                <img
+                   src="/themes/custom/pleiadebv/assets/images/logo_reduced.png"
+                  alt="homepage"
+                  class="dark-logo"
+                  style="height: 37px;"
+                />
+                <!-- Light Logo icon -->
+                <img
+                  src="{{ imageLeftSidebarReducedUrl }}"
+                  alt="homepage"
+                  class="light-logo"
+                  style="height: 32px;"
+                />
+              </b>
+              <!--End Logo icon -->
+              <!-- Logo text -->
+              <span class="logo-text">
+                <!-- dark Logo text -->
+                <img
+                  src="/themes/custom/pleiadebv/assets/images/pleiade-v3-logo-white.png"
+                  alt="homepage"
+                  class="dark-logo"
+                  style="height: 57px;"
+                />
+                <!-- Light Logo text -->
+                <img
+                  src="{{ imageLeftSidebarUrl }}"
+                  class="light-logo"
+                  alt="homepage"
+                  style="height: 32px;"
+                />
+              </span>
+            </a>
             <ul id="sidebarnav">
-
-              <div id="menuLemon"></div>
+            {% if menu_ecoll != 1 %}
               <div id="menuPastell"></div>
-
+              
+                <hr class="bg-white" style="height: 3px; background-color: #FFF!important;">
+              <div id="menuLemon"></div>
+              {{ urls_applications | raw }}
               <li class="sidebar-item">
                 <a
                   class="sidebar-link waves-effect waves-dark sidebar-link"
@@ -16,9 +57,39 @@
                   ><i class="fa fa-solid fa-book"></i>
                   <span class="hide-menu px-2">Documentation</span>
                 </a>
+                <a
+                  class="sidebar-link waves-effect waves-dark sidebar-link"
+                  href="mailto:support@ecollectivites.fr"
+                  aria-expanded="false"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title="02.53.33.02.72 / support@ecollectivites.fr"
+                  ><i class="fa fa-solid fa-envelope"></i>
+                  <span class="hide-menu px-2">Besoin d'aide ?</span>
+                </a>
               </li>
+              {% else %}
+             
+              {# <div id="mes_applications" style="max-width: 270px;">
+                
+              </div> #}
+                <div id="menuLemon">
+                  <div class="mes_apps nav-small-cap has-arrow collapsed" data-bs-toggle="collapse" data-bs-target="#collapse10" aria-expanded="false" aria-controls="collapse3">
+                    <i class="fa-solid fa-star"></i>
+                    <span class="hide-menu">Mes Applications</span>
+                    
+                  </div>
+                  <ul>
+                    <div id="collapse10" class="accordion-collapse collapse" aria-labelledby="headingOne">
+                      <div class="accordion-body">
+                        {{ urls_applications | raw }}
+                      </div>
+                    </div>
+                  </ul>
+                </div>
+                
+              {% endif %}
               
-            </ul>
             
           </nav>
           <!-- End Sidebar navigation -->
@@ -27,22 +98,26 @@
         <!-- Bottom points-->
         <div class="sidebar-footer">
           <!-- item-->
+          
           <a
             href="#"
             id="interactive_guid"
             class="link"
             data-bs-toggle="tooltip"
             data-bs-placement="top"
-            title="Besoin d'aide ?"
+            title="Visite guidée"
             ><i class="fa fa-solid fa-question-circle"></i></a>
+          
           <!-- item-->
           <a
-            href="/user/logout"
+          id="teamviewer"
+            href="https://assistance.ecollectivites.fr"
             class="link"
+            target="_blank"
             data-bs-toggle="tooltip"
             data-bs-placement="top"
-            title="Se déconnecter"
-            ><i class="fa fa-solid fa-power-off"></i></a>
+            title="Télécharger TeamWiewer"
+            ><i class="fa fa-solid fa-headset"></i></a>
         </div>
         <!-- End Bottom points-->
       </aside>
