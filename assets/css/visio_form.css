@@ -29,3 +29,6 @@ display: none;
 #edit-submit{
         width: auto;
 }
+.webform-multiple-add.js-webform-multiple-add.container-inline{
+        display: none;
+      }

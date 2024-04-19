@@ -56,6 +56,10 @@
   background: linear-gradient(to right, #01c0c8 0%, #1f72a2 100%);
 }
 
+.webform-multiple-table td select, .webform-multiple-table td .form-type-textfield input, .webform-multiple-table td .form-type-email input, .webform-multiple-table td .form-type-url input, .webform-multiple-table td .form-type-tel input, .webform-multiple-table td .form-type-entity-autocomplete input, .webform-multiple-table td .form-type-webform-autocomplete input{
+  width: 300px!important;
+}
+
 #main-wrapper[data-layout=vertical] .topbar .navbar-collapse[data-navbarbg=skin5],
 #main-wrapper[data-layout=vertical] .topbar[data-navbarbg=skin5], #main-wrapper[data-layout=horizontal] .topbar .navbar-collapse[data-navbarbg=skin5],
 #main-wrapper[data-layout=horizontal] .topbar[data-navbarbg=skin5], .theme-color .theme-item .theme-link[data-navbarbg=skin5] {
