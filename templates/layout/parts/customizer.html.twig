@@ -9,55 +9,31 @@
               class="nav-link "
               aria-selected="true"
               ><h6 class="text-white text-uppercase d-flex align-items-center justify-content-center my-2">
-              Personnaliser votre bureau Pléiade</h6></i
+              Faciliter l'accessibilité</h6></i
             ></a>
           <div>
-            <div class="p-3 border-bottom">
-
-              <div class="form-check mt-2">
+            <div class="border-bottom">
+              {# <div class="mt-2">
+                <label class="form-check-label" for="theme-view">
+                  <span>Thème Sombre : </span>
+                </label>
                 <input
                   type="checkbox"
                   name="theme-view"
                   class="form-check-input"
                   id="theme-view"
                 />
-                <label class="form-check-label" for="theme-view">
-                  <span>Thème Sombre</span>
-                </label>
-              </div>
-              {# <div class="form-check mt-2">
-                <input
-                  type="checkbox"
-                  name="sidebar-position"
-                  class="form-check-input"
-                  id="sidebar-position"
-                  
-                />
-                <label class="form-check-label" for="sidebar-position">
-                  <span>Barre de menu fixe</span>
-                </label>
-              </div>
-              <div class="form-check mt-2">
-                <input
-                  type="checkbox"
-                  name="header-position"
-                  class="form-check-input"
-                  id="header-position"
-                />
-                <label class="form-check-label" for="header-position">
-                  <span>En-tête fixe</span>
-                </label>
               </div> #}
+              {{ page.accessibility_tools }}
             </div>
-
           </div>
           <div class="nav-link" style="background: var(--global-color); color: #FFF!important;" aria-selected="true">
               <h6 class="text-white text-uppercase d-flex align-items-center justify-content-center my-2">
-                  Ajouter vos application métiers
+                  Ajouter vos applications favorites
               </h6>
           </div>
           <div class="form-check p-3">
-                <a href="/user/edit?scrollToField=true">
+                <a href="/user/{{ userId }}/edit?scrollToField=true">
                 
                   <span>Ajouter / Modifier</span>
                   </a>

@@ -1,7 +1,7 @@
 <article>
      <div class="container">
         <div class="row">
-        <div class="col-md-9">
+        <div class="col-md-12">
             <!-- Titre de l'article -->
             <div class="article_title pb-2 col-md-12">
                     <h1 class="text-center">{{ label }}</h1>
@@ -65,34 +65,10 @@
                         {% else %}
                             <p>Aucun commentaire pour le moment.</p>
                         {% endif %}
-                    {{ content.comment }}
+                    
                     </div>
                 </div>
             </div>
         
-        
-        <div class="col-md-3 h-75 articles_lies">
-<h1 class="text-start fs-6 fw-bold mx-3" style="color:#1f3889;">
-                    <i class="fa-regular fa-eye pe-2"></i>Voir aussi :</h1>
-        <div class="article_title col-md-12">
-                    
-            </div> 
-{% for articles_lies in all_articles %}
-    {% if node.nid.value != articles_lies.id %}
-        <a href="{{ articles_lies.id}}" class="d-flex mb-2 mx-3 justify-content-center" >
-            <div class="card" style="height: 230px; width: 250px;">
-                <img src="{{ articles_lies.image_url}}" class="img_lies" alt="Course Image">
-                <div class="card-body d-flex flex-column" >
-                    <h5 class="card-title d-flex justify-content-start text-black" style="    overflow: hidden;
-    height: 75px;">{{ articles_lies.title}}</h5>
-                </div>
-            </div>
-        </a>
-   {% endif %}      
-{% endfor %}
-       
-    </div>
-
-  
 </article>
 

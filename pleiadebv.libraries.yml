@@ -2,8 +2,13 @@ global-styling:
   css:
     theme:
       assets/css/style.css: {}
+      assets/css/article.css: {}
+      assets/css/visio_form.css: {}
       assets/css/admin-tweaks.css: {}
       assets/css/icons/fontawesome/css/all.css: {}
+      assets/css/nos_solutions.css: {}
+      assets/css/nos_formations.css: {}
+      assets/css/nos_guides.css: {}
   js:
     assets/js/custom.js: {}
     assets/js/app.js: {}
@@ -11,7 +16,6 @@ global-styling:
     assets/js/app-style-switcher.js: {}
     assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js: {}
     assets/js/sidebarmenu.js: {}
-    assets/js/feather.min.js: {}
   dependencies:
     - core/jquery
     - core/drupal

@@ -123,6 +123,10 @@
           <!-- ==================== Block Pastell Documents ================== -->
               <div id="document_recent_id"></div>
           {% endif %}
+          <!-- ==================== Block HumHUB ================== -->
+          {% if humhub_enabled %} 
+                <div id="humhub_block"></div>
+              {% endif %}
           <!-- ==================== Block Post-IT ================== -->
               {% if post_it_enabled %} 
               <div id="postit_block_id">
@@ -157,9 +161,7 @@
               {% if moodle_enabled and moodleBlockId %} 
                 <div id="moodle_courses"></div>
               {% endif %}
-              {% if humhub_enabled %} 
-                <div id="humhub_block"></div>
-              {% endif %}
+              
               {% if guide_utilisateur_enabled %} 
                 <div id="guide_utilisateur"></div>
               {% endif %}
