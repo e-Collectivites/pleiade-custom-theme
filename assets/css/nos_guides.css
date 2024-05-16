@@ -1,20 +1,29 @@
-.path-nos-guides-utilisateurs .views-view-responsive-grid__item{
+
+:root {
+  --global-color: var(--global-color);
+}
+.path-guides-utilisateurs .views-view-responsive-grid__item{
   height: 292px;
   max-height: 380px;
   border-radius: 15px;
   padding: 0 0 2em 0;
 }
-.path-nos-guides-utilisateurs .views-view-responsive-grid__item img{
+.path-guides-utilisateurs .views-view-responsive-grid__item img{
   height: 150px!important;
   object-fit: contain;
   width: 100%;  
 }
-
-.path-nos-guides-utilisateurs .views-view-responsive-grid__item h5{
+form#views-exposed-form-nos-guides-utilisateurs-page-1 {
+  display: flex;
+  align-items: flex-end;
+  width: 31%;
+  justify-content: space-between;
+  padding: 0 0 1em 0;
+}
+.path-guides-utilisateurs .views-view-responsive-grid__item h5{
   display: flex;
   align-items: center;
   justify-content: center;
-  /* font-weight: 600; */
   font-size: large;
   height: 40px;
 }
@@ -23,13 +32,13 @@
   width: 100%!important;
   padding: 0 2em 1em 0;
 }
-.path-nos-guides-utilisateurs .views-view-responsive-grid__item .hover_text{
+.path-guides-utilisateurs .views-view-responsive-grid__item .hover_text{
 
 opacity: 0;
 position: absolute;
 bottom: 20px;
 left: 0;
-background-color: #1f3889;
+background-color: var(--global-color);
 color: white;
 font-size: larger;
 padding: 0.5em 0;
@@ -42,35 +51,35 @@ overflow: hidden;
 border-bottom-right-radius: 15px;
 
 }
-.path-nos-guides-utilisateurs .views-view-responsive-grid__item:hover .hover_text, .hover_text:hover {
+.path-guides-utilisateurs .views-view-responsive-grid__item:hover .hover_text, .hover_text:hover {
   
   opacity: 1;
   transform: translateY(0%);
 }
-.path-nos-guides-utilisateurs .views-view-responsive-grid__item .card-body p{
+.path-guides-utilisateurs .views-view-responsive-grid__item .card-body p{
 
 overflow: hidden;
 border: unset;
 max-height: 120px;
 height: 120px;
 }
-.path-nos-guides-utilisateurs .views-view-responsive-grid__item .card-body {
+.path-guides-utilisateurs .views-view-responsive-grid__item .card-body {
   padding: 0 1.25rem!important;
 }
-.path-nos-guides-utilisateurs .views-view-responsive-grid__item h6{
+.path-guides-utilisateurs .views-view-responsive-grid__item h6{
   display: flex;
   align-items: center;
   justify-content: center;
   
 }
 
-.page-node-type-solutions .field__label{
+.page-node-guides-utilisateurs .field__label{
 
 font-weight: bold;
 padding: 0.3em 0 0.3em 1em;
 width: 100%;
-border-bottom: 2px solid #1f3889;
-color: #1f3889;
+border-bottom: 2px solid var(--global-color);
+color: var(--global-color);
 text-transform: uppercase;
 margin: 1em 0;
 }

@@ -1,4 +1,8 @@
-#webform-submission-demande-de-visio-add-form{
+
+:root {
+        --global-color: var(--global-color);
+      }
+      #webform-submission-demande-de-visio-add-form{
         margin: 0px 50em 0 0;    
 }
 [data-drupal-selector="edit-participants-items"] thead{
@@ -18,13 +22,13 @@ display: none;
         font-weight: 400!important;
 }
 .form-submit{
-        background-color: #1f3889;
-        border-color: #1f3889;
+        background-color: var(--global-color);
+        border-color: var(--global-color);
 
 }
 .form-submit:hover, .form-submit:focus{
-        background-color: #1f3889;
-        border-color: #1f3889;
+        background-color: var(--global-color);
+        border-color: var(--global-color);
 }
 #edit-submit{
         width: auto;
