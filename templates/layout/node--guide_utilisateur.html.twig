@@ -1,4 +1,5 @@
 <div class="col-md-12 mb-2 d-flex">
+
 <!-- Titre de l'article -->
        <div class="col-md-3">
         <!-- Texte de l'article -->
@@ -9,6 +10,7 @@
                                         <a href="/taxonomy/term/{{node.field_tags.0.target_id}}" class="tag_btn w-auto p-2 "><i class="pe-2 fa-solid fa-tag"></i>{{ node.field_tags.0.entity.label }}</span></a>
                                 {% endif %}
                                 {{ content.field_image_du_guide }}
+
                         </div>
                         
                 </div>
@@ -19,6 +21,7 @@
                 <div class="article_body lh-base">
                                 {{ content.body }}
                         </div>
+                        
         </div>
         
 </div>
