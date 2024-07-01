@@ -15,7 +15,7 @@
                     {% endif %}
                     {{ content.field_image }}
                     </div>
-                        <div class="article_body lh-base">{{ content.body }}</div>
+                        <div class="article_body lh-base">{{ content.body | raw }}</div>
                     </div>
                     {# {{ dump(content.field_tags.0) }} #}
                     <!-- Date de création, auteur et étiquette -->
@@ -23,49 +23,6 @@
                         <div class="d-flex align-items-end ">
                             <p class="m-0 me-2">Publié le {{ node.created.value|date('d/m/Y') }}</p>
                         </div>
-                    </div>
-                    <!-- Commentaires -->
-                    <div class="article-comments">
-                        <h2 class="py-2" >Commentaires</h2>
-                        {% if content.comment.0.comments %}
-                            {% for comment in content.comment.0.comments %}
-                                {% if comment['#comment'] %}
-                                {% set commentEntity = comment['#comment'] %}
-                            
-                        <div class="card mb-3 {% if commentEntity.getParentComment() %}ms-5{% endif %}" style="max-width: 540px;">
-                            <div class="row g-0">
-                            <div class="col-md-4">
-                            {% set authorImage = commentEntity.getOwner().get('user_picture').entity %}
-                            {% if authorImage.uri.value %}
-                            <img src="{{ file_url(authorImage.uri.value) }}" class="commentaire_image img-fluid rounded-start" alt="...">
-                            {% else %}
-                            <img src="/sites/default/files/default_images/default-image-612x612.jpg" class="commentaire_image img-fluid rounded-start" alt="...">
-                            {% endif %}
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    
-                                    <h5 class="card-title">{{ commentEntity.get('subject').value }}</h5>
-                                    <p class="card-text">Par {{ commentEntity.getOwner().getDisplayName() }}</p>
-                                    {{ commentEntity.get('comment_body').value | raw }}
-                                    <p class="card-text"><small class="text-body-secondary">{{ commentEntity.getCreatedTime()|date('d/m/Y H:i') }}</small></p>
-                                    <br><a href="/comment/reply/node/{{ node.nid.value}}/comment/{{ commentEntity.get('cid').value }}">Répondre à ce commentaire</a>
-                                {% if 'administrator' in user.getRoles() %}
-                                    {% if 'content_editor' in user.getRoles() %}
-                                    <br><a href="/comment/{{ commentEntity.get('cid').value }}/delete">Supprimer ce commentaire</a>
-                                    {% endif %}
-                                    {% endif %}
-                                </div>
-                            </div>
-                        </div>
-                        </div>
-                        
-                        {% endif %}
-                            {% endfor %}
-                        {% else %}
-                            <p>Aucun commentaire pour le moment.</p>
-                        {% endif %}
-                    
                     </div>
                 </div>
             </div>

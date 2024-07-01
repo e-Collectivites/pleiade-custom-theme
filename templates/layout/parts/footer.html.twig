@@ -4,23 +4,42 @@
         <a href="https://ecollectivites.fr" target="_blank">
         <img src="{{ imageFooterUrl }}" style="width: auto; height: 28px; text-align: center;" class="">
         </a>
-        <span
-        class="d-flex align-items-center fs-4 "
-        data-bs-toggle="tooltip" data-bs-placement="top"
-        title="{{ horaire_support }}"
-        >Horaires du support</span>
+        {% if horaire_support is defined %}
+            <span
+                class="d-flex align-items-center fs-4 "
+                data-bs-toggle="tooltip" data-bs-placement="top"
+                title="{{ horaire_support }}"
+            >Horaires du support</span>
+        {% endif %}
         
-        <span class="d-flex align-items-center fs-4 fw-lighter ">{{ numero_telephone_support }}</span>
-        <a href="mailto:{{ adresse_mail_support }}" class="d-flex align-items-center fs-4 fw-lighter">{{ adresse_mail_support }}</a>
+        {% if numero_telephone_support is defined %}
+            <span class="d-flex align-items-center fs-4 fw-lighter ">{{ numero_telephone_support }}</span>
+        {% endif %}
+        
+        {% if adresse_mail_support is defined %}
+            <a href="mailto:{{ adresse_mail_support }}" class="d-flex align-items-center fs-4 fw-lighter">{{ adresse_mail_support }}</a>
+        {% endif %}
+        
         <div class="social_network ">
-        <ul>
-            <li>
-                <a href="https://www.linkedin.com/company/ecollectivites/mycompany/" target="_blank">
-                <i class="fa-brands fa-linkedin-in"></i>
-                </a>
-            <li>
-        </ul>
-    </div>
+            <ul>
+                {% if linkedin is defined %}
+                    <li>
+                        <a href="{{ linkedin }}" target="_blank">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+                    </li>
+                {% endif %}
+            </ul>
+            <ul>
+                {% if twitter is defined %}
+                    <li>
+                        <a href="{{ twitter }}" target="_blank">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
     </div>
     
 </footer>

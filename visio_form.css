@@ -1,0 +1,34 @@
+#webform-submission-demande-de-visio-add-form{
+        margin: 0px 50em 0 0;    
+}
+[data-drupal-selector="edit-participants-items"] thead{
+display: none;
+}
+#edit-participants table{
+        background-color: transparent!important;
+}
+#edit-participants .odd, #edit-participants .even{
+        background-color: #f2f7f8!important;
+}
+
+#webform-submission-demande-de-visio-add-form div>label{
+        font-weight: 600;
+}
+#edit-materiel label{
+        font-weight: 400!important;
+}
+.form-submit{
+        background-color: #1f3889;
+        border-color: #1f3889;
+
+}
+.form-submit:hover, .form-submit:focus{
+        background-color: #1f3889;
+        border-color: #1f3889;
+}
+#edit-submit{
+        width: auto;
+}
+.webform-multiple-add.js-webform-multiple-add.container-inline{
+        display: none;
+      }

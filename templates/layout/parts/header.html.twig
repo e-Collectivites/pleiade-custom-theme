@@ -9,50 +9,6 @@
               ><i class="ti-menu ti-close"></i
             ></a>
             <!-- ============================================================== -->
-            <!-- Logo -->
-            <!-- ============================================================== -->
-            {# <a class="navbar-brand" href="/">
-              <!-- Logo icon -->
-              <b class="logo-icon">
-                <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
-                <!-- Dark Logo icon -->
-                <img
-                   src="{{ imageLeftSidebarReducedUrl }}"
-                  alt="homepage"
-                  class="dark-logo"
-                  style="height: 32px;"
-                />
-                <!-- Light Logo icon -->
-                <img
-                  src="{{ imageLeftSidebarReducedUrl }}"
-                  alt="homepage"
-                  class="light-logo"
-                  style="height: 32px;"
-                />
-              </b>
-              <!--End Logo icon -->
-              <!-- Logo text -->
-              <span class="logo-text">
-                <!-- dark Logo text -->
-                <img
-                  src="{{ imageLeftSidebarUrl }}"
-                  alt="homepage"
-                  class="dark-logo"
-                  style="height: 32px;"
-                />
-                <!-- Light Logo text -->
-                <img
-                  src="{{ imageLeftSidebarUrl }}"
-                  class="light-logo"
-                  alt="homepage"
-                  style="height: 32px;"
-                />
-              </span>
-            </a> #}
-            <!-- ============================================================== -->
-            <!-- End Logo -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
             <!-- Toggle which is visible on mobile only -->
             <!-- ============================================================== -->
             <a
@@ -66,9 +22,6 @@
               ><i class="ti-more"></i
             ></a>
           </div>
-          <!-- ============================================================== -->
-          <!-- End Logo -->
-          <!-- ============================================================== -->
           <div class="navbar-collapse collapse" id="navbarSupportedContent">
             <!-- ============================================================== -->
             <!-- toggle and nav items -->
@@ -125,8 +78,6 @@
                         Gérer les comptes
                       </a>
                       <div class="dropdown-divider"></div>
-                  {% else %}
-                  
                   {% endif %}
               
                   <a class="dropdown-item text-info" href="/user/edit">
@@ -134,7 +85,7 @@
                     Voir mon compte
                   </a>
                   <div class="dropdown-divider"></div>
-                  <a id="change-password-link" class="dropdown-item text-warning" href="{{field_lemon_url}}">
+                  <a id="change-password-link" class="dropdown-item text-warning" href="https://password.ecollectivites.fr/index.php">
                     <i class="me-1 fa-solid fa-lg fa-lock"></i>
                     Changer mon mot de passe
                   </a>
