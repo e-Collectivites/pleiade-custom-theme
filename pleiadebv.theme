@@ -7,9 +7,7 @@
 /**
  * Implements template_preprocess_html().
  */
-
-// use Drupal\Core\Session\AccountInterface;
-// use Drupal\user\Entity\User;
+use Drupal\module_api_pleiade\ApiPleiadeManager;
 
 function pleiadebv_preprocess(&$variables, $hook)
 {
@@ -114,31 +112,6 @@ function pleiadebv_preprocess_page(&$variables)
     }
   }
 
-  // $field_url_application = $user->get('field_url_application')->getValue();
-  // if (!empty($field_url_application)) {
-  //   $content_html = '';
-  //   foreach ($field_url_application as $item) {
-  //     \Drupal::logger('api_lemon_pleiade')->info('Applications utilisateur : @error', ['@error' => $item['title']]);
-  //     $content_html .= '
-  //           <a class="sidebar-link waves-effect waves-dark" title="'. $item['title'].'" href="'. $item['uri'].'" aria-expanded="false" target="_blank">
-              
-  //             <span class="hide-menu px-2">'. $item['title'].' </span>
-  //           </a>
-  //         ';
-  //   }
-  //   $content_html .= "";
-    
-  //   $variables['urls_applications'] = $content_html;
-    
-  // } else {
-  //   // Par défaut si le champ est vide
-  //   $variables['urls_applications'] = '<a href="/user/edit?scrollToField=true" class="sidebar-link waves-effect waves-dark" title="'. $item['title'].'" href="'. $item['uri'].'" aria-expanded="false" target="_blank">
-              
-  //   <span class="hide-menu px-2">Ajouter une application</span>
-  // </a>';
-  // }
-
-
   $configLemon = \Drupal::config('api_lemon_pleiade.settings');
   $configGeneral = \Drupal::config('module_general_pleiade.settings');
 
@@ -161,6 +134,22 @@ function pleiadebv_preprocess_page(&$variables)
     $moodleBlockId = $configMoodle->get('field_moodle_block_id');
     $variables['moodleBlockId'] = $moodleBlockId;
   }
+$settings_glpi = \Drupal::config('api_glpi_pleiade.settings');
+    // // API endpoint URL
+    $tempstore = \Drupal::service('tempstore.private')->get('api_lemon_pleiade');
+    $groupData = $tempstore->get('groups');
+ 
+    if ($groupData !== NULL) {
+      $groupDataArray = explode(', ', $groupData);
+    }
+        if (is_array($groupDataArray) && in_array($settings_glpi->get('glpi_group'), $groupDataArray)) {
+            $variables['inGlpiGroup'] = true ;
+        }
+        else
+        {
+                $variables['inGlpiGroup'] = false ;
+        }
+
   $entityTypeManager = \Drupal::entityTypeManager();
   $query = $entityTypeManager->getStorage('node')->getQuery();
   $query->condition('type', 'message_informatif');
@@ -172,17 +161,20 @@ function pleiadebv_preprocess_page(&$variables)
     $variables['message_enabled'] = true;
   }
 
-  $query1 = $entityTypeManager->getStorage('node')->getQuery();
+/*  $query1 = $entityTypeManager->getStorage('node')->getQuery();
   $query1->accessCheck(TRUE);
   $query1->condition('type', 'article');
   $query1->condition('status', 1); // Published content condition
   $entityIdsActu = $query1->execute();
   $messagesActu = $entityTypeManager->getStorage('node')->loadMultiple($entityIdsActu);
-  if ($messagesActu) {
+*/
+	$getArticles = new ApiPleiadeManager();
+        $articles = $getArticles->getEcollArticles();
+  if ($articles) {
     $variables['actu_enabled'] = true;
   }
 
-
+ $variables['glpi_enabled'] = \Drupal::moduleHandler()->moduleExists('api_glpi_pleiade'); 
   $variables['post_it_enabled'] = \Drupal::moduleHandler()->moduleExists('module_postit_pleiade');
   $variables['lemon_enabled'] = \Drupal::moduleHandler()->moduleExists('api_lemon_pleiade');
   $variables['pastell_enabled'] = \Drupal::moduleHandler()->moduleExists('api_pastell_pleiade');

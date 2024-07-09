@@ -1,3 +1,7 @@
+
+:root {
+  --global-color: #1f3889;
+}
 .path-nos-solutions .views-view-responsive-grid__item{
         height: 380px;
         max-height: 380px;
@@ -25,7 +29,7 @@
     position: absolute;
     bottom: 20px;
     left: 0;
-    background-color: #1f3889;
+    background-color: var(--global-color);
     color: white;
     font-size: larger;
     padding: 0.5em 0;
@@ -59,15 +63,15 @@ height: 380px;
 font-weight: bold;
 padding: 0.3em 0 0.3em 1em;
 width: 100%;
-border-bottom: 2px solid #1f3889;
-color: #1f3889;
+border-bottom: 2px solid var(--global-color);
+color: var(--global-color);
 text-transform: uppercase;
 margin: 1em 0;
 }
 .field--name-field-image-solution  .field__label{
         display: none;
 }
-[data-drupal-selector="views-exposed-form-nos-solutions-page-1"] .form--inline{
+[data-drupal-selector="views-exposed-form-nos-solutions-page-1"] {
         display: flex;
         align-items: flex-end;
 }
@@ -79,5 +83,11 @@ margin: 1em 0;
         margin: 0 0 2em 0;
 }
 .page-item.active .page-link{
-        background-color: #1f3889;
+        background-color: var(--global-color);
 }
+.path-nos-solutions .card-body.d-flex.flex-column
+{
+height: 230px;
+}
+.path-nos-solutions .js-form-item{
+padding: 0 2em 0 0;

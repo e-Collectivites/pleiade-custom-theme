@@ -4,7 +4,9 @@
         border-radius: 15px;
         padding: 2em 0;
 } */
-
+:root {
+   --global-color: #1f3889;
+}
 .path-nos-formations .views-view-responsive-grid__item img {
         height: 100% !important;
         object-fit: contain;
@@ -18,7 +20,7 @@
         color: #1f3889;
 }
 .page-node-type-formations .tag_btn {
-        color: #1f3889;
+        color: var(--global-color);
         background-color: transparent;
         border: 2px solid #1f3889;
         transition: transform 0.3s;
@@ -30,7 +32,7 @@
 .dl_btn{
         font-size: 1rem !important;
         width: 33%;
-        background-color: #1f3889;
+        background-color: var(--global-color);
         border-radius: 4px;
         color: #FFF;
         padding: 0.375rem 0.75rem;
@@ -44,7 +46,7 @@
         position: absolute;
         bottom: 20px;
         left: 0;
-        background-color: #1f3889;
+        background-color: var(--global-color);
         color: white;
         font-size: large;
         padding: 0.5em 0;
@@ -80,7 +82,7 @@
         color: #FFF;
         text-transform: uppercase;
         margin: 1em 0;
-        background-color: #1f3889;
+        background-color: var(--global-color);
 }
 .page-node-type-formations .field__item {
 
@@ -125,7 +127,7 @@
 
 .subtitle_formation {
         padding: 0.3em 0;
-        color: #1f3889;
+        color:var(--global-color);
         font-weight: 600;
         font-size: x-large;
 }

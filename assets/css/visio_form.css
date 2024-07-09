@@ -1,3 +1,8 @@
+:root {
+    --global-color: #1f3889;
+ }
+
+
 #webform-submission-demande-de-visio-add-form{
         margin: 0px 50em 0 0;    
 }
@@ -18,14 +23,13 @@ display: none;
         font-weight: 400!important;
 }
 .form-submit{
-        background-color: #1f3889;
-        border-color: #1f3889;
+        background-color: var(--global-color);
+        border-color: var(--global-color);
 
 }
 .form-submit:hover, .form-submit:focus{
-        background-color: #1f3889;
-        border-color: #1f3889;
-}
+        background-color: var(--global-color);
+        border-color: var(--global-color)}
 #edit-submit{
         width: auto;
 }
