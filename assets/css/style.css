@@ -15253,7 +15253,7 @@ textarea.form-control-lg {
 .page-wrapper>.container-fluid, .page-wrapper>.container-sm, .page-wrapper>.container-md, .page-wrapper>.container-lg, .page-wrapper>.container-xl, .page-wrapper>.container-xxl {
   /* padding: 0 30px 20px 30px; */
   min-height: calc(100vh - 210px);
-  max-width: 1300px;
+  max-width: 90%!important;
 }
 
 .container-fluid {
@@ -29361,9 +29361,9 @@ form .field-add-more-submit{
 .page-node-type-guide-utilisateur a[href="/nos-guides-utilisateurs"], 
 .page-node-type-guide-utilisateur #main-wrapper[data-layout=vertical][data-sidebartype=full] .sidebar-nav ul [data-bs-target="#collapse3"],
 .page-node-type-solutions a[href="/nos-solutions"], 
-.page-node-type-solutions #main-wrapper[data-layout=vertical][data-sidebartype=full] .sidebar-nav ul [data-bs-target="#collapse3"],
+.page-node-type-solutions #main-wrapper[data-layout=vertical][data-sidebartype=full] .sidebar-nav ul [data-bs-target="#collapse4"],
 .page-node-type-formations a[href="/nos-formations"], 
-.page-node-type-formations #main-wrapper[data-layout=vertical][data-sidebartype=full] .sidebar-nav ul [data-bs-target="#collapse3"]
+.page-node-type-formations #main-wrapper[data-layout=vertical][data-sidebartype=full] .sidebar-nav ul [data-bs-target="#collapse4"]
 {
   color: #fbbd52!important;
 }
