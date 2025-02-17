@@ -11,7 +11,13 @@
 :root {
   --global-color: var(--global-color);
 }
-
+a.tabledrag-handle .handle{
+height: 25px;
+widht: 25px;
+}
+.draggable a.tabledrag-handle{
+margin:unset !important;
+}
 #main-wrapper[data-layout=vertical] .topbar .navbar-collapse[data-navbarbg=skin1],
 #main-wrapper[data-layout=vertical] .topbar[data-navbarbg=skin1], #main-wrapper[data-layout=horizontal] .topbar .navbar-collapse[data-navbarbg=skin1],
 #main-wrapper[data-layout=horizontal] .topbar[data-navbarbg=skin1], .theme-color .theme-item .theme-link[data-navbarbg=skin1] {
@@ -24,7 +30,11 @@
   background: linear-gradient(to right, #0178bc 0%, #00bdda 100%);
 }
 
-/* bleu ECV : var(--global-color) */
+.path-guides-utilisateurs .card{
+
+height: 260px;
+    max-height: 260px;
+}
 
 #main-wrapper[data-layout=vertical] .topbar .navbar-collapse[data-navbarbg=skin2],
 #main-wrapper[data-layout=vertical] .topbar[data-navbarbg=skin2], #main-wrapper[data-layout=horizontal] .topbar .navbar-collapse[data-navbarbg=skin2],
@@ -58,6 +68,9 @@
 
 .webform-multiple-table td select, .webform-multiple-table td .form-type-textfield input, .webform-multiple-table td .form-type-email input, .webform-multiple-table td .form-type-url input, .webform-multiple-table td .form-type-tel input, .webform-multiple-table td .form-type-entity-autocomplete input, .webform-multiple-table td .form-type-webform-autocomplete input{
   width: 300px!important;
+}
+.js-form-item.form-item.js-form-type-textfield.form-item-telephone.js-form-item-telephone{
+padding: 0 0 1rem 0;
 }
 
 #main-wrapper[data-layout=vertical] .topbar .navbar-collapse[data-navbarbg=skin5],
@@ -3114,11 +3127,11 @@ progress {
   box-shadow: unset;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
-#field-url-application-values label
+/*#field-url-application-values label
  {
   display: none;
 }
-
+*/
 
 @media (prefers-reduced-motion: reduce) {
   .form-control {
@@ -15253,7 +15266,8 @@ textarea.form-control-lg {
 .page-wrapper>.container-fluid, .page-wrapper>.container-sm, .page-wrapper>.container-md, .page-wrapper>.container-lg, .page-wrapper>.container-xl, .page-wrapper>.container-xxl {
   /* padding: 0 30px 20px 30px; */
   min-height: calc(100vh - 210px);
-  max-width: 1300px;
+  /*max-width: 1300px;*/
+max-width: 90%!important;
 }
 
 .container-fluid {
@@ -15916,7 +15930,7 @@ Notify
 }
 
 .topbar {
-  width: 100%;
+  width: 83.8%;
   position: fixed;
   height: 70px;
   z-index: 50;
