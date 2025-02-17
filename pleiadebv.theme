@@ -23,8 +23,8 @@ function pleiadebv_preprocess(&$variables, $hook)
   $adresse_mail_support = $config->get('adresse_mail_support');
   $horaire_support = $config->get('horaire_support');
   $imageFooter = '/themes/custom/pleiadebv/assets/images/logo_footer.png';
-  $imageLeftSidebar = '/themes/custom/pleiadebv/assets/images/Logo_pleiade_fond_blanc.png';
-  $imageLeftSidebarReduced = '/themes/custom/pleiadebv/assets/images/logo_reduced_black.png';
+  $imageLeftSidebar = '/themes/custom/pleiadebv/assets/images/logo_extended.png';
+  $imageLeftSidebarReduced = '/themes/custom/pleiadebv/assets/images/logo_reduced_turquoise.png';
 
   if (!empty($url_lien_documentation)) {
     $variables['url_lien_documentation'] = $url_lien_documentation;
@@ -174,7 +174,7 @@ function pleiadebv_preprocess_page(&$variables)
 
   $query1 = $entityTypeManager->getStorage('node')->getQuery();
   $query1->accessCheck(TRUE);
-  $query1->condition('type', 'article');
+  $query1->condition('type', 'ressources');
   $query1->condition('status', 1); // Published content condition
   $entityIdsActu = $query1->execute();
   $messagesActu = $entityTypeManager->getStorage('node')->loadMultiple($entityIdsActu);

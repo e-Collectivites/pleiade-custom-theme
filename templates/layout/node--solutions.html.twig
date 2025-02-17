@@ -14,16 +14,16 @@
                                 {{ content.field_image_solution }}
                         </div>
                         <div class="article_body lh-base">
-                                {{ content.field_introduction }}
-                                {{ content.field_nom_de_la_solution }}
-                                {{ content.field_besoin }}
+                               <div class="field__label">Introduction</div> {{ content.field_introduction }}
+                                <div class="field__label">Nom de la solution</div>{{ content.field_nom_de_la_solution }}
+                                <!--div class="field__label">A quel besoin répond le service ? </div-->{{ content.field_besoin }}
                                 <div class="field__label">Description de la solution</div>
                                 {{ content.body }}
-                                {{ content.field_informations_financiere }} 
+                                <div class="field__label">Information financière</div>{{ content.field_informations_financieres }} 
                                
                         </div>
                         <div class="w-100 d-flex align-items-center justify-content-center">
-                                <a href="/form/demande-d-information-sur-une-so?categorie={{ content.field_categorie.0['#markup'] }}&solution={{ node.title.value }}" class="w-auto tag_btn p-3 fs-6">Je suis interessé(e) par cette solution</a> 
+                                <a href="/form/demande-info-solution?categorie={{ content.field_categorie.0['#markup'] }}&solution={{ node.title.value }}" class="w-auto tag_btn p-3 fs-6">Je suis intéressé(e) par cette solution</a> 
                         </div>
                 </div>
         </div>
